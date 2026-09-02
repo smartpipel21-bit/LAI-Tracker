@@ -1,0 +1,9 @@
+{
+  "last_run": {
+    "daily_scan": null,
+    "weekly_sweep": null,
+    "qc_tier2": null,
+    "qc_tier3": null
+  },
+  "source_health": {}
+}
