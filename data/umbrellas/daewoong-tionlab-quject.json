@@ -1,0 +1,51 @@
+{
+  "id": "daewoong-tionlab-quject",
+  "canonical_name": "Daewoong Pharmaceutical – TionLab Therapeutics (Quject®Sphere / CURE®)",
+  "origin": "KR",
+  "entity_type": ["company", "platform", "asset"],
+  "technology_family": "plga_microsphere",
+  "aliases": [
+    "Daewoong Pharmaceutical",
+    "대웅제약",
+    "TionLab Therapeutics",
+    "티온랩테라퓨틱스",
+    "Quject Sphere",
+    "Quject®Sphere",
+    "큐젝트스피어",
+    "CURE",
+    "069620"
+  ],
+  "current_status": {
+    "stage": "Phase 1 IND filed in Korea (April 2026); first-patient dosing targeted within 2026",
+    "dosing_target": "Monthly",
+    "partner": "TionLab Therapeutics",
+    "data_point": "Semaglutide loaded at ~20% density in microspheres; delivered in a 1 mL injection volume",
+    "last_updated": "2026-05-08"
+  },
+  "finding_history": [
+    {
+      "id": "f-2026-05-08-001",
+      "date": "2026-05-08",
+      "type": "deal_partnership",
+      "summary": "Daewoong Pharmaceutical and TionLab Therapeutics announced a strategic partnership to jointly develop and commercialize a once-monthly long-acting semaglutide injectable, combining TionLab's Quject®Sphere platform (controls initial burst release via microparticle coating) with Daewoong's CURE® platform (produces uniformly sized microspheres for stable release). The formulation targets a 1 mL injection volume with ~20% drug loading, cutting annual injections from 52 (weekly) to 12 (monthly).",
+      "source": { "name": "The Korea Herald", "url": "https://www.koreaherald.com/article/10733813", "tier": 2 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2026-05-08-002",
+      "date": "2026-05-08",
+      "type": "deal_partnership",
+      "summary": "Corroborating coverage: the Daewoong-TionLab tie-up is framed as adding a long-acting injectable to Daewoong's existing oral and microneedle-patch obesity drug programs, giving the company a three-format anti-obesity portfolio.",
+      "source": { "name": "Korea Biomedical Review", "url": "https://www.koreabiomed.com/news/articleView.html?idxno=31574", "tier": 2 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2026-05-08-003",
+      "date": "2026-05-08",
+      "type": "regulatory",
+      "summary": "Daewoong and TionLab filed a Phase 1 IND application with Korea's Ministry of Food and Drug Safety in April 2026 for the monthly semaglutide LAI candidate, with first-patient dosing planned within the year.",
+      "source": { "name": "The Korea Herald", "url": "https://www.koreaherald.com/article/10733813", "tier": 2 },
+      "confidence": "unverified"
+    }
+  ]
+}

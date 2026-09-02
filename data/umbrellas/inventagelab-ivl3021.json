@@ -1,0 +1,58 @@
+{
+  "id": "inventagelab-ivl3021",
+  "canonical_name": "InventageLab – IVL3021 (semaglutide) / IVL3024 (tirzepatide), IVL-DrugFluidic™",
+  "origin": "KR",
+  "entity_type": ["company", "platform", "asset"],
+  "technology_family": "plga_microsphere",
+  "aliases": [
+    "InventageLab",
+    "Inventage Lab",
+    "인벤티지랩",
+    "IVL3021",
+    "IVL3024",
+    "IVL-DrugFluidic",
+    "IVL-DrugFluidic™",
+    "389470"
+  ],
+  "current_status": {
+    "stage": "Preclinical (GLP tox completed end-2025); Phase 1 IND for IVL3021 targeted in 2026",
+    "dosing_target": "Monthly (IVL3021, semaglutide); ~2 months (IVL3024, tirzepatide)",
+    "partner": "Yuhan Corporation (유한양행 — co-development/commercialization deal for semaglutide-class LAI, signed Jan 5, 2024); Boehringer Ingelheim (LAI peptide formulation co-development, signed Sept 19, 2024)",
+    "data_point": "IVL3024 (tirzepatide) maintained stable drug exposure for 2 months in minipigs with no initial burst; IVL3021 (semaglutide) showed dose-dependent weight loss in obese rats and sustained weight control after switching from Wegovy (ADA 2026 poster data)",
+    "last_updated": "2026-06-09"
+  },
+  "finding_history": [
+    {
+      "id": "f-2024-01-05-001",
+      "date": "2024-01-05",
+      "type": "deal_partnership",
+      "summary": "InventageLab signed a co-development agreement with Yuhan Corporation (유한양행, a major Korean pharma company — NOT the Yuhan-Kimberly consumer-products JV) to jointly develop long-acting injectables for proven GLP-1 assets, chiefly semaglutide (IVL3021). InventageLab handles formulation optimization/early development/manufacturing via IVL-DrugFluidic®; Yuhan handles late-stage clinical development and commercialization. Contract term is 10 years from product approval, with a single-digit percentage royalty on net sales.",
+      "source": { "name": "KED Global", "url": "https://www.kedglobal.com/bio-pharma/newsView/ked202401050015", "tier": 2 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2024-09-19-001",
+      "date": "2024-09-19",
+      "type": "deal_partnership",
+      "summary": "InventageLab signed a co-development agreement with Germany's Boehringer Ingelheim to develop long-acting injectable formulations of unspecified Boehringer peptide drug candidates using the IVL-DrugFluidic platform, initially covering preclinical-trial material supply with potential expansion into clinical development, manufacturing, and technology transfer. Deal value not disclosed.",
+      "source": { "name": "Korea Biomedical Review", "url": "https://www.koreabiomed.com/news/articleView.html?idxno=25155", "tier": 2 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2026-06-09-001",
+      "date": "2026-06-09",
+      "type": "trial_data_readout",
+      "summary": "At ADA 2026 (New Orleans), InventageLab presented preclinical posters for IVL3021 (once-monthly semaglutide) showing dose-dependent weight loss in obese rats and sustained weight control after switching from Wegovy, and for IVL3024 (tirzepatide) showing stable drug exposure through 2 months in minipigs with no initial burst.",
+      "source": { "name": "Korea Biomedical Review", "url": "https://www.koreabiomed.com/news/articleView.html?idxno=31960", "tier": 2 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2026-06-09-002",
+      "date": "2026-06-09",
+      "type": "market_reaction",
+      "summary": "InventageLab shares jumped 11.1% on the final day of ADA 2026, coinciding with the company's preclinical data presentation.",
+      "source": { "name": "Korea Biomedical Review", "url": "https://www.koreabiomed.com/news/articleView.html?idxno=31960", "tier": 2 },
+      "confidence": "unverified"
+    }
+  ]
+}

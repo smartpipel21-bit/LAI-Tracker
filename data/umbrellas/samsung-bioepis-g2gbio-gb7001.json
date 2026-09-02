@@ -1,0 +1,69 @@
+{
+  "id": "samsung-bioepis-g2gbio-gb7001",
+  "canonical_name": "Samsung Bioepis / Epis NexLab – G2GBio (GB-7001, InnoLAMP™)",
+  "origin": "KR",
+  "entity_type": ["company", "platform", "asset"],
+  "technology_family": "plga_microsphere",
+  "aliases": [
+    "Samsung Bioepis",
+    "삼성바이오에피스",
+    "Epis NexLab",
+    "Samsung Epis Holdings",
+    "G2GBio",
+    "G2G Bio",
+    "지투지바이오",
+    "GB-7001",
+    "InnoLAMP",
+    "InnoLAMP™",
+    "456160"
+  ],
+  "current_status": {
+    "stage": "Research collaboration & license agreement signed (March 2026); preclinical",
+    "dosing_target": "Monthly",
+    "partner": "Samsung Bioepis / Epis NexLab (full license on long-acting semaglutide asset + option on a 2nd asset + first-negotiation rights on 3 more undisclosed assets); Boehringer Ingelheim (separate LAI peptide formulation collaboration since Jan 2025, expanded July 2026); Celltrion (MOU for InnoBioLAMP antibody SC platform)",
+    "data_point": "InnoLAMP: <5% initial drug burst in first 24h; serum concentrations maintained beyond 28 days in rodent models across semaglutide, tirzepatide, and retatrutide",
+    "last_updated": "2026-03-16"
+  },
+  "finding_history": [
+    {
+      "id": "f-2025-08-14-001",
+      "date": "2025-08-14",
+      "type": "financing_investor",
+      "summary": "G2GBio debuted on KOSDAQ (ticker 456160) with IPO priced at the top of the range (₩58,000/share, ₩52.2B raised), drawing 810.6:1 institutional demand. Shares closed the first trading day up 61.7% at ₩93,800 (intraday high +69.3% at ₩98,200), giving a ₩503.3B market cap. Independently corroborated by a second outlet reporting a ~60% first-day gain.",
+      "source": { "name": "TheBell (corroborated by TheBioNews)", "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202508141703261200107231", "tier": 2 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2026-03-16-001",
+      "date": "2026-03-16",
+      "type": "deal_partnership",
+      "summary": "Samsung Bioepis and its R&D subsidiary Epis NexLab signed a research collaboration and license agreement with G2GBio: Samsung Bioepis obtains a full license for a novel long-acting semaglutide asset (GB-7001) plus an option to license a second G2GBio asset, and first-negotiation rights on three further undisclosed candidates. G2GBio will produce and supply the licensed substances; development costs are borne by Samsung Bioepis/Epis NexLab. Samsung Epis Holdings separately invested ₩20 billion in G2GBio convertible bonds.",
+      "source": { "name": "BusinessWire (company release, corroborated by Dailypharm/e Today/DigitalToday/etnews)", "url": "https://www.businesswire.com/news/home/20260316253695/en/Samsung-Bioepis-and-Epis-NexLab-Sign-Research-Collaboration-and-License-Agreement-with-G2GBIO-to-Develop-Novel-Assets-Including-Long-acting-Semaglutide", "tier": 2 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2026-06-08-001",
+      "date": "2026-06-08",
+      "type": "trial_data_readout",
+      "summary": "G2GBio presented preclinical InnoLAMP data at ADA 2026, reporting less than 5% initial drug burst within 24 hours and serum concentrations maintained beyond 28 days in rodent models across semaglutide, tirzepatide, and retatrutide, including dual/triple-agonist formulations where high dosing volume typically complicates subcutaneous LAI development. Corroborated by two additional independent outlets covering the same ADA poster.",
+      "source": { "name": "Korea Biomedical Review (corroborated by TheBioNews, Asia Business Daily)", "url": "https://www.koreabiomed.com/news/articleView.html?idxno=31960", "tier": 2 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2026-07-14-001",
+      "date": "2026-07-14",
+      "type": "deal_partnership",
+      "summary": "G2GBio and Boehringer Ingelheim signed a contract expanding their long-acting injectable collaboration to additional peptide formulations via InnoLAMP, building on an initial agreement from January 2025. Not semaglutide-specific — covers unspecified Boehringer peptide candidates.",
+      "source": { "name": "Businesskorea", "url": "https://www.businesskorea.co.kr/news/articleView.html?idxno=247035", "tier": 2 },
+      "confidence": "unverified"
+    },
+    {
+      "id": "f-2026-08-01-001",
+      "date": "2026-08-01",
+      "type": "deal_partnership",
+      "summary": "G2GBio signed an MOU with Celltrion to co-develop an ultra-concentrated antibody subcutaneous injection using a new 'InnoBioLAMP' platform variant — applicable to antibodies, bispecifics, ADCs, and recombinant proteins. Company-level development, not a semaglutide/small-molecule LAI asset; exact announcement date approximate based on 'most recent' framing in source article.",
+      "source": { "name": "e Today (이투데이)", "url": "https://www.etoday.co.kr/news/view/2610433", "tier": 2 },
+      "confidence": "unverified"
+    }
+  ]
+}

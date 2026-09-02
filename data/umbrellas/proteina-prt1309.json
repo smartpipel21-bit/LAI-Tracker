@@ -1,0 +1,25 @@
+{
+  "id": "proteina-prt1309",
+  "canonical_name": "Proteina – PRT-1309",
+  "origin": "KR",
+  "entity_type": ["company", "asset"],
+  "technology_family": "other",
+  "aliases": ["Proteina", "프로티나", "PRT-1309", "468530", "KAIST"],
+  "current_status": {
+    "stage": "Preclinical (long-acting GIPR-antagonist antibody; first application of Proteina's antibody-discovery platform to an antibody drug candidate)",
+    "dosing_target": "Potential 3-6 month dosing interval (based on preclinical PK half-life, not yet clinically confirmed)",
+    "partner": null,
+    "data_point": "Preclinical: 20.3-day PK half-life in animal models; combined with semaglutide, extended weight reduction to 26.8% at day 14 vs. 16.8% for semaglutide alone and 28.8% for tirzepatide monotherapy; no organ toxicity observed at day 26",
+    "last_updated": "2026-06-01"
+  },
+  "finding_history": [
+    {
+      "id": "f-2026-06-01-001",
+      "date": "2026-06-01",
+      "type": "trial_data_readout",
+      "summary": "Proteina, a KAIST-founder-linked, KOSDAQ-listed AI antibody discovery company, was the only Korean company selected for an oral presentation at ADA 2026, presenting preclinical data for PRT-1309, a long-acting GIPR-antagonist antibody (the first application of its platform to antibody drug development). PRT-1309 showed a 20.3-day PK half-life in animal models, and when combined with semaglutide extended weight reduction to 26.8% at day 14 (vs. 16.8% for semaglutide alone, 28.8% for tirzepatide monotherapy), with no organ toxicity observed at day 26.",
+      "source": { "name": "Korea Biomedical Review – \"Korean biotechs sidestep Lilly-Novo showdown at ADA 2026\"", "url": "https://www.koreabiomed.com/news/articleView.html?idxno=31960", "tier": 2 },
+      "confidence": "confirmed"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "id": "foresee-camcevi",
+  "canonical_name": "Foresee Pharmaceuticals – Camcevi (leuprolide mesylate, SIF-ADAGIO)",
+  "origin": "Global",
+  "entity_type": ["company", "platform", "asset"],
+  "technology_family": "in_situ_forming_depot",
+  "aliases": ["Foresee Pharmaceuticals", "Camcevi", "Camcevi ETM", "leuprolide mesylate", "SIF", "SIF-ADAGIO", "Accord BioPharma", "Accord Healthcare"],
+  "current_status": {
+    "stage": "Approved (US, Canada, EU, Taiwan, Israel, UK) 42mg/6-month; FDA-approved Aug 2025 as Camcevi ETM 21mg/3-month; EU 21mg/3-month strength has a positive CHMP opinion (Mar 2026) with European Commission decision expected Q2 2026 — final EC approval not independently confirmed as of this research.",
+    "dosing_target": "3-month (21mg) or 6-month (42mg) subcutaneous, ready-to-use pre-filled syringe (no on-site mixing)",
+    "partner": "Accord BioPharma / Accord Healthcare (Intas Pharmaceuticals' specialty division) — exclusive US and EU commercialization",
+    "data_point": "Phase 3 data supporting the 21mg/3-month FDA approval showed 97.9% of 144 enrolled advanced prostate cancer patients achieving the primary efficacy endpoint",
+    "last_updated": "2026-03-06"
+  },
+  "finding_history": [
+    {
+      "id": "f-2023-08-29-001",
+      "date": "2023-08-29",
+      "type": "regulatory",
+      "summary": "Foresee announced FDA Orange Book listing of new US patent (No. 11,717,555 B2, 'Pharmaceutical Compositions Having a Selected Release Duration', issued 2023-08-08), extending Camcevi's US patent protection to January 1, 2039 and bringing total Orange Book-listed Camcevi patents from three to four. The patent also covers other LHRH products in Foresee's SIF pipeline. [Technology-family note: the seed hint's 'ProGel' name could not be substantiated — 'ProGel' is an unrelated Australian oral-delivery company. Foresee's verified platform is 'Stabilized Injectable Formulation (SIF)' (Camcevi's variant: SIF-ADAGIO). Per the FDA label, Camcevi is formulated in N-methyl-2-pyrrolidone (NMP) + poly(d,l-lactide), which precipitates into a solid depot after subcutaneous injection — an in-situ solvent-exchange mechanism, the same class as Eligard/Atrigel — so 'in_situ_forming_depot' was chosen over 'plga_microsphere'.]",
+      "source": { "name": "Foresee Pharmaceuticals newsroom (PR Newswire release)", "url": "https://www.foreseepharma.com/en/news/category/press_releases/foresee_pharmaceuticals_announces_fda_orange_book_listing_of_new_u_s__patent_for_camcevi___extending_patent_protection_to_2039", "tier": 1 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2024-08-09-002",
+      "date": "2024-08-09",
+      "type": "trial_data_readout",
+      "summary": "Foresee publicly disclosed four proprietary SIF long-acting-injectable delivery sub-platforms: SIF-ADAGIO (Camcevi's mechanism, also being applied to FP-014, a subcutaneous triptorelin LAI with 3- and 6-month dosing), SIF-LEGATO (lipid-based, high drug-loading, early neurology use), SIF-DUO (solution-based, early psychiatry LAI programs), and SIF-MEZZO (still in development/optimization).",
+      "source": { "name": "PR Newswire (Foresee Pharmaceuticals release)", "url": "https://www.prnewswire.com/news-releases/foresee-pharmaceuticals-announces-several-new-developments-related-to-its-sif-long-acting-injectable-lai-technologies--solidifying-its-position-as-a-leader-in-complex-long-acting-injectable-products-302218850.html", "tier": 2 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2025-08-28-003",
+      "date": "2025-08-28",
+      "type": "regulatory",
+      "summary": "Foresee announced FDA approval (approval date 2025-08-25) of CAMCEVI ETM — a ready-to-use 21mg, 3-month leuprolide mesylate LAI for advanced prostate cancer — exclusively licensed to Accord BioPharma for US commercialization pending a CMS J-code.",
+      "source": { "name": "PR Newswire (Foresee Pharmaceuticals release)", "url": "https://www.prnewswire.com/news-releases/foresee-pharmaceuticals-announces-fda-approval-of-camcevi-etm-for-the-treatment-of-advanced-prostate-cancer-302541714.html", "tier": 2 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2026-03-06-004",
+      "date": "2026-03-06",
+      "type": "regulatory",
+      "summary": "CHMP issued a positive opinion recommending an extension of Camcevi's EU marketing authorization to add a 21mg, 3-month ready-to-use strength for advanced prostate cancer, complementing the already-launched (2025) 42mg/6-month strength. Final European Commission decision was expected in Q2 2026; EC approval itself was not independently confirmed by this research as of Sept 2026.",
+      "source": { "name": "PR Newswire (Foresee Pharmaceuticals release)", "url": "https://www.prnewswire.com/news-releases/foresee-pharmaceuticals-welcomes-positive-chmp-opinion-recommending-approval-of-camcevi-21mg-3-month-strength-in-the-european-union-for-advanced-prostate-cancer-302706567.html", "tier": 2 },
+      "confidence": "confirmed"
+    }
+  ]
+}

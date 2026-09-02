@@ -1,0 +1,41 @@
+{
+  "id": "astrazeneca-zoladex",
+  "canonical_name": "AstraZeneca – Zoladex (goserelin acetate implant)",
+  "origin": "Global",
+  "entity_type": ["company", "asset"],
+  "technology_family": "subdermal_implant",
+  "aliases": ["AstraZeneca", "Zoladex", "goserelin acetate", "Zoladex Implant"],
+  "current_status": {
+    "stage": "Approved; long-established GnRH-agonist implant for prostate cancer, breast cancer, and endometriosis. In Australia specifically, the 3.6mg/monthly implant is being delisted from the PBS on 2026-11-01 at AstraZeneca's own commercial request; AstraZeneca reversed an initial 6-month-only free-access plan and committed (2026-07-30) to supplying it indefinitely at no cost to patients with no suitable alternative. AstraZeneca is separately seeking to expand PBS reimbursement of the 10.8mg/3-month implant to hormone-receptor-positive breast cancer.",
+    "dosing_target": "Monthly (3.6mg) or 3-monthly (10.8mg) subcutaneous preformed PLGA rod implant, applicator-delivered",
+    "partner": null,
+    "data_point": "42,000+ signature patient petition preceded AstraZeneca's reversal to indefinite free supply in Australia (2026-07-30)",
+    "last_updated": "2026-07-30"
+  },
+  "finding_history": [
+    {
+      "id": "f-2026-06-04-001",
+      "date": "2026-06-04",
+      "type": "market_reaction",
+      "summary": "AstraZeneca announced it would pull the 3.6mg Zoladex Implant (used for breast cancer and endometriosis) from the Australian market, citing unsustainably low PBS pricing; initial plan was to fund only a limited free-access transition period for existing patients.",
+      "source": { "name": "ABC News (Australia)", "url": "https://www.abc.net.au/news/2026-06-04/breast-cancer-endometriosis-drug-zoladex-discontinued/106726158", "tier": 2 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2026-07-16-002",
+      "date": "2026-07-16",
+      "type": "regulatory",
+      "summary": "Australia's Pharmaceutical Benefits Scheme (PBS) published an official update confirming goserelin 3.6mg implant (Zoladex Implant) will be delisted from the PBS effective 2026-11-01 at AstraZeneca's request. AstraZeneca established a 'Zoladex Continuity Program' to supply the drug at no cost to all patients prescribed it before that date, plus new patients thereafter who need it; healthcare professionals were to receive enrollment information in September 2026, with normal-channel supply continuing through 2026-10-31.",
+      "source": { "name": "Pharmaceutical Benefits Scheme (Australian Government)", "url": "https://www.pbs.gov.au/news/2026/07/update-on-access-to-goserelin-3-6-mg-implant-zoladex-implant", "tier": 1 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2026-07-30-003",
+      "date": "2026-07-30",
+      "type": "market_reaction",
+      "summary": "Following public pressure (a petition with over 42,000 signatures), AstraZeneca reversed its original 6-month-limited free-access offer and committed to supplying the 3.6mg Zoladex Implant indefinitely at no cost in Australia to patients whose doctors determine no suitable alternative exists — despite proceeding with the formal PBS delisting on 2026-11-01. Separately, AstraZeneca is preparing a TGA/PBAC application to expand reimbursement of the 10.8mg/3-month Zoladex implant to hormone-receptor-positive breast cancer as a partial substitute pathway.",
+      "source": { "name": "ABC News (Australia)", "url": "https://www.abc.net.au/news/2026-07-30/zoladex-pbs-astrazeneca-breast-cancer-endometriosis/106969942", "tier": 2 },
+      "confidence": "confirmed"
+    }
+  ]
+}

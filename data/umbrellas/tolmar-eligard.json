@@ -1,0 +1,33 @@
+{
+  "id": "tolmar-eligard",
+  "canonical_name": "Tolmar – Eligard (leuprolide acetate, Atrigel)",
+  "origin": "Global",
+  "entity_type": ["company", "platform", "asset"],
+  "technology_family": "in_situ_forming_depot",
+  "aliases": ["Tolmar", "Eligard", "Atrigel", "leuprolide acetate for injectable suspension"],
+  "current_status": {
+    "stage": "Approved; established global alternative to Lupron Depot for advanced prostate cancer, using Atrigel in-situ forming (NMP/PLGA solvent-exchange) technology rather than pre-formed microspheres. No generic Eligard has been FDA-approved as of Sept 2026.",
+    "dosing_target": "Flexible 1-, 3-, 4-, or 6-month subcutaneous depot",
+    "partner": null,
+    "data_point": "Feb 2025: FDA-approved prescribing information revised (Warnings & Precautions, Dosage & Administration sections updated)",
+    "last_updated": "2025-02-28"
+  },
+  "finding_history": [
+    {
+      "id": "f-2020-08-10-001",
+      "date": "2020-08-10",
+      "type": "manufacturing_capacity",
+      "summary": "Tolmar affirmed full inventory availability of Eligard in all doses and announced increased production capacity, explicitly positioning itself to fill gaps for prostate cancer patients during a period when competing product Lupron Depot's 3-month and 6-month formulations were FDA-listed as on backorder. Establishes the long-running market dynamic where Eligard supply reliability contrasts with recurring Lupron Depot shortages.",
+      "source": { "name": "PR Newswire", "url": "https://www.prnewswire.com/news-releases/tolmar-affirms-full-supply-of-eligard-leuprolide-acetate-for-injectable-suspension-for-the-palliative-management-of-advanced-prostate-cancer-301109379.html", "tier": 2 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2025-02-28-002",
+      "date": "2025-02-28",
+      "type": "regulatory",
+      "summary": "FDA-approved Eligard prescribing information (label) was revised, updating the Warnings and Precautions and Dosage and Administration sections (label version history shows updates on both 2025-02-17 and 2025-02-28). Specific clinical content of the change was not detailed in the label metadata retrieved.",
+      "source": { "name": "DailyMed / FDA structured product label", "url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=b7b679a9-6823-4ef8-8d31-3ab5058ffcfc", "tier": 1 },
+      "confidence": "confirmed"
+    }
+  ]
+}

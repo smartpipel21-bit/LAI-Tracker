@@ -1,0 +1,41 @@
+{
+  "id": "dongkook-dk-lads",
+  "canonical_name": "Dongkook Pharmaceutical – DK-LADS",
+  "origin": "KR",
+  "entity_type": ["company", "platform", "asset"],
+  "technology_family": "plga_microsphere",
+  "aliases": ["Dongkook Pharmaceutical", "동국제약", "DK-LADS", "DKF-MB501", "086450"],
+  "current_status": {
+    "stage": "Preclinical/formulation research; Phase 1 for lead obesity candidate targeted 2027",
+    "dosing_target": "Monthly, extending toward quarterly",
+    "partner": "None disclosed; company states it is pursuing a licensing/technology-export deal within 2026",
+    "data_point": "DK-LADS is a microsphere-based DDS platform ('extends drug half-life, minimizes blood concentration fluctuations'); lead obesity candidate DKF-MB501 targets 3+ months of effect from a single injection",
+    "last_updated": "2026-03-30"
+  },
+  "finding_history": [
+    {
+      "id": "f-2026-02-06-001",
+      "date": "2026-02-06",
+      "type": "trial_data_readout",
+      "summary": "Dongkook detailed its microsphere-based DK-LADS drug-delivery platform, built on 30 years of in-house DDS work. Lead obesity candidate DKF-MB501 (single injection, 3+ months of effect) is in preclinical/formulation research with Phase 1 targeted for 2027; the article did not name semaglutide or tirzepatide specifically for DKF-MB501. Related DK-LADS-adjacent programs: Lorelin Depot (leuprolide) 1-month formulation launch targeted 2026, 3-month formulation targeted 2027; long-acting tacrolimus and octreotide (1- and 3-month) nearing clinical entry.",
+      "source": { "name": "ZDNet Korea", "url": "https://zdnet.co.kr/view/?no=20260206102022", "tier": 2 },
+      "confidence": "unverified"
+    },
+    {
+      "id": "f-2026-03-30-001",
+      "date": "2026-03-30",
+      "type": "deal_partnership",
+      "summary": "Dongkook Pharmaceutical is positioning its 30-year in-house DDS/DK-LADS expertise for a technology-licensing deal, with the company stating it is targeting a licensing agreement within 2026. A separate report (Korean-language) indicates the obesity candidate under DK-LADS is being developed with both semaglutide and tirzepatide under consideration, targeting monthly dosing with an eye toward extending to 3 months, and a Phase 1 entry goal of 2027.",
+      "source": { "name": "Seoul Economic Daily (sedaily)", "url": "https://en.sedaily.com/news/2026/03/30/dongkook-pharmaceutical-leverages-30-years-of-dds-expertise", "tier": 2 },
+      "confidence": "unverified"
+    },
+    {
+      "id": "f-2026-05-01-001",
+      "date": "2026-05-01",
+      "type": "manufacturing_capacity",
+      "summary": "Dongkook is building a dedicated ~₩60 billion sterile-injectable plant for microsphere/liposome products at its Jincheon (North Chungcheong) site, ~9,240 sqm, targeted to begin operating in H2 2027 — capacity infrastructure to support DK-LADS-based products including any semaglutide/tirzepatide LAI candidate. Exact announcement date approximate; sourced from a single trade-press report.",
+      "source": { "name": "Edaily Pharm (팜이데일리)", "url": "https://pharm.edaily.co.kr/News/Read?newsId=01197206642361784", "tier": 2 },
+      "confidence": "unverified"
+    }
+  ]
+}

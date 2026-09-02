@@ -1,0 +1,49 @@
+{
+  "id": "peptron-pt403",
+  "canonical_name": "Peptron – PT403 (SmartDepot™)",
+  "origin": "KR",
+  "entity_type": ["company", "platform", "asset"],
+  "technology_family": "plga_microsphere",
+  "aliases": ["Peptron", "펩트론", "PT403", "SmartDepot", "SmartDepot™", "087010"],
+  "current_status": {
+    "stage": "Preclinical/Phase 1 IND targeted within 2026; non-exclusive research collaboration with Eli Lilly ongoing",
+    "dosing_target": "Monthly",
+    "partner": "Eli Lilly (non-exclusive worldwide license for internal R&D use of SmartDepot; evaluation period extended Dec 2025 to up to 24 months)",
+    "data_point": "~30% body-weight reduction at week 4 in obese-mouse model; Phase 1 human data showed no vomiting/nausea in 16 healthy adults vs. weekly semaglutide (ADA 2026)",
+    "last_updated": "2026-07-10"
+  },
+  "finding_history": [
+    {
+      "id": "f-2026-06-09-001",
+      "date": "2026-06-09",
+      "type": "trial_data_readout",
+      "summary": "Peptron presented PT403 (SmartDepot PLGA semaglutide) data at ADA 2026: ~30% body-weight reduction at week 4 in an obese-mouse model, outperforming daily and every-3-day semaglutide comparators, plus Phase 1 human safety data showing no vomiting or nausea in 16 healthy adults versus weekly semaglutide (only mild injection-site reactions). Independently corroborated by a second outlet reporting the same ~30% figure and 'excellent' early human safety/tolerability results.",
+      "source": { "name": "Korea Biomedical Review (corroborated by 전국인력신문/kjob.news)", "url": "https://www.koreabiomed.com/news/articleView.html?idxno=31960", "tier": 2 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2026-06-09-002",
+      "date": "2026-06-09",
+      "type": "market_reaction",
+      "summary": "Peptron shares rose 11.3% ahead of ADA 2026 data, fell ~5% after Eli Lilly announced a separate deal with Camurus, then recovered 6.3% by the conference's final day, closing at 245,000 won ($161).",
+      "source": { "name": "Korea Biomedical Review", "url": "https://www.koreabiomed.com/news/articleView.html?idxno=31960", "tier": 2 },
+      "confidence": "unverified"
+    },
+    {
+      "id": "f-2026-07-10-001",
+      "date": "2026-07-10",
+      "type": "deal_partnership",
+      "summary": "Peptron shares fell 29.94% to the daily lower limit (111,600 won) after CEO Choi Ho-il clarified the Eli Lilly joint research covers next-gen obesity/diabetes and CNS candidates but does NOT include tirzepatide, disappointing investors. CEO stated the Lilly collaboration \"remains on track\" with no change in direction; the evaluation period was extended in December 2025 to up to 24 months total. Peptron aims to submit a PT403 IND within 2026 and start construction of its second production facility by September 2026.",
+      "source": { "name": "Korea Biomedical Review", "url": "https://www.koreabiomed.com/news/articleView.html?idxno=32386", "tier": 2 },
+      "confidence": "unverified"
+    },
+    {
+      "id": "f-2025-12-16-001",
+      "date": "2025-12-16",
+      "type": "manufacturing_capacity",
+      "summary": "Peptron won a construction permit for a second, $60 million (₩89 billion) FDA cGMP-standard plant at Osong Bio Park (~16,500 sqm) to scale production of long-acting peptide drugs, citing its approved once-monthly prostate cancer drug Leupone as proof of manufacturing scalability, ahead of pipeline programs in diabetes, obesity, and Parkinson's disease.",
+      "source": { "name": "Korea Biomedical Review", "url": "https://www.koreabiomed.com/news/articleView.html?idxno=29989", "tier": 2 },
+      "confidence": "unverified"
+    }
+  ]
+}

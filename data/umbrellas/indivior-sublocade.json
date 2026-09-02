@@ -1,0 +1,49 @@
+{
+  "id": "indivior-sublocade",
+  "canonical_name": "Indivior – Sublocade® (buprenorphine Atrigel® depot)",
+  "origin": "Global",
+  "entity_type": ["company", "asset"],
+  "technology_family": "in_situ_forming_depot",
+  "aliases": ["Indivior", "Indivior plc", "Indivior Pharmaceuticals", "Sublocade", "SUBLOCADE", "buprenorphine extended-release injection", "RBP-6000", "INDV", "Atrigel"],
+  "current_status": {
+    "stage": "Approved & marketed (US/UK/Global); Indivior entered an all-stock merger-of-equals agreement with Supernus Pharmaceuticals (announced Aug 3, 2026), combined company to trade as Supernus, expected to close Q4 2026",
+    "dosing_target": "Monthly (subcutaneous depot)",
+    "partner": "Tolmar (Atrigel depot manufacturing); pending merger partner Supernus Pharmaceuticals",
+    "data_point": "Q2 2026: SUBLOCADE net revenue $253M (+21% YoY), record 32,816 new patient starts, ~76% share of US LAI OUD category; >500,000 patients treated since 2018 launch",
+    "last_updated": "2026-08-03"
+  },
+  "finding_history": [
+    {
+      "id": "f-2025-02-24-001",
+      "date": "2025-02-24",
+      "type": "regulatory",
+      "summary": "FDA approved label changes for Sublocade permitting a rapid-induction protocol (single 4mg transmucosal buprenorphine dose plus a 1-hour observation period, vs. the prior 7-day induction) and additional subcutaneous injection sites (abdomen, thigh, buttock, back of upper arm). A 729-patient study showed 66.4% second-injection retention with rapid induction vs 54.5% standard induction.",
+      "source": { "name": "Indivior press release (also re-hosted via PR Newswire)", "url": "https://www.prnewswire.com/news-releases/indivior-announces-fda-approval-of-label-changes-for-sublocade-buprenorphine-extended-release-injection-302382920.html", "tier": 1 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2026-04-30-001",
+      "date": "2026-04-30",
+      "type": "market_reaction",
+      "summary": "Q1 2026 results: total SUBLOCADE net revenue $232M (+32% YoY; US revenue $218M, +33% YoY on 20% dispense volume growth); record ~31,800 new patient starts; SUBLOCADE held 76% share of the US LAI OUD category; full-year 2026 guidance raised.",
+      "source": { "name": "Indivior Q1 2026 results (GlobeNewswire)", "url": "https://www.globenewswire.com/news-release/2026/04/30/3284683/0/en/indivior-reports-first-quarter-2026-financial-results-and-raises-full-year-2026-guidance.html", "tier": 2 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2026-08-03-001",
+      "date": "2026-08-03",
+      "type": "market_reaction",
+      "summary": "Q2 2026 results: record SUBLOCADE net revenue $253M (+21% YoY), US dispense volume +18%, record 32,816 new patient starts; full-year 2026 guidance raised again (SUBLOCADE net revenue growth ~20% YoY, adjusted EBITDA growth ~68% YoY at midpoint).",
+      "source": { "name": "Indivior Q2 2026 results (GlobeNewswire)", "url": "https://www.globenewswire.com/news-release/2026/08/03/3337317/0/en/indivior-reports-second-quarter-2026-financial-results-and-raises-full-year-2026-guidance.html", "tier": 2 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2026-08-03-002",
+      "date": "2026-08-03",
+      "type": "deal_partnership",
+      "summary": "Indivior and Supernus Pharmaceuticals announced a definitive all-stock \"merger of equals\": Supernus holders receive 1.5401 Indivior shares each; Indivior shareholders also receive a one-time $1.0B special cash dividend pre-closing (financed via a $650M Citibank term loan plus cash on hand). Post-close ownership ~56.5% Indivior / ~43.5% Supernus; combined company to operate under the Supernus name with 11 CNS medicines led by SUBLOCADE (~$1B in trailing-12-month sales). Expected to close Q4 2026, subject to shareholder and regulatory approval.",
+      "source": { "name": "Supernus Pharmaceuticals and Indivior Pharmaceuticals to Merge (Indivior IR / Supernus IR)", "url": "https://ir.indivior.com/news-releases/news-release-details/supernus-pharmaceuticals-and-indivior-pharmaceuticals-merge", "tier": 1 },
+      "confidence": "confirmed"
+    }
+  ]
+}

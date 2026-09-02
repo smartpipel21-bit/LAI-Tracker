@@ -1,0 +1,41 @@
+{
+  "id": "genexine-handok-gxh9",
+  "canonical_name": "Genexine & Handok – GX-H9 (eftansomatropin alfa)",
+  "origin": "KR",
+  "entity_type": ["company", "platform", "asset"],
+  "technology_family": "molecular_engineering",
+  "aliases": ["Genexine", "제넥신", "Handok", "한독", "GX-H9", "TJ101", "eftansomatropin alfa", "HyTropin", "hyFc", "TJ Biopharma", "Jumpcan Pharmaceutical"],
+  "current_status": {
+    "stage": "Phase 3 completed in China (2023, via I-Mab-linked partner) with primary endpoint met; China NMPA accepted the BLA for pediatric growth hormone deficiency in Dec 2024 and it remains under review as of Sep 2026; Korea Phase 2 complete with orphan drug designation but launch timing undecided; co-developer Genexine disclosed severe financial distress in early 2025",
+    "dosing_target": "Once-weekly subcutaneous injection (hyFc fusion protein, extended half-life vs. daily rhGH)",
+    "partner": "Handok (Korea, co-development); TJ Biopharma / Jumpcan Pharmaceutical (China development, manufacturing & commercialization)",
+    "data_point": "China Phase 3 (CTJ101PGHD301): annualized height velocity 10.76 cm/yr for eftansomatropin alfa vs. 10.28 cm/yr for Norditropin at week 52, non-inferior (p<0.0001); China NMPA BLA accepted for review Dec 9, 2024",
+    "last_updated": "2025-02-27"
+  },
+  "finding_history": [
+    {
+      "id": "f-2023-08-30-001",
+      "date": "2023-08-30",
+      "type": "trial_data_readout",
+      "summary": "Genexine announces its long-acting growth hormone GX-H9 (eftansomatropin alfa, TJ101) met the primary endpoint in a Chinese pivotal Phase 3 trial (CTJ101PGHD301) in pediatric growth hormone deficiency, demonstrating non-inferiority to daily Norditropin on annualized height velocity at week 52 (10.76 vs. 10.28 cm/year), with no discontinuations due to treatment-related adverse events.",
+      "source": { "name": "Genexine press release (BusinessWire)", "url": "https://www.businesswire.com/news/home/20230830371012/en/Genexine%E2%80%99s-long-acting-growth-hormone-meets-Phase-3-primary-endpoint", "tier": 2 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2024-12-09-001",
+      "date": "2024-12-09",
+      "type": "regulatory",
+      "summary": "TJ Biopharma and Jumpcan Pharmaceutical jointly announce that China's NMPA has accepted for review the Biologics License Application for eftansomatropin alfa (GX-H9) for pediatric growth hormone deficiency — described as the first fusion-protein long-acting growth hormone among marketed products in China if approved.",
+      "source": { "name": "TJ Biopharma press release", "url": "https://www.tjbio.com/en/news/12270", "tier": 1 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2025-02-27-001",
+      "date": "2025-02-27",
+      "type": "financing_investor",
+      "summary": "Korea Biomedical Review reports Genexine (GX-H9 co-developer) is in severe financial distress: FY2024 operating loss of KRW 373B on revenue down 33.7% YoY to KRW 2.9B, net loss of KRW 60.2B, cash reserves down more than half year-over-year, and market cap collapsed from KRW 1.5T to KRW 203B. Company is selling real estate (including its Korea Bio Park building) to shore up liquidity; GX-H9's China approval remained pending at the time of the report.",
+      "source": { "name": "Korea Biomedical Review", "url": "https://www.koreabiomed.com/news/articleView.html?idxno=26778", "tier": 2 },
+      "confidence": "unverified"
+    }
+  ]
+}

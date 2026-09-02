@@ -1,0 +1,33 @@
+{
+  "id": "mapi-pharma-semaglutide",
+  "canonical_name": "Mapi Pharma – GLP-1 Controlled-Release Depot (Semaglutide)",
+  "origin": "Global",
+  "entity_type": ["company", "asset"],
+  "technology_family": "other",
+  "aliases": ["Mapi Pharma", "Semaglutide Depot", "GLP-1 Depot (Mapi)"],
+  "current_status": {
+    "stage": "Phase I/IIa — recruiting (started Aug 9, 2026)",
+    "dosing_target": "Monthly",
+    "partner": "None disclosed for the semaglutide asset specifically; company is actively seeking a development/commercialization partner",
+    "data_point": "NCT07563699 — dose-escalation Phase I/IIa study of Semaglutide Depot in type-2 diabetes, 24 participants, single site (Tel Aviv, Israel), est. primary completion May 2028",
+    "last_updated": "2026-08-09"
+  },
+  "finding_history": [
+    {
+      "id": "f-2026-08-09-001",
+      "date": "2026-08-09",
+      "type": "trial_data_readout",
+      "summary": "Mapi Pharma began patient recruitment for a Phase I/IIa, multicenter, open-label, dose-escalation study of 'Semaglutide Depot' in type-2 diabetes (NCT07563699). The trial evaluates safety, tolerability, PK, and efficacy of a monthly-injection long-acting semaglutide depot versus standard weekly dosing; 24-participant target enrollment, site in Tel Aviv, Israel, estimated primary completion May 2028. This directly resolves the prior 'possibly deprioritized' flag on this program — it is active and has just entered human dosing, not shelved.",
+      "source": { "name": "ClinicalTrials.gov", "url": "https://clinicaltrials.gov/study/NCT07563699", "tier": 1 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2026-06-01-001",
+      "date": "2026-06-01",
+      "type": "deal_partnership",
+      "summary": "In a press release announcing participation in ASCO and ADA 2026, Mapi Pharma listed its GLP-1 depot programs (semaglutide and tirzepatide) among pipeline programs and indicated the company was seeking partners for its semaglutide depot asset as one of the more advanced candidates in its long-acting depot portfolio. Note: subsequent 2026 Mapi press coverage (cariprazine depot Phase I/IIa results in August, glatiramer acetate depot MS data at AAN in April) did not mention the semaglutide program, consistent with a company that discloses assets selectively by conference rather than the program having been shelved — the August ClinicalTrials.gov listing (finding f-2026-08-09-001) confirms it remains active.",
+      "source": { "name": "GlobeNewswire (Mapi Pharma company release)", "url": "https://www.globenewswire.com/news-release/2026/06/01/3304425/0/en/Mapi-Pharma-to-Participate-in-the-ASCO-Annual-Meeting-and-ADA-2026-Scientific-Sessions.html", "tier": 2 },
+      "confidence": "unverified"
+    }
+  ]
+}

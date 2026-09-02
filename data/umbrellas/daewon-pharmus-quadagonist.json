@@ -1,0 +1,33 @@
+{
+  "id": "daewon-pharmus-quadagonist",
+  "canonical_name": "Daewon Pharmaceutical + Pharmus Biosciences – GLP-1/GIP/GCG/Gastrin Quadruple Agonist",
+  "origin": "KR",
+  "entity_type": ["company", "asset"],
+  "technology_family": "other",
+  "aliases": ["Daewon Pharmaceutical", "대원제약", "003220", "Pharmus Biosciences", "Pharmus Bioscience", "파머스"],
+  "current_status": {
+    "stage": "Preclinical",
+    "dosing_target": "Not yet established (preclinical)",
+    "partner": "Pharmus Biosciences (co-development)",
+    "data_point": "Diet-induced obese mouse model: >50% body-weight reduction vs. control at day 22; fasting blood glucose reduced to as low as 70 mg/dL vs. 223 mg/dL in control",
+    "last_updated": "2026-06-04"
+  },
+  "finding_history": [
+    {
+      "id": "f-2026-06-04-001",
+      "date": "2026-06-04",
+      "type": "trial_data_readout",
+      "summary": "Daewon Pharmaceutical announced it would present preclinical results, co-developed with Pharmus Biosciences, for a GLP-1/GIP/GCG/Gastrin quadruple agonist at ADA 2026 (New Orleans, June 5-8). In diet-induced obese mouse models, the candidate produced >50% body-weight reduction vs. control at day 22 and reduced fasting blood glucose to as low as 70 mg/dL (vs. 223 mg/dL in control); the program also targets pancreatic beta-cell protection and kidney function improvement via the added gastrin-receptor mechanism.",
+      "source": { "name": "Seoul Economic Daily – \"Daewon Pharmaceutical Hits Upper Limit on Quad-Action Obesity Drug Preclinical Data\"", "url": "https://en.sedaily.com/news/2026/06/05/daewon-pharmaceutical-hits-upper-limit-on-quad-action", "tier": 2 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2026-06-04-002",
+      "date": "2026-06-04",
+      "type": "market_reaction",
+      "summary": "Daewon Pharmaceutical shares hit the daily upper trading limit (up ~29.9% to KRW 11,240) on the day the quadruple-agonist ADA 2026 preclinical data announcement broke, before giving back gains — shares had fallen roughly 15% within days of the actual conference presentation.",
+      "source": { "name": "The Asia Business Daily – \"Daewon Pharmaceutical's Quadruple Obesity Drug Shows 50% Weight Reduction in Preclinical Trials\"", "url": "https://www.asiae.co.kr/en/article/2026060409151378297", "tier": 2 },
+      "confidence": "confirmed"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "id": "peptron-luprone",
+  "canonical_name": "Peptron – Leupone (leuprorelin, SmartDepot)",
+  "origin": "KR",
+  "entity_type": ["company", "platform", "asset"],
+  "technology_family": "plga_microsphere",
+  "aliases": ["Peptron", "펩트론", "PT105", "Leupone", "SmartDepot", "087010", "LG Chem"],
+  "current_status": {
+    "stage": "Approved and commercialized in Korea — Korea's first commercialized generic (follow-on) of Takeda's Leuplin (leuprorelin), built on Peptron's SmartDepot PLGA-microsphere platform. Distributed domestically by LG Chem under a 2023 agreement running through 2034, first for prostate cancer, later extended to central precocious puberty (launched Oct 2025). Serves as Peptron's proof-of-concept commercial validation for SmartDepot ahead of its Eli Lilly peptide-discovery collaboration. Naming note: this batch's seed hint used 'Luprone' — every Tier 1/2 source found (Korea Biomedical Review, PR Newswire, LG Chem) spells the commercial brand 'Leupone'; the umbrella id is kept as originally assigned ('peptron-luprone') but canonical_name/aliases use the verified spelling.",
+    "dosing_target": "Monthly (1-month) sustained-release subcutaneous/IM leuprorelin injection, thinner-needle micronized formulation",
+    "partner": "LG Chem (exclusive domestic distribution/marketing)",
+    "data_point": "Dec 2025: Peptron secured a construction permit for an ~89 billion won (~$60M), ~16,500 sqm US FDA cGMP-standard SmartDepot manufacturing plant at Osong Bio Park, citing Leupone's proven batch-to-batch GMP reproducibility as validation",
+    "last_updated": "2025-12-16"
+  },
+  "finding_history": [
+    {
+      "id": "f-2022-11-17-001",
+      "date": "2022-11-17",
+      "type": "trial_data_readout",
+      "summary": "Peptron announced that PT105, its once-monthly sustained-release leuprolide (leuprorelin), established bioequivalence with Takeda's Leuplin — the pharmacokinetic basis for Korea's first commercialized generic of Leuplin, built on Peptron's SmartDepot technology, for prostate cancer, breast cancer, endometriosis, and precocious puberty.",
+      "source": { "name": "PR Newswire (Peptron release)", "url": "https://www.prnewswire.com/news-releases/peptrons-pt105-a-sustained-release-leuprolide-established-the-bioequivalence-with-takedas-leuplin-301687409.html", "tier": 2 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2023-11-13-002",
+      "date": "2023-11-13",
+      "type": "deal_partnership",
+      "summary": "LG Chem and Peptron signed a domestic distribution agreement for Leupone (PT105), a once-monthly sustained-release leuprorelin, running through 2034: Peptron manufactures at its Osong plant using SmartDepot technology, while LG Chem handles all domestic marketing, sales, and distribution. Peptron estimated the addressable Korean leuprorelin market at roughly 80 billion won (~$60.4M).",
+      "source": { "name": "Korea Biomedical Review", "url": "https://www.koreabiomed.com/news/articleView.html?idxno=22503", "tier": 2 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2025-10-27-003",
+      "date": "2025-10-27",
+      "type": "regulatory",
+      "summary": "LG Chem launched Leupone Injection (leuprorelin) for central precocious puberty in children, extending the product beyond its original prostate-cancer indication. The formulation combines Peptron's SmartDepot technology with a micronizing process enabling a thinner needle, and Peptron's bioequivalence/PK-equivalence study was described as the first such evaluation performed by any Leuplin follow-on developer.",
+      "source": { "name": "Korea Biomedical Review", "url": "https://www.koreabiomed.com/news/articleView.html?idxno=29397", "tier": 2 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2025-12-16-004",
+      "date": "2025-12-16",
+      "type": "manufacturing_capacity",
+      "summary": "Peptron secured a construction permit for a new ~16,500 sqm, ~89 billion won (~$60M) manufacturing facility at Osong Bio Park, built to US FDA cGMP standards to scale up SmartDepot long-acting peptide production (prostate cancer, diabetes, obesity, Parkinson's pipeline programs). Peptron cited Leupone's demonstrated consistent batch-to-batch manufacturing reproducibility under GMP conditions as evidence the platform can scale.",
+      "source": { "name": "Korea Biomedical Review", "url": "https://www.koreabiomed.com/news/articleView.html?idxno=29989", "tier": 2 },
+      "confidence": "confirmed"
+    }
+  ]
+}

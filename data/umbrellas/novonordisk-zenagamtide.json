@@ -1,0 +1,41 @@
+{
+  "id": "novonordisk-zenagamtide",
+  "canonical_name": "Novo Nordisk – Zenagamtide (amycretin)",
+  "origin": "Global",
+  "entity_type": ["company", "asset"],
+  "technology_family": "molecular_engineering",
+  "aliases": ["Novo Nordisk", "Zenagamtide", "Amycretin", "NVO"],
+  "current_status": {
+    "stage": "Phase 3 underway in obesity/overweight (AMAZE 1, started Feb 24, 2026, NCT07339423, ~1,150 participants, primary completion June 2029); positive Phase 2 in type 2 diabetes with Phase 3 T2D program planned to start H2 2026",
+    "dosing_target": "Weekly (subcutaneous) and once-daily (oral); not yet a true depot/LAI formulation",
+    "partner": null,
+    "data_point": "Phase 2 T2D dose-finding study (n=262, doses 0.4-40mg SC vs placebo, 36 weeks): met primary A1C endpoint across all doses and key secondary weight endpoint (doses ≥1.5mg); weight loss up to 14.6% at 40mg vs 2.1% placebo at week 36. Earlier Phase 1b/2a obesity data (Jan 2025): 22% weight loss with weekly SC amycretin at 36 weeks; oral Phase 1: 13.1% weight loss at 12 weeks.",
+    "last_updated": "2026-06-01"
+  },
+  "finding_history": [
+    {
+      "id": "f-2025-06-12-001",
+      "date": "2025-06-12",
+      "type": "regulatory",
+      "summary": "Novo Nordisk announced it would advance amycretin (both subcutaneous and oral formulations) into Phase 3 for adults with overweight or obesity, based on end-of-Phase-2 regulatory feedback and early-phase data (published in The Lancet) showing up to 22% weight loss (weekly SC, 36 weeks) and 13.1% weight loss (oral, 12 weeks). Phase 3 program targeted to start Q1 2026.",
+      "source": { "name": "Novo Nordisk press release via PR Newswire", "url": "https://www.prnewswire.com/news-releases/novo-nordisk-advances-early-stage-obesity-medication-amycretin-to-phase-3-clinical-development-based-on-early-phase-clinical-trial-results-in-people-with-obesity-or-excess-weight-published-in-the-lancet-302487500.html", "tier": 1 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2026-02-24-001",
+      "date": "2026-02-24",
+      "type": "trial_data_readout",
+      "summary": "Novo Nordisk's Phase 3 obesity trial for amycretin (AMAZE 1, NCT07339423) began, targeting ~1,150 participants with week-84 body-weight change as the primary endpoint; primary completion expected June 2029.",
+      "source": { "name": "ClinicalTrials.gov – NCT07339423", "url": "https://clinicaltrials.gov/study/NCT07339423", "tier": 1 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2026-06-01-001",
+      "date": "2026-06-01",
+      "type": "trial_data_readout",
+      "summary": "Novo Nordisk presented positive Phase 2 dose-finding data for zenagamtide (amycretin), a unimolecular GLP-1/amylin receptor co-agonist, in adults with type 2 diabetes at ADA 2026. The trial met its primary A1C endpoint across all doses and its key secondary body-weight endpoint at doses of 1.5mg and above, with weight reductions up to 14.6% (40mg dose) vs. 2.1% for placebo at week 36, alongside significant A1C reductions. Novo Nordisk plans to start Phase 3 development in T2D in H2 2026.",
+      "source": { "name": "Novo Nordisk press release via PR Newswire", "url": "https://www.prnewswire.com/news-releases/novo-nordisks-investigational-zenagamtide-shows-significant-a1c-reductions-with-up-to-14-6-weight-loss-in-adults-with-type-2-diabetespresented-at-ada-2026--302793124.html", "tier": 1 },
+      "confidence": "confirmed"
+    }
+  ]
+}

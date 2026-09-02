@@ -1,0 +1,73 @@
+{
+  "id": "camurus-cam2029",
+  "canonical_name": "Camurus – CAM2029 / Oclaiz™ / Oczyesa® (octreotide FluidCrystal)",
+  "origin": "Global",
+  "entity_type": ["company", "platform", "asset"],
+  "technology_family": "lipid_liquid_crystal_depot",
+  "aliases": ["Camurus", "CAM2029", "Oclaiz", "Oczyesa", "FluidCrystal", "octreotide FluidCrystal depot"],
+  "current_status": {
+    "stage": "Approved & commercially launched in EU (as Oczyesa, first launched Germany Nov 2025) and UK; US NDA under second FDA review after two manufacturing/cGMP-related Complete Response Letters (CRLs) — second resubmission accepted Jul 17, 2026, PDUFA target action date Dec 18, 2026",
+    "dosing_target": "Once-monthly self-administered subcutaneous depot via prefilled FluidCrystal autoinjector pen",
+    "partner": null,
+    "data_point": "US FDA CRL #2 issued Jun 10, 2026 (manufacturing/facility-related, explicitly not efficacy/safety); resubmission accepted for review Jul 17, 2026 with PDUFA target action date of Dec 18, 2026",
+    "last_updated": "2026-07-17"
+  },
+  "finding_history": [
+    {
+      "id": "f-2024-10-22-001",
+      "date": "2024-10-22",
+      "type": "regulatory",
+      "summary": "FDA issues a Complete Response Letter (CRL) for the CAM2029 (octreotide) NDA in acromegaly, citing facility-related deficiencies found during a September 2024 cGMP inspection of a third-party manufacturer. FDA states no concerns related to clinical efficacy or safety.",
+      "source": { "name": "Camurus press release", "url": "https://www.camurus.com/media/press-releases/2024/camurus-provides-regulatory-update-on-the-us-nda-for-cam2029-in-acromegaly/", "tier": 1 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2025-06-30-001",
+      "date": "2025-06-30",
+      "type": "regulatory",
+      "summary": "European Commission grants marketing authorization for Oczyesa® (CAM2029) in the EU for adult acromegaly patients who have responded to and tolerated somatostatin analogs, following an April 2025 CHMP positive opinion — Camurus's first regulatory approval for this asset.",
+      "source": { "name": "Camurus press release", "url": "https://www.camurus.com/media/press-releases/2025/camurus-oczyesa-receives-marketing-authorization-for-treatment-of-acromegaly-in-the-eu/", "tier": 1 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2025-08-28-001",
+      "date": "2025-08-28",
+      "type": "regulatory",
+      "summary": "UK MHRA grants marketing authorization for Oczyesa® (CAM2029) for maintenance treatment of adult acromegaly patients who have responded to and tolerated somatostatin analogs; company targets a Q4 2025 UK commercial launch.",
+      "source": { "name": "Camurus press release", "url": "https://www.camurus.com/media/press-releases/2025/camurus-announces-approval-of-oczyesa-for-the-treatment-of-acromegaly-in-the-uk/", "tier": 1 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2025-11-03-001",
+      "date": "2025-11-03",
+      "type": "regulatory",
+      "summary": "Camurus commercially launches Oczyesa® in Germany — the first EU country to receive the product — with subsequent launches planned across additional EU markets.",
+      "source": { "name": "Camurus press release", "url": "https://www.camurus.com/media/press-releases/2025/camurus-launches-long-acting-oczyesa-for-the-treatment-of-acromegaly/", "tier": 1 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2026-01-09-001",
+      "date": "2026-01-09",
+      "type": "regulatory",
+      "summary": "FDA accepts Camurus's resubmission (filed Dec 10, 2025) of the CAM2029/Oclaiz NDA for acromegaly, assigning a PDUFA target action date of June 10, 2026. Application supported by seven clinical studies including the two Phase 3 ACROINNOVA trials.",
+      "source": { "name": "Camurus press release", "url": "https://www.camurus.com/media/press-releases/2026/camurus-announces-fda-acceptance-of-nda-resubmission-for-oclaiz-for-the-treatment-of-acromegaly/", "tier": 1 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2026-06-10-001",
+      "date": "2026-06-10",
+      "type": "regulatory",
+      "summary": "FDA issues a second Complete Response Letter for the CAM2029/Oclaiz NDA, again citing observations from the September 2024 cGMP inspection of a third-party manufacturer and recommending a labeling change for the packaging's oxygen absorber component; FDA states this CRL does not relate to clinical efficacy or safety. Camurus reiterates no change to its 2026 financial outlook and plans near-term resubmission.",
+      "source": { "name": "Camurus press release", "url": "https://www.camurus.com/media/press-releases/2026/camurus-provides-regulatory-update-on-the-us-nda-for-cam2029-oclaiz-in-acromegaly/", "tier": 1 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2026-07-17-001",
+      "date": "2026-07-17",
+      "type": "regulatory",
+      "summary": "FDA accepts Camurus's second NDA resubmission for CAM2029/Oclaiz in acromegaly, assigning a new PDUFA target action date of December 18, 2026.",
+      "source": { "name": "Camurus press release", "url": "https://www.camurus.com/media/press-releases/2026/camurus-nda-resubmission-for-cam2029-in-acromegaly-accepted-for-review-by-the-us-fda/", "tier": 1 },
+      "confidence": "confirmed"
+    }
+  ]
+}

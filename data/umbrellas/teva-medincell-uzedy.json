@@ -1,0 +1,73 @@
+{
+  "id": "teva-medincell-uzedy",
+  "canonical_name": "Teva + MedinCell – Uzedy® (risperidone) / TEV-'749 (olanzapine)",
+  "origin": "Global",
+  "entity_type": ["company", "platform", "asset"],
+  "technology_family": "in_situ_forming_depot",
+  "aliases": ["Teva", "Teva Pharmaceutical Industries", "MedinCell", "Medincell", "Uzedy", "TEV-'749", "TEV-749", "risperidone LAI", "olanzapine LAI", "BEPO", "SteadyTeq"],
+  "current_status": {
+    "stage": "Uzedy approved (schizophrenia + bipolar I); TEV-'749 olanzapine LAI under FDA and EMA review",
+    "dosing_target": "Once monthly, subcutaneous (both risperidone and investigational olanzapine)",
+    "partner": "MedinCell (BEPO®/SteadyTeq™ platform licensor; royalties + up to $105M in commercial milestones on Uzedy)",
+    "data_point": "Q1 2026 Uzedy US net sales $63M, +62% YoY; Teva FY2026 Uzedy net sales outlook $250-280M",
+    "last_updated": "2026-05-21"
+  },
+  "finding_history": [
+    {
+      "id": "f-2023-04-28-001",
+      "date": "2023-04-28",
+      "type": "regulatory",
+      "summary": "FDA approved Uzedy (risperidone) extended-release injectable suspension, a long-acting subcutaneous atypical antipsychotic built on MedinCell's BEPO® in-situ forming depot platform, for treatment of schizophrenia in adults.",
+      "source": { "name": "Teva Pharmaceutical Industries investor relations press release", "url": "https://ir.tevapharm.com/news-and-events/press-releases/press-release-details/2023/Teva-and-MedinCell-Announce-FDA-Approval-of-UZEDY-risperidone-Extended-Release-Injectable-Suspension-a-Long-Acting-Subcutaneous-Atypical-Antipsychotic-Injection-for-the-Treatment-of-Schizophrenia-in-Adults/default.aspx", "tier": 1 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2025-02-25-001",
+      "date": "2025-02-25",
+      "type": "regulatory",
+      "summary": "FDA accepted for filing Teva/MedinCell's supplemental NDA for Uzedy as maintenance treatment (monotherapy or adjunct to lithium/valproate) for bipolar I disorder in adults.",
+      "source": { "name": "PharmExec (Teva/MedinCell release)", "url": "https://www.pharmexec.com/view/fda-accepts-supplemental-new-drug-application-teva-medincell-uzedy-bipolar-i-disorder", "tier": 2 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2025-10-10-001",
+      "date": "2025-10-10",
+      "type": "regulatory",
+      "summary": "FDA approved the expanded Uzedy indication for maintenance treatment of bipolar I disorder in adults (50/75/100 mg once-monthly dosing), based on RISE and SHINE phase 3 schizophrenia data plus established risperidone safety/efficacy history.",
+      "source": { "name": "Teva Pharmaceutical Industries investor relations press release", "url": "https://ir.tevapharm.com/news-and-events/press-releases/press-release-details/2025/FDA-Approves-Expanded-Indication-for-UZEDY-risperidone-Extended-Release-Injectable-Suspension-as-a-Treatment-for-Adults-Living-with-Bipolar-I-Disorder/default.aspx", "tier": 1 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2025-12-09-001",
+      "date": "2025-12-09",
+      "type": "regulatory",
+      "summary": "Teva submitted an NDA to the FDA for TEV-'749, an investigational once-monthly subcutaneous olanzapine extended-release injectable suspension for schizophrenia, based on Phase 3 SOLARIS trial data (including Week 56 results) using MedinCell's platform (branded SteadyTeq™ under Teva).",
+      "source": { "name": "GlobeNewswire (Teva release)", "url": "https://www.globenewswire.com/news-release/2025/12/09/3202267/0/en/Teva-Pharmaceuticals-Submits-New-Drug-Application-to-FDA-for-Olanzapine-Extended-Release-Injectable-Suspension-TEV-749-for-the-Once-Monthly-Treatment-of-Schizophrenia-in-Adults.html", "tier": 2 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2026-02-20-001",
+      "date": "2026-02-20",
+      "type": "regulatory",
+      "summary": "FDA accepted Teva's NDA for TEV-'749 (olanzapine LAI) for review; a regulatory decision was anticipated in Q4 2026.",
+      "source": { "name": "Teva Pharmaceutical Industries investor relations press release", "url": "https://ir.tevapharm.com/news-and-events/press-releases/press-release-details/2026/U-S--Food-and-Drug-Administration-FDA-Accepts-Tevas-New-Drug-Application-NDA-for-Olanzapine-Extended-Release-Injectable-Suspension-TEV-749-for-the-Once-Monthly-Treatment-of-Schizophrenia-in-Adults/default.aspx", "tier": 1 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2026-04-29-001",
+      "date": "2026-04-29",
+      "type": "market_reaction",
+      "summary": "MedinCell reported Uzedy Q1 2026 US net sales of $63 million, up 62% YoY from $39M (Q1 2025) and up 15% sequentially from $55M (Q4 2025); Teva's initial FY2026 Uzedy net sales outlook is $250-280 million, with MedinCell entitled to mid-to-high-single-digit royalties plus up to $105M in commercial milestones.",
+      "source": { "name": "MedinCell / Euronext company release", "url": "https://www.medincell.com/uzedy-q1-2026-net-sales-reached-63m-up-62-year-on-year/", "tier": 1 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2026-05-21-001",
+      "date": "2026-05-21",
+      "type": "regulatory",
+      "summary": "The European Medicines Agency accepted Teva's Marketing Authorization Application for TEV-'749 (olanzapine long-acting injectable) for treatment of schizophrenia in adults, supported by the Phase 3 SOLARIS study data.",
+      "source": { "name": "Teva Pharmaceutical Industries investor relations press release", "url": "https://ir.tevapharm.com/news-and-events/press-releases/press-release-details/2026/The-European-Medicines-Agency-Accepts-Tevas-Marketing-Authorization-Application-for-Olanzapine-Long-Acting-Injectable-TEV-749-for-the-Treatment-of-Schizophrenia-in-Adults/default.aspx", "tier": 1 },
+      "confidence": "confirmed"
+    }
+  ]
+}
