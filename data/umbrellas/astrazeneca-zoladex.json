@@ -6,11 +6,11 @@
   "technology_family": "subdermal_implant",
   "aliases": ["AstraZeneca", "Zoladex", "goserelin acetate", "Zoladex Implant"],
   "current_status": {
-    "stage": "Approved; long-established GnRH-agonist implant for prostate cancer, breast cancer, and endometriosis. In Australia specifically, the 3.6mg/monthly implant is being delisted from the PBS on 2026-11-01 at AstraZeneca's own commercial request; AstraZeneca reversed an initial 6-month-only free-access plan and committed (2026-07-30) to supplying it indefinitely at no cost to patients with no suitable alternative. AstraZeneca is separately seeking to expand PBS reimbursement of the 10.8mg/3-month implant to hormone-receptor-positive breast cancer.",
+    "stage": "Approved; long-established GnRH-agonist implant for prostate cancer, breast cancer, and endometriosis. In Australia specifically, the 3.6mg/monthly implant is being delisted from the PBS on 2026-11-01 at AstraZeneca's own commercial request; AstraZeneca reversed an initial 6-month-only free-access plan and committed (2026-07-30) to supplying it indefinitely at no cost to patients with no suitable alternative. AstraZeneca is separately seeking to expand PBS reimbursement of the 10.8mg/3-month implant to hormone-receptor-positive breast cancer. Separately, Australia's PBAC recommended (special meeting 2026-07-30, outcome published Aug 2026) an unrestricted PBS listing for a rival GnRH agonist, triptorelin, specifically to backfill the gap left by the Zoladex 3.6mg delisting for breast cancer/endometriosis patients — a competitor product, not an AstraZeneca action, but directly relevant to Zoladex's Australian market position.",
     "dosing_target": "Monthly (3.6mg) or 3-monthly (10.8mg) subcutaneous preformed PLGA rod implant, applicator-delivered",
     "partner": null,
     "data_point": "42,000+ signature patient petition preceded AstraZeneca's reversal to indefinite free supply in Australia (2026-07-30)",
-    "last_updated": "2026-07-30"
+    "last_updated": "2026-08-19"
   },
   "finding_history": [
     {
@@ -35,6 +35,14 @@
       "type": "market_reaction",
       "summary": "Following public pressure (a petition with over 42,000 signatures), AstraZeneca reversed its original 6-month-limited free-access offer and committed to supplying the 3.6mg Zoladex Implant indefinitely at no cost in Australia to patients whose doctors determine no suitable alternative exists — despite proceeding with the formal PBS delisting on 2026-11-01. Separately, AstraZeneca is preparing a TGA/PBAC application to expand reimbursement of the 10.8mg/3-month Zoladex implant to hormone-receptor-positive breast cancer as a partial substitute pathway.",
       "source": { "name": "ABC News (Australia)", "url": "https://www.abc.net.au/news/2026-07-30/zoladex-pbs-astrazeneca-breast-cancer-endometriosis/106969942", "tier": 2 },
+      "confidence": "confirmed"
+    },
+    {
+      "id": "f-2026-08-19-001",
+      "date": "2026-08-19",
+      "type": "regulatory",
+      "summary": "Australia's Pharmaceutical Benefits Advisory Committee (PBAC) held a special out-of-session meeting on 2026-07-30 and recommended amending the existing PBS listing for triptorelin 3.75mg (a rival GnRH-agonist injection, not an AstraZeneca product) to 'unrestricted' status so it can be used for breast cancer, endometriosis and other women's-health indications — explicitly to address the gap left by the imminent PBS delisting of the 3.6mg Zoladex Implant. The Australian government said it is committed to listing all PBAC-recommended medications; ABC News reported the recommendation would give an estimated 7,500+ Australian breast-cancer patients a funded alternative where the 10.8mg Zoladex implant is not clinically suitable.",
+      "source": { "name": "Pharmaceutical Benefits Scheme (Australian Government) — PBAC Web Outcomes, July 2026 special meeting", "url": "https://www.pbs.gov.au/news/2026/08/pbac-web-outcomes-july-2026-special-meeting", "tier": 1 },
       "confidence": "confirmed"
     }
   ]
