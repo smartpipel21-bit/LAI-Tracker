@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#10182d">
+  <meta name="description" content="Decision-first intelligence for long-acting injectable development">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <title>LAI Pulse · Market intelligence</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <aside class="rail" aria-label="Primary navigation">
+    <a class="brand" href="#overview" aria-label="LAI Pulse home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span><strong>LAI PULSE</strong><small>Market intelligence</small></span>
+    </a>
+    <p class="rail-label">Daily intelligence</p>
+    <nav class="rail-nav">
+      <a href="#overview" data-nav="overview" class="is-current"><span>01</span>Market overview</a>
+      <a href="#intelligence" data-nav="intelligence"><span>02</span>Latest intelligence</a>
+      <a href="#statistics" data-nav="statistics"><span>03</span>Market statistics</a>
+      <a href="#programs" data-nav="programs"><span>04</span>Program directory</a>
+      <a href="#review" data-nav="review"><span>05</span>Review queue</a>
+      <a href="#archive" data-nav="archive"><span>06</span>Evidence archive</a>
+    </nav>
+    <div class="rail-foot">
+      <span class="live-dot"></span><span id="rail-freshness">Loading database…</span>
+    </div>
+  </aside>
+
+  <header class="mobile-header">
+    <a class="brand" href="#overview"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><strong>LAI PULSE</strong></a>
+    <span id="mobile-date">Loading…</span>
+  </header>
+
+  <main id="main">
+    <div id="app-status" class="status-banner" role="status" aria-live="polite">
+      <span class="spinner" aria-hidden="true"></span>Loading repository intelligence…
+    </div>
+
+    <section class="page-head" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">SEMAGLUTIDE LAI · COMPETITIVE INTELLIGENCE</p>
+        <h1 id="page-title">The market, at decision speed.</h1>
+        <p>Development maturity, recent evidence and the full historical record—kept separate and traceable.</p>
+      </div>
+      <div class="freshness"><span>Database last updated</span><strong id="latest-date">—</strong></div>
+    </section>
+
+    <section id="overview" class="anchor-section" aria-labelledby="overview-title">
+      <div class="section-intro">
+        <div><p class="eyebrow">MARKET AT A GLANCE</p><h2 id="overview-title">Development race</h2></div>
+        <p>Stage leadership only; it does not imply superior formulation, safety or efficacy.</p>
+      </div>
+      <div class="hero-grid">
+        <article class="panel race-panel">
+          <div class="panel-head"><div><h3>Direct semaglutide programs</h3><p id="race-caption">Loading programs…</p></div><span class="public-pill">Public evidence</span></div>
+          <div id="race-chart" class="race-chart" aria-label="Development stage comparison"></div>
+          <div class="stage-axis" aria-hidden="true"><span>Research</span><span>IND</span><span>Phase 1</span><span>Phase 2</span><span>Phase 3</span><span>Filed</span></div>
+        </article>
+        <article class="panel leader-panel">
+          <span class="pill pill-blue">Current development leader</span>
+          <div><h3 id="leader-company">—</h3><p id="leader-program">—</p></div>
+          <div class="leader-stage"><strong id="leader-stage">—</strong><span>reported maturity</span></div>
+          <p id="leader-summary">Loading current status…</p>
+          <div class="interpretation"><strong>Interpretation</strong><span>No internal product-performance data is used.</span></div>
+        </article>
+      </div>
+
+      <div class="conditions-head"><div><p class="eyebrow">TRACKING CONDITIONS</p><h2>Three states, one workflow</h2></div><p>Accepted intelligence, discoveries awaiting review, and automation health are kept visibly distinct.</p></div>
+      <div id="tracking-conditions" class="condition-grid"></div>
+    </section>
+
+    <section id="intelligence" class="anchor-section" aria-labelledby="intelligence-title">
+      <div class="section-intro">
+        <div><p class="eyebrow">WHAT CHANGED</p><h2 id="intelligence-title">Latest market intelligence</h2></div>
+        <p>Six recent findings; open the original source for context.</p>
+      </div>
+      <div class="intel-grid">
+        <div id="latest-feed" class="feed" aria-live="polite"></div>
+        <aside class="panel readout-panel"><p class="eyebrow">TODAY’S READOUT</p><div id="readout"></div></aside>
+      </div>
+    </section>
+
+    <section id="statistics" class="anchor-section" aria-labelledby="statistics-title">
+      <div class="section-intro">
+        <div><p class="eyebrow">MARKET STATISTICS</p><h2 id="statistics-title">External landscape snapshot</h2></div>
+        <p>Calculated from every accepted umbrella record and historical finding.</p>
+      </div>
+      <div id="metrics" class="metric-grid"></div>
+      <div class="stats-grid">
+        <article class="panel"><div class="panel-head"><div><h3>Technologies by approach</h3><p>All tracked umbrella records</p></div></div><div id="family-chart" class="family-chart"></div></article>
+        <article class="panel evidence-panel"><div class="panel-head"><div><h3>Evidence confidence</h3><p>All historical findings</p></div></div><div id="evidence-chart"></div></article>
+      </div>
+    </section>
+
+    <section id="programs" class="anchor-section" aria-labelledby="programs-title">
+      <div class="section-intro">
+        <div><p class="eyebrow">CURRENT RECORD</p><h2 id="programs-title">Program directory</h2></div>
+        <p>Every tracked entity. Daily JSON updates flow here without application edits.</p>
+      </div>
+      <div class="toolbar panel">
+        <label class="search-field"><span class="sr-only">Search programs</span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35m2.35-5.15A7.5 7.5 0 1 1 4 11.5a7.5 7.5 0 0 1 15 0Z"/></svg><input id="program-search" type="search" placeholder="Search company, program or technology"></label>
+        <select id="stage-filter" aria-label="Filter programs by stage"><option value="all">All stages</option></select>
+        <button id="program-export" class="button" type="button">Export CSV</button>
+      </div>
+      <div class="table-shell panel"><table><thead><tr><th>Program</th><th>Origin</th><th>Technology</th><th>Stage</th><th>Reported status</th><th>Updated</th></tr></thead><tbody id="program-table"></tbody></table><div id="program-empty" class="empty-state" hidden>No programs match these filters.</div></div>
+    </section>
+
+    <section id="review" class="anchor-section" aria-labelledby="review-title">
+      <div class="section-intro">
+        <div><p class="eyebrow">PENDING REVIEW</p><h2 id="review-title">Candidate queue</h2></div>
+        <p>Discoveries remain separate until an analyst accepts, merges or rejects them.</p>
+      </div>
+      <div id="candidate-list" class="candidate-grid"></div>
+    </section>
+
+    <section id="archive" class="anchor-section" aria-labelledby="archive-title">
+      <div class="section-intro">
+        <div><p class="eyebrow">HISTORICAL RECORD</p><h2 id="archive-title">Evidence archive</h2></div>
+        <p>Complete provenance, newest first. Older evidence is never removed from this view.</p>
+      </div>
+      <div class="toolbar panel">
+        <label class="search-field"><span class="sr-only">Search evidence</span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35m2.35-5.15A7.5 7.5 0 1 1 4 11.5a7.5 7.5 0 0 1 15 0Z"/></svg><input id="archive-search" type="search" placeholder="Search findings, companies or sources"></label>
+        <select id="evidence-filter" aria-label="Filter evidence by type"><option value="all">All evidence types</option></select>
+        <button id="archive-export" class="button" type="button">Export CSV</button>
+      </div>
+      <div id="archive-list" class="archive-list"></div>
+      <button id="show-more" class="button button-wide" type="button">Show more evidence</button>
+    </section>
+
+    <footer><span>LAI Pulse</span><span id="footer-status">Repository-backed public intelligence</span></footer>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Mobile navigation">
+    <a href="#overview" data-nav="overview" class="is-current"><span>⌁</span>Overview</a>
+    <a href="#intelligence" data-nav="intelligence"><span>↗</span>Signals</a>
+    <a href="#programs" data-nav="programs"><span>≡</span>Programs</a>
+    <a href="#archive" data-nav="archive"><span>◫</span>Archive</a>
+  </nav>
+  <script type="module" src="/assets/app.js"></script>
+</body>
+</html>
