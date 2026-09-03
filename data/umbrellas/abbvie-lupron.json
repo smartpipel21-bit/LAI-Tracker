@@ -2,15 +2,25 @@
   "id": "abbvie-lupron",
   "canonical_name": "AbbVie – Lupron Depot (leuprolide acetate)",
   "origin": "Global",
-  "entity_type": ["company", "asset"],
+  "entity_type": [
+    "company",
+    "asset"
+  ],
   "technology_family": "plga_microsphere",
-  "aliases": ["AbbVie", "Lupron Depot", "Lupron Depot-Ped", "leuprolide acetate for depot suspension", "Lupron"],
+  "aliases": [
+    "AbbVie",
+    "Lupron Depot",
+    "Lupron Depot-Ped",
+    "leuprolide acetate for depot suspension",
+    "Lupron"
+  ],
   "current_status": {
     "stage": "Approved; long-established market leader (US/Global) in GnRH-agonist depot therapy for advanced prostate cancer, endometriosis, uterine fibroids, central precocious puberty, and (off-label) gender-affirming care. No FDA-approved generic of the depot (microsphere) formulation exists as of Sept 2026.",
     "dosing_target": "1-, 3-, 4-, or 6-month IM depot injection (Canada gained a 6-month/45mg option in Nov 2025)",
     "partner": "Takeda (historical drug-substance manufacturing partner; subject of 2019–2023 supply-breach litigation)",
     "data_point": "Nov 2025: Health Canada approved a new 6-month, 45mg Lupron Depot strength, AbbVie's fourth Canadian dosing option",
-    "last_updated": "2025-11-17"
+    "last_updated": "2025-11-17",
+    "last_checked": "2026-09-03"
   },
   "finding_history": [
     {
@@ -18,7 +28,11 @@
       "date": "2023-09-05",
       "type": "manufacturing_capacity",
       "summary": "Delaware Court of Chancery (Vice Chancellor Glasscock) largely upheld AbbVie's damages claim (~$480.6M sought) against Takeda for breaching the Lupron drug-substance supply agreement after a 2019 FDA-flagged quality shutdown at Takeda's Japan plant caused a multi-year Lupron Depot shortage; the parties later settled at roughly $448M. This underlying manufacturing dependency is the root cause repeatedly cited for AbbVie's recurring Lupron Depot supply gaps.",
-      "source": { "name": "Fierce Pharma", "url": "https://www.fiercepharma.com/pharma/abbvie-scores-480m-damages-after-takeda-breached-supply-contract-cancer-drug-lupron-report", "tier": 2 },
+      "source": {
+        "name": "Fierce Pharma",
+        "url": "https://www.fiercepharma.com/pharma/abbvie-scores-480m-damages-after-takeda-breached-supply-contract-cancer-drug-lupron-report",
+        "tier": 2
+      },
       "confidence": "confirmed"
     },
     {
@@ -26,7 +40,11 @@
       "date": "2025-11-17",
       "type": "regulatory",
       "summary": "AbbVie announced Health Canada approval of a new 6-month, 45mg Lupron Depot (leuprolide acetate for extended-release injectable suspension) strength for advanced prostate cancer, adding to the existing 7.5mg (1-month), 22.5mg (3-month), and 30mg (4-month) options. Lupron Depot has been approved in Canada since 1989.",
-      "source": { "name": "AbbVie Canada press release (via Newswire.ca)", "url": "https://www.newswire.ca/news-releases/lupron-depot-r-new-strength-receives-health-canada-approval-for-the-treatment-of-advanced-prostate-cancer-817541619.html", "tier": 1 },
+      "source": {
+        "name": "AbbVie Canada press release (via Newswire.ca)",
+        "url": "https://www.newswire.ca/news-releases/lupron-depot-r-new-strength-receives-health-canada-approval-for-the-treatment-of-advanced-prostate-cancer-817541619.html",
+        "tier": 1
+      },
       "confidence": "confirmed"
     }
   ]

@@ -2,15 +2,28 @@
   "id": "inventagelab-leuprolide",
   "canonical_name": "InventageLab – Leuprolide microspheres (IVL3008/IVL3016, IVL-DrugFluidic)",
   "origin": "KR",
-  "entity_type": ["company", "platform", "asset"],
+  "entity_type": [
+    "company",
+    "platform",
+    "asset"
+  ],
   "technology_family": "plga_microsphere",
-  "aliases": ["InventageLab", "Inventage Lab", "인벤티지랩", "IVL-DrugFluidic", "IVL3008", "IVL3016", "leuprolide"],
+  "aliases": [
+    "InventageLab",
+    "Inventage Lab",
+    "인벤티지랩",
+    "IVL-DrugFluidic",
+    "IVL3008",
+    "IVL3016",
+    "leuprolide"
+  ],
   "current_status": {
     "stage": "Preclinical. As of the most recently checked InventageLab pipeline page (Sept 2026), IVL3008 (3-month leuprolide) remains listed at preclinical stage for prostate cancer and precocious puberty; no clinicaltrials.gov registration for IVL3008 was found despite the company's 2024 stated intent to advance into Phase 1/2. No material public progress beyond the June 2024 EACR nonclinical data disclosure was identified. This is a separate umbrella from InventageLab's semaglutide asset and its CNS (aripiprazole/donepezil) LAI assets, which use the same IVL-DrugFluidic microfluidic manufacturing platform but are distinct drug programs.",
     "dosing_target": "1-month (PLGA) and 3-month (PLA) formulations historically studied; current active pipeline entries are IVL3008 (3-month) and IVL3016 (6-month)",
     "partner": null,
     "data_point": "Nonclinical data (single-dose animal studies) showed leuprolide release maintaining castration-level testosterone (≤0.5 ng/mL) with initial burst release reduced to 0.14–7.65% versus commercial comparator products",
-    "last_updated": "2024-06-13"
+    "last_updated": "2024-06-13",
+    "last_checked": "2026-09-03"
   },
   "finding_history": [
     {
@@ -18,7 +31,11 @@
       "date": "2024-06-13",
       "type": "trial_data_readout",
       "summary": "InventageLab presented nonclinical (preclinical) research at the European Association for Cancer Research (EACR) annual meeting in Rotterdam (2024-06-11) on two leuprolide-based, IVL-DrugFluidic-manufactured long-acting injectable candidates: IVL3008 (3-month) and IVL3016 (6-month), for prostate cancer. Data showed stable drug release maintaining testosterone at chemical-castration levels (≤0.5 ng/mL), with a dramatically reduced initial burst release (0.14–7.65% vs. existing commercial products) — a common failure mode for PLGA microsphere depots. The 6-month formulation was said to use half the active ingredient of competitor products. Company stated intent at the time was to advance IVL3008 into Phase 1/2 clinical trials and pursue global licensing partnerships.",
-      "source": { "name": "Edaily Pharm (팜이데일리)", "url": "https://pharm.edaily.co.kr/news/read?newsId=02548566638921392", "tier": 2 },
+      "source": {
+        "name": "Edaily Pharm (팜이데일리)",
+        "url": "https://pharm.edaily.co.kr/news/read?newsId=02548566638921392",
+        "tier": 2
+      },
       "confidence": "confirmed"
     }
   ]

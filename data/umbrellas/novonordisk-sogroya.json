@@ -2,15 +2,24 @@
   "id": "novonordisk-sogroya",
   "canonical_name": "Novo Nordisk – Sogroya® (somapacitan-beco)",
   "origin": "Global",
-  "entity_type": ["company", "asset"],
+  "entity_type": [
+    "company",
+    "asset"
+  ],
   "technology_family": "molecular_engineering",
-  "aliases": ["Novo Nordisk", "Sogroya", "somapacitan", "somapacitan-beco"],
+  "aliases": [
+    "Novo Nordisk",
+    "Sogroya",
+    "somapacitan",
+    "somapacitan-beco"
+  ],
   "current_status": {
     "stage": "Approved & marketed; originally approved for adult GHD (2020) and pediatric GHD (2023), expanded Feb 27, 2026 to three additional pediatric indications (idiopathic short stature, small-for-gestational-age without catch-up growth, Noonan syndrome growth failure); a further supplemental application for Turner syndrome is pending with a US decision expected later in 2026",
     "dosing_target": "Once-weekly subcutaneous injection (albumin-binding, non-covalent, long-acting somatropin analog)",
     "partner": null,
     "data_point": "REAL8 Phase 3 basket study: at week 52, once-weekly somapacitan showed comparable annualized height velocity to daily somatropin across ISS (10.2 vs 10.5 cm/yr), SGA (11.0 vs ~9.4-11.1 cm/yr across daily-dose arms), and Noonan syndrome (10.4 vs 9.2 cm/yr); FDA approved all three indications Feb 27, 2026",
-    "last_updated": "2026-02-27"
+    "last_updated": "2026-02-27",
+    "last_checked": "2026-09-03"
   },
   "finding_history": [
     {
@@ -18,7 +27,11 @@
       "date": "2025-05-12",
       "type": "trial_data_readout",
       "summary": "Novo Nordisk presents REAL8 Phase 3 basket study results at the joint ESPE/ESE congress, showing once-weekly Sogroya (somapacitan) is efficacious and well tolerated versus daily growth hormone in children with idiopathic short stature, small-for-gestational-age short stature, and Noonan syndrome growth failure. The release confirms regulatory submissions for these three indications were filed with both FDA and EMA in April 2025.",
-      "source": { "name": "Novo Nordisk press release (GlobeNewswire)", "url": "https://www.globenewswire.com/news-release/2025/05/12/3078801/0/en/Novo-Nordisk-A-S-Once-weekly-Sogroya-somapacitan-is-an-efficacious-and-well-tolerated-long-acting-growth-hormone-in-children-with-growth-disorders-results-from-REAL8-phase-3-basket.html", "tier": 1 },
+      "source": {
+        "name": "Novo Nordisk press release (GlobeNewswire)",
+        "url": "https://www.globenewswire.com/news-release/2025/05/12/3078801/0/en/Novo-Nordisk-A-S-Once-weekly-Sogroya-somapacitan-is-an-efficacious-and-well-tolerated-long-acting-growth-hormone-in-children-with-growth-disorders-results-from-REAL8-phase-3-basket.html",
+        "tier": 1
+      },
       "confidence": "confirmed"
     },
     {
@@ -26,7 +39,11 @@
       "date": "2026-02-27",
       "type": "regulatory",
       "summary": "FDA approves Sogroya (somapacitan-beco) for three new pediatric indications in children 2.5 years and older: idiopathic short stature, short stature due to being small for gestational age without catch-up growth by age 2, and growth failure associated with Noonan syndrome — based on the REAL8 Phase 3 study. Novo Nordisk notes a separate supplemental application for Turner syndrome is under US review, with a decision expected later in 2026.",
-      "source": { "name": "Novo Nordisk press release (PR Newswire)", "url": "https://www.prnewswire.com/news-releases/fda-approves-novo-nordisks-sogroya-as-the-first-and-only-once-weekly-long-acting-growth-hormone-for-three-additional-pediatric-indications-302699946.html", "tier": 1 },
+      "source": {
+        "name": "Novo Nordisk press release (PR Newswire)",
+        "url": "https://www.prnewswire.com/news-releases/fda-approves-novo-nordisks-sogroya-as-the-first-and-only-once-weekly-long-acting-growth-hormone-for-three-additional-pediatric-indications-302699946.html",
+        "tier": 1
+      },
       "confidence": "confirmed"
     }
   ]

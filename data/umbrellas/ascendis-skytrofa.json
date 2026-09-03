@@ -2,15 +2,27 @@
   "id": "ascendis-skytrofa",
   "canonical_name": "Ascendis Pharma – Skytrofa® (TransCon® hGH / lonapegsomatropin-tcgd)",
   "origin": "Global",
-  "entity_type": ["company", "platform", "asset"],
+  "entity_type": [
+    "company",
+    "platform",
+    "asset"
+  ],
   "technology_family": "prodrug_linker",
-  "aliases": ["Ascendis Pharma", "Skytrofa", "TransCon hGH", "TransCon", "lonapegsomatropin-tcgd", "lonapegsomatropin"],
+  "aliases": [
+    "Ascendis Pharma",
+    "Skytrofa",
+    "TransCon hGH",
+    "TransCon",
+    "lonapegsomatropin-tcgd",
+    "lonapegsomatropin"
+  ],
   "current_status": {
     "stage": "Approved & marketed; original pediatric growth hormone deficiency (GHD) indication (approved 2021) expanded to adult GHD (FDA approved Jul 28, 2025), with broader adult dosing ranges commercially available in the US since Oct 22, 2025",
     "dosing_target": "Once-weekly subcutaneous injection (TransCon prodrug releasing native, unmodified hGH)",
     "partner": null,
     "data_point": "Q2 2026: SKYTROFA revenue of EUR 55M, over 20,000 unique patients enrolled, remaining the best-selling long-acting growth hormone in the US by brand value; commercially available or via named-patient programs in more than 30 countries, with full commercial launches planned in 10 additional countries by year-end 2026 (Ascendis Q2 2026 results, Aug 13, 2026)",
-    "last_updated": "2026-08-13"
+    "last_updated": "2026-08-13",
+    "last_checked": "2026-09-03"
   },
   "finding_history": [
     {
@@ -18,7 +30,11 @@
       "date": "2025-07-28",
       "type": "regulatory",
       "summary": "FDA approves SKYTROFA (lonapegsomatropin-tcgd) for once-weekly treatment of adults with growth hormone deficiency, expanding on the drug's original pediatric GHD indication (first approved 2021). Approval based on the Phase 3 foresiGHt trial comparing weekly TransCon hGH to placebo and daily somatropin.",
-      "source": { "name": "Ascendis Pharma press release (Investor Relations)", "url": "https://investors.ascendispharma.com/news-releases/news-release-details/fda-approves-skytrofar-lonapegsomatropin-tcgd-once-weekly", "tier": 1 },
+      "source": {
+        "name": "Ascendis Pharma press release (Investor Relations)",
+        "url": "https://investors.ascendispharma.com/news-releases/news-release-details/fda-approves-skytrofar-lonapegsomatropin-tcgd-once-weekly",
+        "tier": 1
+      },
       "confidence": "confirmed"
     },
     {
@@ -26,7 +42,11 @@
       "date": "2025-10-22",
       "type": "regulatory",
       "summary": "Ascendis announces SKYTROFA is now commercially available in broader dosing ranges in the United States for the treatment of adults with growth hormone deficiency, operationalizing the July 2025 adult-GHD approval.",
-      "source": { "name": "Ascendis Pharma US press release", "url": "https://ascendispharma.us/press/skytrofa/", "tier": 1 },
+      "source": {
+        "name": "Ascendis Pharma US press release",
+        "url": "https://ascendispharma.us/press/skytrofa/",
+        "tier": 1
+      },
       "confidence": "confirmed"
     },
     {
@@ -34,7 +54,11 @@
       "date": "2026-08-13",
       "type": "market_reaction",
       "summary": "Ascendis Pharma's Q2 2026 financial results report SKYTROFA revenue of EUR 55M for the quarter, more than 20,000 unique patients enrolled, and continued status as the best-selling long-acting growth hormone in the US by brand value; the product is now commercially available or accessible via named-patient programs in over 30 countries, with 10 additional full commercial launches planned by year-end 2026.",
-      "source": { "name": "Ascendis Pharma Q2 2026 results press release", "url": "https://investors.ascendispharma.com/news-releases/news-release-details/ascendis-pharma-reports-second-quarter-2026-financial-results", "tier": 1 },
+      "source": {
+        "name": "Ascendis Pharma Q2 2026 results press release",
+        "url": "https://investors.ascendispharma.com/news-releases/news-release-details/ascendis-pharma-reports-second-quarter-2026-financial-results",
+        "tier": 1
+      },
       "confidence": "confirmed"
     }
   ]

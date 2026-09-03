@@ -2,15 +2,26 @@
   "id": "camurus-cam2056",
   "canonical_name": "Camurus – CAM2056 (FluidCrystal®)",
   "origin": "Global",
-  "entity_type": ["company", "platform", "asset"],
+  "entity_type": [
+    "company",
+    "platform",
+    "asset"
+  ],
   "technology_family": "lipid_liquid_crystal_depot",
-  "aliases": ["Camurus", "CAM2056", "FluidCrystal", "CAMX", "Camurus AB"],
+  "aliases": [
+    "Camurus",
+    "CAM2056",
+    "FluidCrystal",
+    "CAMX",
+    "Camurus AB"
+  ],
   "current_status": {
     "stage": "Phase 2b in preparation (H2 2026 start), following positive Phase 1b and FDA Type B meeting",
     "dosing_target": "Monthly",
     "partner": "Eli Lilly (FluidCrystal platform licensing collaboration, expanded June 2026 to include amylin receptor agonists; separate from CAM2056 itself)",
     "data_point": "Phase 1b (n=80, overweight/obesity): CAM2056 produced faster and greater body-weight, A1C and fasting-glucose reductions than weekly Wegovy®, dose-dependently, with comparable safety/tolerability (topline Nov 10, 2025)",
-    "last_updated": "2026-07-15"
+    "last_updated": "2026-07-15",
+    "last_checked": "2026-09-03"
   },
   "finding_history": [
     {
@@ -18,7 +29,11 @@
       "date": "2025-11-10",
       "type": "trial_data_readout",
       "summary": "Camurus reported positive topline results from a randomized, active-controlled Phase 1b study (n=80) of CAM2056, a once-monthly subcutaneous semaglutide FluidCrystal depot. CAM2056 was well tolerated and reduced body weight, A1C and fasting glucose in a dose-dependent manner, with reductions comparable to or exceeding weekly semaglutide. Note: this was Phase 1b, not Phase 2 as an earlier internal note suggested — no Phase 2 data has yet been reported.",
-      "source": { "name": "Camurus press release", "url": "https://www.camurus.com/media/press-releases/2025/camurus-reports-positive-topline-results-for-cam2056-semaglutide-monthly-depot/", "tier": 1 },
+      "source": {
+        "name": "Camurus press release",
+        "url": "https://www.camurus.com/media/press-releases/2025/camurus-reports-positive-topline-results-for-cam2056-semaglutide-monthly-depot/",
+        "tier": 1
+      },
       "confidence": "confirmed"
     },
     {
@@ -26,7 +41,11 @@
       "date": "2026-06-01",
       "type": "deal_partnership",
       "summary": "Eli Lilly exercised its option to expand its June 2025 FluidCrystal collaboration/license agreement with Camurus to include amylin receptor agonists, alongside existing GLP-1/GIP dual and GLP-1/GIP/glucagon triple agonist compounds (up to 4 Lilly molecules total). Camurus is eligible for up to $290M in upfront/development/regulatory milestones plus $580M in sales milestones and tiered royalties. This is a platform-licensing deal for Lilly's own compounds, distinct from Camurus's own CAM2056 asset.",
-      "source": { "name": "Camurus press release – \"Camurus announces expansion of Lilly collaboration\"", "url": "https://www.camurus.com/media/press-releases/2026/camurus-announces-expansion-of-lilly-collaboration/", "tier": 1 },
+      "source": {
+        "name": "Camurus press release – \"Camurus announces expansion of Lilly collaboration\"",
+        "url": "https://www.camurus.com/media/press-releases/2026/camurus-announces-expansion-of-lilly-collaboration/",
+        "tier": 1
+      },
       "confidence": "confirmed"
     },
     {
@@ -34,7 +53,11 @@
       "date": "2026-07-15",
       "type": "trial_data_readout",
       "summary": "In its Q2/interim report for H1 2026, Camurus said it had completed its regulatory submission package for a placebo-controlled CAM2056 Phase 2b study, following FDA Type B meeting feedback, with study initiation planned for H2 2026.",
-      "source": { "name": "Camurus Financial Reports (Interim Report Q1/Q2 2026)", "url": "https://www.camurus.com/investors/financial-reports/", "tier": 1 },
+      "source": {
+        "name": "Camurus Financial Reports (Interim Report Q1/Q2 2026)",
+        "url": "https://www.camurus.com/investors/financial-reports/",
+        "tier": 1
+      },
       "confidence": "confirmed"
     },
     {
@@ -42,7 +65,11 @@
       "date": "2026-07-15",
       "type": "market_reaction",
       "summary": "Camurus reported record quarterly product sales (SEK 528M, +13% YoY, first time above SEK 500M) and record total revenue (SEK 702M) for Q2 2026, driving shares up roughly 17%; full-year guidance was reaffirmed.",
-      "source": { "name": "Camurus Financial Reports (Interim Report Q2 2026)", "url": "https://www.camurus.com/investors/financial-reports/", "tier": 1 },
+      "source": {
+        "name": "Camurus Financial Reports (Interim Report Q2 2026)",
+        "url": "https://www.camurus.com/investors/financial-reports/",
+        "tier": 1
+      },
       "confidence": "confirmed"
     }
   ]

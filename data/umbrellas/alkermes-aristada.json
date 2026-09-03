@@ -2,15 +2,26 @@
   "id": "alkermes-aristada",
   "canonical_name": "Alkermes – Aristada® / Aristada Initio®",
   "origin": "Global",
-  "entity_type": ["company", "asset"],
+  "entity_type": [
+    "company",
+    "asset"
+  ],
   "technology_family": "prodrug_linker",
-  "aliases": ["Alkermes", "Aristada", "Aristada Initio", "aripiprazole lauroxil", "ALKS 9070", "ALKS 9072"],
+  "aliases": [
+    "Alkermes",
+    "Aristada",
+    "Aristada Initio",
+    "aripiprazole lauroxil",
+    "ALKS 9070",
+    "ALKS 9072"
+  ],
   "current_status": {
     "stage": "Approved; mature commercial franchise with modest YoY revenue decline, no imminent generic competition",
     "dosing_target": "Monthly / Every 6 weeks / Every 2 months (aripiprazole lauroxil, dose-dependent)",
     "partner": null,
     "data_point": "Q2 2026 ARISTADA net sales $96.7M (incl. ~$4M favorable gross-to-net), down 4.5% YoY; FY2026 guidance $365-385M",
-    "last_updated": "2026-07-28"
+    "last_updated": "2026-07-28",
+    "last_checked": "2026-09-03"
   },
   "finding_history": [
     {
@@ -18,7 +29,11 @@
       "date": "2018-06-29",
       "type": "regulatory",
       "summary": "FDA approved Aristada Initio (aripiprazole lauroxil), a single-day initiation regimen used with a single 30 mg oral aripiprazole dose to start patients on any Aristada maintenance dose, replacing the prior 3-week oral overlap requirement.",
-      "source": { "name": "Alkermes plc investor relations press release", "url": "https://investor.alkermes.com/news-releases/news-release-details/fda-approves-aristada-initiotm-initiation-aristadar", "tier": 1 },
+      "source": {
+        "name": "Alkermes plc investor relations press release",
+        "url": "https://investor.alkermes.com/news-releases/news-release-details/fda-approves-aristada-initiotm-initiation-aristadar",
+        "tier": 1
+      },
       "confidence": "confirmed"
     },
     {
@@ -26,7 +41,11 @@
       "date": "2024-05-02",
       "type": "manufacturing_capacity",
       "summary": "Alkermes completed the $91M sale of its Athlone, Ireland development/manufacturing facility to Novo Nordisk, with a subcontracting transition arrangement through end of 2025; Aristada and Aristada Initio commercial manufacturing is consolidated at Alkermes' Wilmington, Ohio facility.",
-      "source": { "name": "Alkermes plc investor relations press release", "url": "https://investor.alkermes.com/news-releases/news-release-details/alkermes-plc-completes-sale-athlone-ireland-facility-novo/", "tier": 1 },
+      "source": {
+        "name": "Alkermes plc investor relations press release",
+        "url": "https://investor.alkermes.com/news-releases/news-release-details/alkermes-plc-completes-sale-athlone-ireland-facility-novo/",
+        "tier": 1
+      },
       "confidence": "confirmed"
     },
     {
@@ -34,7 +53,11 @@
       "date": "2026-07-28",
       "type": "market_reaction",
       "summary": "Alkermes Q2 2026 results: ARISTADA product family revenue was $96.7 million (down 4.5% YoY, including ~$4M favorable gross-to-net adjustments); full-year 2026 ARISTADA guidance maintained at $365-385 million, amid broader company revenue growth driven by LUMRYZ post-Avadel acquisition.",
-      "source": { "name": "Alkermes plc Q2 2026 financial results press release", "url": "https://investor.alkermes.com/news-releases/news-release-details/alkermes-plc-reports-second-quarter-2026-financial-results", "tier": 1 },
+      "source": {
+        "name": "Alkermes plc Q2 2026 financial results press release",
+        "url": "https://investor.alkermes.com/news-releases/news-release-details/alkermes-plc-reports-second-quarter-2026-financial-results",
+        "tier": 1
+      },
       "confidence": "confirmed"
     },
     {
@@ -42,7 +65,11 @@
       "date": "2026-06-11",
       "type": "regulatory",
       "summary": "As of mid-2026, no generic version of Aristada has been approved by the FDA and no active ANDA/Paragraph IV litigation was identified; estimated generic launch date based on current patents/exclusivities is April 2039.",
-      "source": { "name": "Drugs.com generic-availability tracker", "url": "https://www.drugs.com/availability/generic-aristada.html", "tier": 3 },
+      "source": {
+        "name": "Drugs.com generic-availability tracker",
+        "url": "https://www.drugs.com/availability/generic-aristada.html",
+        "tier": 3
+      },
       "confidence": "unverified"
     }
   ]

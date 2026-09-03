@@ -2,15 +2,28 @@
   "id": "inventagelab-cns",
   "canonical_name": "InventageLab – CNS LAI Microspheres (Donepezil / Aripiprazole)",
   "origin": "KR",
-  "entity_type": ["company", "platform", "asset"],
+  "entity_type": [
+    "company",
+    "platform",
+    "asset"
+  ],
   "technology_family": "plga_microsphere",
-  "aliases": ["InventageLab", "Inventage Lab", "인벤티지랩", "IVL-DrugFluidic", "IVL3003", "donepezil LAI", "389470"],
+  "aliases": [
+    "InventageLab",
+    "Inventage Lab",
+    "인벤티지랩",
+    "IVL-DrugFluidic",
+    "IVL3003",
+    "donepezil LAI",
+    "389470"
+  ],
   "current_status": {
     "stage": "Donepezil LAI (IVL3003) is the confirmed active CNS asset — Phase 1 completed with topline PK/PD results presented at AAN 2026, partnered with Chong Kun Dang. Note: an aripiprazole CNS asset is referenced in some secondary/aggregator sources under the code 'IVL3002', but InventageLab's own official pipeline page (checked Sept 2026) lists IVL3002 as a hair-loss (not aripiprazole) candidate partnered with Daewoong, and lists no active aripiprazole program — this could not be independently verified and is flagged as unresolved rather than logged as a finding.",
     "dosing_target": "Once monthly (IVL3003, donepezil, IVL-DrugFluidic microsphere)",
     "partner": "Chong Kun Dang (co-development/commercialization of IVL3003 donepezil LAI)",
     "data_point": "Phase 1 topline (AAN 2026, presented Apr 18 2026): plasma drug concentration stable >4 weeks vs. daily oral comparator; dose-proportional systemic exposure; acetylcholinesterase inhibition comparable to repeated oral donepezil (Aricept) dosing",
-    "last_updated": "2026-04-18"
+    "last_updated": "2026-04-18",
+    "last_checked": "2026-09-03"
   },
   "finding_history": [
     {
@@ -18,7 +31,11 @@
       "date": "2022-10-14",
       "type": "deal_partnership",
       "summary": "InventageLab and Chong Kun Dang signed a contract to jointly develop and commercialize IVL3003, a once-monthly donepezil long-acting injectable for dementia, built on InventageLab's IVL-DrugFluidic platform. The partnership remains listed as active on InventageLab's official pipeline page as of this research pass.",
-      "source": { "name": "InventageLab official pipeline page", "url": "https://www.inventagelab.com/en/pipeline.php", "tier": 1 },
+      "source": {
+        "name": "InventageLab official pipeline page",
+        "url": "https://www.inventagelab.com/en/pipeline.php",
+        "tier": 1
+      },
       "confidence": "confirmed"
     },
     {
@@ -26,7 +43,11 @@
       "date": "2026-03-25",
       "type": "trial_data_readout",
       "summary": "IVL3003 Phase 1 trial in Alzheimer's disease patients (n=73), conducted via Nucleus Network in Australia under HREC approval, ran from May 30 2023 through completion on March 25 2026.",
-      "source": { "name": "DementiaNews (Korea)", "url": "https://www.dementianews.co.kr/news/articleView.html?idxno=3762", "tier": 3 },
+      "source": {
+        "name": "DementiaNews (Korea)",
+        "url": "https://www.dementianews.co.kr/news/articleView.html?idxno=3762",
+        "tier": 3
+      },
       "confidence": "unverified"
     },
     {
@@ -34,7 +55,11 @@
       "date": "2026-04-18",
       "type": "trial_data_readout",
       "summary": "InventageLab presented Phase 1 topline results for two CNS long-acting injectable candidates as posters at the American Academy of Neurology (AAN) 2026 annual meeting: IVL3003 (donepezil, dementia) showed plasma concentrations stable beyond 4 weeks with dose-proportional PK and AChE inhibition comparable to repeated Aricept dosing; IVL3004 (drug/alcohol addiction) showed sustained target plasma concentration without initial burst release and a favorable safety profile, at ~20% lower drug dose than existing commercial products.",
-      "source": { "name": "Newsis", "url": "https://www.newsis.com/view/NISX20260420_0003597670", "tier": 2 },
+      "source": {
+        "name": "Newsis",
+        "url": "https://www.newsis.com/view/NISX20260420_0003597670",
+        "tier": 2
+      },
       "confidence": "confirmed"
     }
   ]

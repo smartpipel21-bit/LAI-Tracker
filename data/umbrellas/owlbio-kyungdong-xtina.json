@@ -2,7 +2,11 @@
   "id": "owlbio-kyungdong-xtina",
   "canonical_name": "Owl Bio (Aul Bio) / Kyungdong Pharm – AUL009, Xtina™ (ExTenna™)",
   "origin": "KR",
-  "entity_type": ["company", "platform", "asset"],
+  "entity_type": [
+    "company",
+    "platform",
+    "asset"
+  ],
   "technology_family": "plga_microsphere",
   "aliases": [
     "Owl Bio",
@@ -22,7 +26,8 @@
     "dosing_target": "Monthly",
     "partner": "Kyungdong Pharmaceutical (lead developer) / Aul Bio (platform provider)",
     "data_point": "Single dose maintained stable blood concentration for 30+ days; suppressed initial burst release, reducing early GI side effects; compatible with 27-gauge ultrafine needle",
-    "last_updated": "2026-09-02"
+    "last_updated": "2026-09-02",
+    "last_checked": "2026-09-03"
   },
   "finding_history": [
     {
@@ -30,7 +35,11 @@
       "date": "2026-06-11",
       "type": "trial_data_readout",
       "summary": "Kyungdong Pharmaceutical and Aul Bio presented a Late-Breaking Abstract at ADA 2026 for AUL009, a once-monthly semaglutide microparticle injection built on Aul Bio's proprietary 'Xtina' (also rendered 'ExTenna™') long-acting delivery platform. Human PK/safety data showed a single dose maintained stable blood concentrations for 30+ days, suppressed initial burst release (reducing early nausea/vomiting risk), and is compatible with a 27-gauge ultrafine needle for reduced injection discomfort. Independently corroborated by multiple other Korean trade outlets covering the same presentation (Dailypharm, Medifonews, TheBioNews).",
-      "source": { "name": "약사공론 (KPA News), corroborated by Dailypharm/Medifonews/TheBioNews", "url": "https://www.kpanews.co.kr/news/articleView.html?idxno=536520", "tier": 2 },
+      "source": {
+        "name": "약사공론 (KPA News), corroborated by Dailypharm/Medifonews/TheBioNews",
+        "url": "https://www.kpanews.co.kr/news/articleView.html?idxno=536520",
+        "tier": 2
+      },
       "confidence": "confirmed"
     },
     {
@@ -38,7 +47,11 @@
       "date": "2026-09-02",
       "type": "regulatory",
       "summary": "Kyungdong Pharmaceutical and Aul Bio filed a Phase 1 clinical trial (IND) application with Korea's Ministry of Food and Drug Safety for AUL009, the once-monthly semaglutide long-acting injectable, to evaluate safety, tolerability, PK, and PD toward establishing dosing strategy for obesity/metabolic disease.",
-      "source": { "name": "약사공론 (KPA News)", "url": "https://www.kpanews.co.kr/news/articleView.html?idxno=542327", "tier": 2 },
+      "source": {
+        "name": "약사공론 (KPA News)",
+        "url": "https://www.kpanews.co.kr/news/articleView.html?idxno=542327",
+        "tier": 2
+      },
       "confidence": "unverified"
     }
   ]

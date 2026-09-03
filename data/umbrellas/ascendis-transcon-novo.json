@@ -2,15 +2,25 @@
   "id": "ascendis-transcon-novo",
   "canonical_name": "Ascendis Pharma – TransCon® GLP-1 (Novo Nordisk collaboration)",
   "origin": "Global",
-  "entity_type": ["company", "platform", "asset"],
+  "entity_type": [
+    "company",
+    "platform",
+    "asset"
+  ],
   "technology_family": "prodrug_linker",
-  "aliases": ["Ascendis Pharma", "ASND", "TransCon", "TransCon GLP-1"],
+  "aliases": [
+    "Ascendis Pharma",
+    "ASND",
+    "TransCon",
+    "TransCon GLP-1"
+  ],
   "current_status": {
     "stage": "Preclinical/IND-enabling; Ascendis expects at least two new chemical entities (including the Novo Nordisk TransCon GLP-1 program and an internally developed candidate) to enter clinical trials in 2026",
     "dosing_target": "Monthly",
     "partner": "Novo Nordisk",
     "data_point": "No clinical efficacy data yet reported for the lead TransCon GLP-1 receptor agonist candidate as of Sept 2026",
-    "last_updated": "2026-08-20"
+    "last_updated": "2026-08-20",
+    "last_checked": "2026-09-03"
   },
   "finding_history": [
     {
@@ -18,7 +28,11 @@
       "date": "2024-11-07",
       "type": "deal_partnership",
       "summary": "Ascendis Pharma and Novo Nordisk signed a collaboration and license agreement for TransCon technology-based products in metabolic and cardiovascular disease. The lead program is a once-monthly GLP-1 receptor agonist candidate — a novel molecule engineered on Ascendis's TransCon prodrug/linker platform, not a reformulation of an existing semaglutide product — initially targeting obesity and type 2 diabetes. Deal terms: up to $285M in upfront/development/regulatory milestones for the lead program (including a $100M upfront fee) plus tiered royalties, and up to $77.5M in milestones for each additional program.",
-      "source": { "name": "Ascendis Pharma press release", "url": "https://investors.ascendispharma.com/news-releases/news-release-details/ascendis-pharma-and-novo-nordisk-sign-collaboration-development", "tier": 1 },
+      "source": {
+        "name": "Ascendis Pharma press release",
+        "url": "https://investors.ascendispharma.com/news-releases/news-release-details/ascendis-pharma-and-novo-nordisk-sign-collaboration-development",
+        "tier": 1
+      },
       "confidence": "confirmed"
     },
     {
@@ -26,7 +40,11 @@
       "date": "2026-08-20",
       "type": "trial_data_readout",
       "summary": "On its Q2 2026 earnings call, Ascendis said it expects at least two new chemical entities to enter clinical trials in 2026, including the TransCon GLP-1 program partnered with Novo Nordisk and an internally developed candidate, indicating the Novo Nordisk collaboration molecule is advancing toward its first clinical trial in 2026.",
-      "source": { "name": "Ascendis Pharma Q2 2026 earnings call transcript", "url": "https://www.fool.com/earnings/call-transcripts/2026/08/20/ascendis-pharma-asnd-q2-2026-earnings-call-transcript/", "tier": 2 },
+      "source": {
+        "name": "Ascendis Pharma Q2 2026 earnings call transcript",
+        "url": "https://www.fool.com/earnings/call-transcripts/2026/08/20/ascendis-pharma-asnd-q2-2026-earnings-call-transcript/",
+        "tier": 2
+      },
       "confidence": "unverified"
     }
   ]

@@ -2,15 +2,26 @@
   "id": "alkermes-vivitrol",
   "canonical_name": "Alkermes – Vivitrol® (naltrexone PLGA microsphere)",
   "origin": "Global",
-  "entity_type": ["company", "asset"],
+  "entity_type": [
+    "company",
+    "asset"
+  ],
   "technology_family": "plga_microsphere",
-  "aliases": ["Alkermes", "Vivitrol", "VIVITROL", "naltrexone for extended-release injectable suspension", "ALKS", "Medisorb"],
+  "aliases": [
+    "Alkermes",
+    "Vivitrol",
+    "VIVITROL",
+    "naltrexone for extended-release injectable suspension",
+    "ALKS",
+    "Medisorb"
+  ],
   "current_status": {
     "stage": "Approved & marketed (US); wholly owned Alkermes product; patent settlement licenses Teva to launch a generic starting Jan 15, 2027 (2 yrs ahead of 2029 patent expiry); a separate Amneal authorized-generic supply agreement was terminated in July 2026",
     "dosing_target": "Monthly (intramuscular)",
     "partner": "None (wholly owned); Teva licensed for future generic entry (2027); Amneal authorized-generic supply deal terminated 2026",
     "data_point": "Q2 2026 net sales $124.5M (vs $121.7M PY); Q1 2026 net sales $112.4M; FY2026 guidance $460-480M",
-    "last_updated": "2026-07-28"
+    "last_updated": "2026-07-28",
+    "last_checked": "2026-09-03"
   },
   "finding_history": [
     {
@@ -18,7 +29,11 @@
       "date": "2023-08-30",
       "type": "deal_partnership",
       "summary": "Alkermes settled patent litigation with Teva over Vivitrol (US Patent 7,919,499), granting Teva a license to market a generic version of Vivitrol in the US beginning January 15, 2027 (or earlier under customary circumstances) — roughly two years before the patent's 2029 expiry. Ends litigation Alkermes filed in 2020.",
-      "source": { "name": "Alkermes press release (PR Newswire)", "url": "https://www.prnewswire.com/news-releases/alkermes-announces-settlement-with-teva-related-to-vivitrol-patent-litigation-301913126.html", "tier": 1 },
+      "source": {
+        "name": "Alkermes press release (PR Newswire)",
+        "url": "https://www.prnewswire.com/news-releases/alkermes-announces-settlement-with-teva-related-to-vivitrol-patent-litigation-301913126.html",
+        "tier": 1
+      },
       "confidence": "confirmed"
     },
     {
@@ -26,7 +41,11 @@
       "date": "2026-05-05",
       "type": "market_reaction",
       "summary": "Q1 2026 results: Vivitrol net sales $112.4M; full-year 2026 Vivitrol guidance reaffirmed at $460M-$480M. Overall Alkermes revenue beat estimates, aided by the recent Avadel (LUMRYZ) acquisition.",
-      "source": { "name": "Alkermes Q1 2026 earnings materials", "url": "https://investor.alkermes.com/static-files/61b5fbcf-74e9-4b92-9d7d-92fce21779b8", "tier": 1 },
+      "source": {
+        "name": "Alkermes Q1 2026 earnings materials",
+        "url": "https://investor.alkermes.com/static-files/61b5fbcf-74e9-4b92-9d7d-92fce21779b8",
+        "tier": 1
+      },
       "confidence": "confirmed"
     },
     {
@@ -34,7 +53,11 @@
       "date": "2026-07-06",
       "type": "deal_partnership",
       "summary": "Alkermes and Amneal Pharmaceuticals terminated their Authorized Generic Product Supply Agreement for Vivitrol (originally signed Sept 9, 2025) after Amneal notified Alkermes it did not intend to order any batches. No penalties or further obligations remain between the parties.",
-      "source": { "name": "Alkermes 8-K (SEC)", "url": "https://www.sec.gov/Archives/edgar/data/1520262/000119312526298004/alks-20260706.htm", "tier": 1 },
+      "source": {
+        "name": "Alkermes 8-K (SEC)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1520262/000119312526298004/alks-20260706.htm",
+        "tier": 1
+      },
       "confidence": "confirmed"
     },
     {
@@ -42,7 +65,11 @@
       "date": "2026-07-28",
       "type": "market_reaction",
       "summary": "Q2 2026 results: Vivitrol net sales $124.5M (vs $121.7M prior-year period), aided by alcohol-dependence demand growth and ~$4M favorable gross-to-net patient-mix adjustments; total proprietary net sales $411.7M vs $307.2M PY; full-year 2026 Vivitrol guidance of $460M-$480M reaffirmed.",
-      "source": { "name": "Alkermes Q2 2026 earnings materials", "url": "https://investor.alkermes.com/static-files/b632dac1-81e9-409c-9d1b-dd8580e2edd8", "tier": 1 },
+      "source": {
+        "name": "Alkermes Q2 2026 earnings materials",
+        "url": "https://investor.alkermes.com/static-files/b632dac1-81e9-409c-9d1b-dd8580e2edd8",
+        "tier": 1
+      },
       "confidence": "confirmed"
     }
   ]

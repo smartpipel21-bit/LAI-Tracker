@@ -2,15 +2,26 @@
   "id": "vivani-npm139",
   "canonical_name": "Vivani Medical – NPM-139 (NanoPortal™)",
   "origin": "Global",
-  "entity_type": ["company", "platform", "asset"],
+  "entity_type": [
+    "company",
+    "platform",
+    "asset"
+  ],
   "technology_family": "subdermal_implant",
-  "aliases": ["Vivani Medical", "VANI", "NPM-139", "NanoPortal", "SLIM-1"],
+  "aliases": [
+    "Vivani Medical",
+    "VANI",
+    "NPM-139",
+    "NanoPortal",
+    "SLIM-1"
+  ],
   "current_status": {
     "stage": "Phase 1 (SLIM-1) fully enrolled and dosed as of Aug 2026 (this supersedes an earlier note that the program was only 'advancing toward' Phase 1); topline results expected November 2026",
     "dosing_target": "Every 6-12 months",
     "partner": "Novo Nordisk (non-exclusive evaluation agreement, no exclusivity over NPM-139 or NanoPortal)",
     "data_point": "SLIM-1: open-label, active-controlled Phase 1 (n=20; 10 on low-dose NPM-139 implant, 10 on starting-dose Wegovy 0.25mg/week) over 4 weeks, evaluating safety, PK and tolerability of the miniature semaglutide implant vs. weekly Wegovy injections",
-    "last_updated": "2026-08-06"
+    "last_updated": "2026-08-06",
+    "last_checked": "2026-09-03"
   },
   "finding_history": [
     {
@@ -18,7 +29,11 @@
       "date": "2026-07-07",
       "type": "deal_partnership",
       "summary": "Vivani Medical entered into an agreement with Novo Nordisk to evaluate NPM-139, Vivani's miniature, ultra-long-acting semaglutide implant built on its NanoPortal platform, for chronic weight management. The agreement carries no exclusivity provisions for NPM-139 or the NanoPortal technology.",
-      "source": { "name": "Vivani Medical press release via GlobeNewswire", "url": "https://www.globenewswire.com/news-release/2026/07/07/3323068/0/en/vivani-medical-enters-into-agreement-with-novo-nordisk-to-evaluate-npm-139-a-miniature-ultra-long-acting-semaglutide-implant-for-chronic-weight-management.html", "tier": 1 },
+      "source": {
+        "name": "Vivani Medical press release via GlobeNewswire",
+        "url": "https://www.globenewswire.com/news-release/2026/07/07/3323068/0/en/vivani-medical-enters-into-agreement-with-novo-nordisk-to-evaluate-npm-139-a-miniature-ultra-long-acting-semaglutide-implant-for-chronic-weight-management.html",
+        "tier": 1
+      },
       "confidence": "confirmed"
     },
     {
@@ -26,7 +41,11 @@
       "date": "2026-08-06",
       "type": "trial_data_readout",
       "summary": "Vivani announced successful dosing of all participants in SLIM-1, its Phase 1 trial evaluating NPM-139 against a Wegovy active comparator. The first 10 participants were dosed July 29 (ahead of schedule) and the remaining 10 one week later, with all implant insertion procedures completed without issues. Topline results are expected in November 2026.",
-      "source": { "name": "Vivani Medical press release via GlobeNewswire", "url": "https://www.globenewswire.com/news-release/2026/08/06/3340189/0/en/Vivani-Medical-Announces-Successful-Dosing-of-All-Participants-in-SLIM-1-a-Phase-1-Trial-Evaluating-NPM-139-a-Miniature-Ultra-Long-Acting-Semaglutide-Implant-for-Chronic-Weight-Man.html", "tier": 1 },
+      "source": {
+        "name": "Vivani Medical press release via GlobeNewswire",
+        "url": "https://www.globenewswire.com/news-release/2026/08/06/3340189/0/en/Vivani-Medical-Announces-Successful-Dosing-of-All-Participants-in-SLIM-1-a-Phase-1-Trial-Evaluating-NPM-139-a-Miniature-Ultra-Long-Acting-Semaglutide-Implant-for-Chronic-Weight-Man.html",
+        "tier": 1
+      },
       "confidence": "confirmed"
     }
   ]

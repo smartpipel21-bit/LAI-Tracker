@@ -2,15 +2,28 @@
   "id": "otsuka-lundbeck-abilifymaintena",
   "canonical_name": "Otsuka / Lundbeck – Abilify Maintena® / Abilify Asimtufii®",
   "origin": "Global",
-  "entity_type": ["company", "asset"],
+  "entity_type": [
+    "company",
+    "asset"
+  ],
   "technology_family": "plga_microsphere",
-  "aliases": ["Otsuka", "Otsuka Pharmaceutical", "Lundbeck", "H. Lundbeck", "Abilify Maintena", "Abilify Asimtufii", "aripiprazole", "エビリファイメンテナ"],
+  "aliases": [
+    "Otsuka",
+    "Otsuka Pharmaceutical",
+    "Lundbeck",
+    "H. Lundbeck",
+    "Abilify Maintena",
+    "Abilify Asimtufii",
+    "aripiprazole",
+    "エビリファイメンテナ"
+  ],
   "current_status": {
     "stage": "Approved; Asimtufii (once-every-2-months) commercial growth offsetting Maintena (monthly) generic/patent erosion",
     "dosing_target": "Monthly (Maintena) / Once every 2 months (Asimtufii)",
     "partner": "Lundbeck (co-development/co-commercialization)",
     "data_point": "H1 FY2026 (Jan-Jun 2026) combined Abilify Maintena/Asimtufii sales ¥149.5B, +19.2% YoY, driven by North America prescription growth (single-source, unverified)",
-    "last_updated": "2026-07-31"
+    "last_updated": "2026-07-31",
+    "last_checked": "2026-09-03"
   },
   "finding_history": [
     {
@@ -18,7 +31,11 @@
       "date": "2013-02-28",
       "type": "regulatory",
       "summary": "FDA approved Abilify Maintena (aripiprazole), the first once-monthly dopamine D2 partial-agonist LAI, for treatment of schizophrenia in adults.",
-      "source": { "name": "Otsuka Pharmaceutical Co., Ltd. press release", "url": "https://www.otsuka.co.jp/en/company/newsreleases/2013/20130301_1.html", "tier": 1 },
+      "source": {
+        "name": "Otsuka Pharmaceutical Co., Ltd. press release",
+        "url": "https://www.otsuka.co.jp/en/company/newsreleases/2013/20130301_1.html",
+        "tier": 1
+      },
       "confidence": "confirmed"
     },
     {
@@ -26,7 +43,11 @@
       "date": "2023-04-27",
       "type": "regulatory",
       "summary": "FDA approved Abilify Asimtufii (aripiprazole), the first once-every-two-months LAI, for schizophrenia and for maintenance monotherapy treatment of bipolar I disorder in adults — positioned to offset Abilify Maintena's approaching loss of exclusivity.",
-      "source": { "name": "Otsuka US press release", "url": "https://otsuka-us.com/news/fda-approves-otsuka-and-lundbecks-abilify-asimtufiir-aripiprazole-first-once-every-two-months", "tier": 1 },
+      "source": {
+        "name": "Otsuka US press release",
+        "url": "https://otsuka-us.com/news/fda-approves-otsuka-and-lundbecks-abilify-asimtufiir-aripiprazole-first-once-every-two-months",
+        "tier": 1
+      },
       "confidence": "confirmed"
     },
     {
@@ -34,7 +55,11 @@
       "date": "2024-10-01",
       "type": "regulatory",
       "summary": "Abilify Maintena lost market exclusivity (patent expiry) in both the US and Europe in October 2024; GlobalData projected a ~12% sales decline from 2024-2025 and continued erosion through 2029 as generics enter.",
-      "source": { "name": "BioSpace (citing GlobalData analysis)", "url": "https://www.biospace.com/otsuka-s-longer-acting-schizophrenia-injection-to-offset-abilify-patent-loss-globaldata", "tier": 2 },
+      "source": {
+        "name": "BioSpace (citing GlobalData analysis)",
+        "url": "https://www.biospace.com/otsuka-s-longer-acting-schizophrenia-injection-to-offset-abilify-patent-loss-globaldata",
+        "tier": 2
+      },
       "confidence": "unverified"
     },
     {
@@ -42,7 +67,11 @@
       "date": "2026-03-04",
       "type": "market_reaction",
       "summary": "Otsuka Pharmaceutical Canada and Lundbeck Canada secured broadened public-plan reimbursement for Abilify Asimtufii, now covering over 90% of Canadians with public drug-plan coverage and ~60% with private coverage, across Ontario, Quebec, BC, Nova Scotia, PEI, Alberta and federal plans including NIHB.",
-      "source": { "name": "Cision/Newswire.ca (Otsuka/Lundbeck Canada release)", "url": "https://www.newswire.ca/news-releases/otsuka-pharmaceutical-canada-inc-and-lundbeck-canada-inc-secure-public-reimbursement-of-abilify-asimtufii-r--850554493.html", "tier": 2 },
+      "source": {
+        "name": "Cision/Newswire.ca (Otsuka/Lundbeck Canada release)",
+        "url": "https://www.newswire.ca/news-releases/otsuka-pharmaceutical-canada-inc-and-lundbeck-canada-inc-secure-public-reimbursement-of-abilify-asimtufii-r--850554493.html",
+        "tier": 2
+      },
       "confidence": "confirmed"
     },
     {
@@ -50,7 +79,11 @@
       "date": "2026-07-31",
       "type": "market_reaction",
       "summary": "Otsuka Holdings FY2026 H1 (Jan-Jun 2026) results: Abilify Maintena/Asimtufii combined sales rose 19.2% YoY to ¥149.5 billion, driven by expanded North America prescriptions; company also noted generic entry for Abilify Maintena in Europe was slower than initially assumed, supporting stronger-than-expected results.",
-      "source": { "name": "BigGo Finance (Otsuka Holdings FY2026 Q2 earnings summary)", "url": "https://finance.biggo.com/news/JP_4578.T_2026-07-31", "tier": 3 },
+      "source": {
+        "name": "BigGo Finance (Otsuka Holdings FY2026 Q2 earnings summary)",
+        "url": "https://finance.biggo.com/news/JP_4578.T_2026-07-31",
+        "tier": 3
+      },
       "confidence": "unverified"
     }
   ]
