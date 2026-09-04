@@ -123,6 +123,47 @@ export function formatDate(value, long = false) {
     : { day: "2-digit", month: "short", timeZone: "UTC" }).format(date);
 }
 
+const RUN_LABELS = { daily_scan: "Daily scan", weekly_sweep: "Weekly sweep", qc_tier2: "QC Tier 2" };
+const RUN_CADENCE_DAYS = { daily_scan: 2, weekly_sweep: 10, qc_tier2: 10 };
+
+export function daysSince(dateValue, now = Date.now()) {
+  if (!dateValue) return null;
+  const parsed = Date.parse(dateValue);
+  if (Number.isNaN(parsed)) return null;
+  return Math.max(0, Math.floor((now - parsed) / 86400000));
+}
+
+export function assessRunHealth(runStatus = {}, now = Date.now()) {
+  const checks = Object.entries(RUN_CADENCE_DAYS).map(([key, maxDays]) => {
+    const days = daysSince(runStatus[key], now);
+    return { key, label: RUN_LABELS[key], days, status: days === null ? "never" : days <= maxDays ? "healthy" : "stale" };
+  });
+  const healthyCount = checks.filter((check) => check.status === "healthy").length;
+  const allHealthy = healthyCount === checks.length;
+  const summary = allHealthy
+    ? "Daily scan and weekly QC are both running on schedule."
+    : checks
+        .filter((check) => check.status !== "healthy")
+        .map((check) => (check.status === "never" ? `${check.label} has never run` : `${check.label} is ${check.days}d overdue`))
+        .join("; ") + ".";
+  return { checks, healthyCount, total: checks.length, allHealthy, summary };
+}
+
+export function interpretLeader(leader, developmentPrograms, now = Date.now()) {
+  if (!leader) return "";
+  const days = daysSince(leader.current_status?.last_updated, now);
+  const updated = days === null ? "update date unavailable" : days === 0 ? "updated today" : `updated ${days}d ago`;
+  const others = developmentPrograms.filter((program) => program.id !== leader.id);
+  if (!others.length) return `Only program at this stage; ${updated}.`;
+  const nextBest = Math.max(...others.map((program) => program.stageOrder));
+  const gap = leader.stageOrder - nextBest;
+  if (gap <= 0) {
+    const tied = others.filter((program) => program.stageOrder === leader.stageOrder).length;
+    return `Tied with ${tied} other program${tied === 1 ? "" : "s"} at ${leader.stageLabel}; ${updated}.`;
+  }
+  return `Leads by ${gap} stage${gap === 1 ? "" : "s"} over the next-closest program; ${updated}.`;
+}
+
 export function prepareDatabase(payload) {
   const records = (payload.records ?? []).map((record) => {
     const names = splitName(record.canonical_name);
@@ -158,18 +199,19 @@ export function prepareDatabase(payload) {
   const candidates = payload.candidates ?? [];
   const pendingCandidates = candidates.filter((candidate) => candidate.status === "pending");
   const runStatus = payload.meta?.last_run ?? {};
-  const operationalRuns = ["daily_scan", "weekly_sweep", "qc_tier2", "qc_tier3"];
-  const completedRuns = operationalRuns.filter((key) => runStatus[key]).length;
+  const health = assessRunHealth(runStatus);
+  const leaderNote = interpretLeader(leader, developmentPrograms);
 
   return {
     records,
     findings,
     semaglutidePrograms,
     leader,
+    leaderNote,
     candidates,
     pendingCandidates,
     runStatus,
-    completedRuns,
+    health,
     latestDataDate: payload.latest_data_date,
     builtAt: payload.built_at
   };

@@ -60,11 +60,12 @@ function renderOverview(data) {
   $("#leader-program").textContent = data.leader.program;
   $("#leader-stage").textContent = data.leader.stageLabel;
   $("#leader-summary").textContent = truncate(data.leader.current_status?.stage, 330);
+  $("#leader-interpretation").textContent = data.leaderNote;
 
   const conditions = [
     ["01", "Tracked intelligence", data.records.length, "Accepted", "blue", `${data.findings.length} evidence items accepted into the historical record.`, "#367fd0"],
     ["02", "Pending review", data.pendingCandidates.length, "Analyst queue", "amber", "Newly detected entities awaiting an analyst decision before entering the tracker.", "#e4a11b"],
-    ["03", "Monitoring & QC", `${data.completedRuns}/4`, data.completedRuns ? "Active" : "Awaiting run", data.completedRuns ? "green" : "orange", data.completedRuns ? "Scheduled scan and quality-control runs are recorded in meta.json." : "Initial seed loaded; scheduled daily, weekly and QC runs have not yet been recorded.", "#2bb98a"]
+    ["03", "Monitoring & QC", `${data.health.healthyCount}/${data.health.total}`, data.health.allHealthy ? "Active" : "Attention", data.health.allHealthy ? "green" : "orange", data.health.summary, "#2bb98a"]
   ];
   const container = clear($("#tracking-conditions"));
   conditions.forEach(([index, label, value, badgeText, tone, detail, color]) => {
@@ -101,7 +102,7 @@ function renderIntelligence(data) {
     ["Development lead", `${data.leader.company} · ${data.leader.stageLabel}`],
     ["30-day signal volume", `${recent.length} findings${topType ? `; ${FINDING_LABELS[topType] ?? topType} is most frequent` : ""}.`],
     ["Analyst attention", `${data.pendingCandidates.length} candidate entities await review.`],
-    ["Monitoring state", data.completedRuns ? `${data.completedRuns} of 4 scheduled scan/QC timestamps are recorded.` : "Scheduled scan and QC timestamps have not yet been populated."]
+    ["Monitoring state", data.health.summary]
   ];
   const readout = clear($("#readout"));
   items.forEach(([title, body]) => {

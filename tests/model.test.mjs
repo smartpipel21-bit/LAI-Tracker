@@ -3,7 +3,7 @@ import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
-import { normalizeStage, prepareDatabase, safeUrl } from "../src/model.js";
+import { assessRunHealth, interpretLeader, normalizeStage, prepareDatabase, safeUrl } from "../src/model.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -33,6 +33,31 @@ test("prepares the complete repository snapshot and identifies the development l
   assert.ok(data.pendingCandidates.length >= 9, `expected at least 9 pending candidates, got ${data.pendingCandidates.length}`);
   assert.equal(data.leader.id, "mapi-pharma-semaglutide");
   assert.equal(data.leader.stageLabel, "Phase 2");
+});
+
+test("flags stale or never-run monitoring types against their expected cadence", () => {
+  const now = Date.parse("2026-09-04T00:00:00Z");
+  const healthy = assessRunHealth({ daily_scan: "2026-09-03T00:00:00Z", weekly_sweep: "2026-08-28T00:00:00Z", qc_tier2: "2026-08-28T00:00:00Z" }, now);
+  assert.equal(healthy.allHealthy, true);
+  assert.equal(healthy.healthyCount, 3);
+
+  const stale = assessRunHealth({ daily_scan: "2026-09-03T00:00:00Z", weekly_sweep: null, qc_tier2: null }, now);
+  assert.equal(stale.allHealthy, false);
+  assert.equal(stale.healthyCount, 1);
+  assert.match(stale.summary, /Weekly sweep has never run/);
+  assert.match(stale.summary, /QC Tier 2 has never run/);
+});
+
+test("interprets the leader's lead margin and tie state", () => {
+  const now = Date.parse("2026-09-04T00:00:00Z");
+  const leader = { id: "a", stageOrder: 4, stageLabel: "Phase 2", current_status: { last_updated: "2026-09-01" } };
+  const trailing = { id: "b", stageOrder: 3, stageLabel: "Phase 1", current_status: {} };
+  assert.match(interpretLeader(leader, [leader, trailing], now), /Leads by 1 stage over the next-closest program; updated 3d ago\./);
+
+  const tiedWith = { id: "c", stageOrder: 4, stageLabel: "Phase 2", current_status: {} };
+  assert.match(interpretLeader(leader, [leader, tiedWith], now), /Tied with 1 other program at Phase 2/);
+
+  assert.match(interpretLeader(leader, [leader], now), /Only program at this stage/);
 });
 
 test("accepts only web source links", () => {
