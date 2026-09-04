@@ -140,7 +140,7 @@ Commit to the GitHub repo with a clear message describing what changed and why (
 
 After a Daily scan or Weekly sweep, draft one bundled digest of what changed this run as a **Gmail draft**, not a sent email. This mirrors the promotion boundary above: drafting is this skill's job, sending is a decision only the admin makes, every time — there is no standing authorization to send mail unattended. If a future admin decision changes this policy, it will be written here explicitly; until then, draft-only is the rule, not a placeholder.
 
-**Don't hand-write the HTML.** `email/templates/daily-digest.html` is a tokenized template; `scripts/render-email.mjs` fills it in deterministically (the same pattern as `scripts/build.mjs` for the dashboard). Never edit the rendered HTML by hand or improvise your own markup — a run that hand-edits raw HTML is exactly the kind of small inconsistency that compounds into drift over months of unattended runs. Your job is to supply the input data, run the script, and hand its output to the Gmail draft tool unmodified.
+**Don't hand-write the HTML, and don't touch the template file.** `email/templates/daily-digest.html` and `scripts/render-email.mjs` are frozen infrastructure, exactly like the dashboard's `index.html`/`src/`/`scripts/build.mjs` — a routine run changes data, never design. Never edit the rendered HTML by hand, never improvise your own markup, and never modify the template file itself from this skill, even if the output looks like it could use a tweak — that's a deliberate, reviewed, one-off change the admin makes in conversation, not something a daily/weekly run does on its own. Your job every run is only to supply the input data, run the script unmodified, and hand its output to the Gmail draft tool unmodified.
 
 **1. Build the input payload** as a JSON object (write it to a scratch path, e.g. `email/draft-input.json` — this file is gitignored, it's per-run scratch, not registry data):
 
@@ -184,5 +184,5 @@ If there's nothing in any of the three arrays, the script prints a message and w
 - Never fire more than two query variants for a single alias.
 - Never retry a domain that returned `EGRESS_BLOCKED` this run.
 - Never do a deep multi-query dive on any umbrella before every umbrella has had its first-pass query — breadth before depth.
-- Never edit the app's interface/UI code.
+- Never edit the app's interface/UI code, or the email digest template/renderer.
 - Never log a claim as "confirmed" without meeting the Tier 1/Tier 2 source rule.
