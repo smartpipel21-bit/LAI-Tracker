@@ -20,11 +20,16 @@ data/
   candidates.json   pending entities discovered but not yet reviewed
   meta.json     last-run timestamps and source health
 src/            browser application and data-normalization logic
-scripts/        dependency-free static build
-tests/          Node tests for normalization and repository counts
+scripts/        dependency-free static build + email digest renderer
+tests/          Node tests for normalization, repository counts, and the email renderer
+email/templates/  tokenized HTML template for the daily/weekly digest email
 index.html      Vercel dashboard entry point
 vercel.json     explicit static build and output configuration
 ```
+
+## Email digest
+
+`scripts/render-email.mjs` fills `email/templates/daily-digest.html` from a per-run JSON input (see the `lai-tracker-scan` skill's "Email digest" section for the exact contract) and produces `{ subject, preheader, html }`, which the skill hands to a Gmail draft — never sent automatically. `email/draft-input.json` / `email/draft-output.json` are gitignored scratch files, regenerated every run.
 
 ## Local build
 

@@ -5,3 +5,5 @@ __pycache__/
 node_modules/
 dist/
 .vercel/
+email/draft-input.json
+email/draft-output.json

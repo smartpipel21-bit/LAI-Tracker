@@ -138,7 +138,45 @@ Commit to the GitHub repo with a clear message describing what changed and why (
 
 ## Email digest
 
-After a Daily scan or Weekly sweep, draft a short digest of what changed this run as a **Gmail draft**, not a sent email. Lead with findings and candidates that fall inside the freshness window (see above) as the headline "what's new" — that's what should read as punctual. Anything logged this run but discovered late (real news outside the freshness window) goes in a separate, clearly-labeled section with its true original date, never blended into the headline list. This mirrors the promotion boundary above: drafting is this skill's job, sending is a decision only the admin makes, every time — there is no standing authorization to send mail unattended. If a future admin decision changes this policy, it will be written here explicitly; until then, draft-only is the rule, not a placeholder.
+After a Daily scan or Weekly sweep, draft one bundled digest of what changed this run as a **Gmail draft**, not a sent email. This mirrors the promotion boundary above: drafting is this skill's job, sending is a decision only the admin makes, every time — there is no standing authorization to send mail unattended. If a future admin decision changes this policy, it will be written here explicitly; until then, draft-only is the rule, not a placeholder.
+
+**Don't hand-write the HTML.** `email/templates/daily-digest.html` is a tokenized template; `scripts/render-email.mjs` fills it in deterministically (the same pattern as `scripts/build.mjs` for the dashboard). Never edit the rendered HTML by hand or improvise your own markup — a run that hand-edits raw HTML is exactly the kind of small inconsistency that compounds into drift over months of unattended runs. Your job is to supply the input data, run the script, and hand its output to the Gmail draft tool unmodified.
+
+**1. Build the input payload** as a JSON object (write it to a scratch path, e.g. `email/draft-input.json` — this file is gitignored, it's per-run scratch, not registry data):
+
+```json
+{
+  "runDate": "2026-09-04",
+  "leadIn": "One short sentence summarizing the run — findings + late items + candidates, in your own words.",
+  "findings": [ /* one entry per finding inside the freshness window this run — see fields below */ ],
+  "lateItems": [ /* real findings logged this run but dated outside the freshness window (see above) */ ],
+  "candidates": [ /* new Track B1/B2 candidates from this run */ ]
+}
+```
+
+Each `findings[]` entry needs both **direct fields** (copy straight from what you just wrote to the umbrella file — never re-derive or reformat them) and a **small number of short, synthesized fields** (write these fresh, using the source you just read and the umbrella's prior `current_status` — you already have both in context from logging the finding, so this is a marginal step, not new research):
+
+| Field | Source | Direct or synthesized |
+|---|---|---|
+| `type`, `confidence`, `sourceTier`, `findingId`, `sourceUrl`, `sourceName` | The finding object you just wrote | Direct |
+| `headline`, `subtitle` | The umbrella's `canonical_name`, split into company / program | Direct |
+| `whatHappened` | The finding's own summary | Direct (verbatim or lightly trimmed, never embellished) |
+| `stageChange: {from, to}` | Only if this finding changed `current_status.stage` — the value it held before this run vs. after | Direct — omit the field entirely if the stage didn't change, don't force one |
+| `why` | — | **Synthesized.** 1–2 sentences: why this specific finding is worth the reader's attention right now. Use `**bold**` for the opening clause, like the sample template does. |
+| `impactNote` | — | **Synthesized.** 1 sentence of context beyond the raw stage change — omit if you have nothing beyond the mechanical `stageChange`. |
+| `watchNext` | — | **Synthesized.** 1 sentence: the concrete next event(s) that would confirm or complicate this finding. |
+
+`lateItems[]` entries are lighter — `headline`, `originalDate`, `summary`, `sourceUrl`, `sourceName`, all direct fields, no synthesis. `candidates[]` entries are `name`, `snippet` (from the candidate's evidence), `sourceUrl`, `sourceName`, also all direct.
+
+**2. Run the renderer:**
+
+```bash
+node scripts/render-email.mjs email/draft-input.json email/draft-output.json
+```
+
+If there's nothing in any of the three arrays, the script prints a message and writes no output file — that's the signal to skip drafting an email entirely this run, not an error to work around.
+
+**3. Read `email/draft-output.json`** — it has exactly `{ "subject": "...", "preheader": "...", "html": "..." }`. Pass `subject` and `html` to the Gmail draft tool as-is. Don't edit, re-wrap, or re-escape either value — the script already handles escaping and the light `**bold**` markup.
 
 ## Hard boundaries, recap
 
