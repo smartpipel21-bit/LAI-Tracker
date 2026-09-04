@@ -2,7 +2,7 @@
   "last_run": {
     "initial_seed": "2026-09-02T00:00:00Z",
     "initial_discovery_test": "2026-09-02T00:00:00Z",
-    "daily_scan": "2026-09-04T00:00:00Z",
+    "daily_scan": "2026-09-04T21:07:40Z",
     "weekly_sweep": null,
     "qc_tier2": null,
     "qc_tier3": null
@@ -15,5 +15,8 @@
       "skipped_budget_exhausted": 0
     }
   },
-  "source_health": {}
+  "source_health": {
+    "fiercepharma.com": { "last_success": null, "status": "blocked" },
+    "prnewswire.com": { "last_success": null, "status": "blocked" }
+  }
 }
