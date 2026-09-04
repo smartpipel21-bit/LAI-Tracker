@@ -148,25 +148,22 @@ After a Daily scan or Weekly sweep, draft one bundled digest of what changed thi
 {
   "runDate": "2026-09-04",
   "leadIn": "One short sentence summarizing the run — findings + late items + candidates, in your own words.",
-  "findings": [ /* one entry per finding inside the freshness window this run — see fields below */ ],
+  "findings": [ /* one entry per finding inside the freshness window this run */ ],
   "lateItems": [ /* real findings logged this run but dated outside the freshness window (see above) */ ],
   "candidates": [ /* new Track B1/B2 candidates from this run */ ]
 }
 ```
 
-Each `findings[]` entry needs both **direct fields** (copy straight from what you just wrote to the umbrella file — never re-derive or reformat them) and a **small number of short, synthesized fields** (write these fresh, using the source you just read and the umbrella's prior `current_status` — you already have both in context from logging the finding, so this is a marginal step, not new research):
+**Every entry in all three arrays uses the exact same shape** — the digest deliberately gives every item identical visual weight, not one highlighted story with extra sections and the rest as footnotes:
 
 | Field | Source | Direct or synthesized |
 |---|---|---|
-| `type`, `confidence`, `sourceTier`, `findingId`, `sourceUrl`, `sourceName` | The finding object you just wrote | Direct |
-| `headline`, `subtitle` | The umbrella's `canonical_name`, split into company / program | Direct |
-| `whatHappened` | The finding's own summary | Direct (verbatim or lightly trimmed, never embellished) |
-| `stageChange: {from, to}` | Only if this finding changed `current_status.stage` — the value it held before this run vs. after | Direct — omit the field entirely if the stage didn't change, don't force one |
-| `why` | — | **Synthesized.** 1–2 sentences: why this specific finding is worth the reader's attention right now. Use `**bold**` for the opening clause, like the sample template does. |
-| `impactNote` | — | **Synthesized.** 1 sentence of context beyond the raw stage change — omit if you have nothing beyond the mechanical `stageChange`. |
-| `watchNext` | — | **Synthesized.** 1 sentence: the concrete next event(s) that would confirm or complicate this finding. |
+| `headline` | The umbrella's `canonical_name` (findings/late items) or the candidate's `detected_name` | Direct |
+| `date` | The finding's own `date` (findings/late items) or the candidate's most recent evidence `date` | Direct |
+| `sourceUrl`, `sourceName` | The finding's or candidate evidence's `source` object | Direct |
+| `summary` | — | **Synthesized, but only lightly.** One short 1–2 sentence summary of what happened and why it's worth noting — not a verbatim dump of the finding's full `summary` field, and not split across separate "why/impact/watch next" fields. `**bold**` the single most important clause if one stands out; don't force it. |
 
-`lateItems[]` entries are lighter — `headline`, `originalDate`, `summary`, `sourceUrl`, `sourceName`, all direct fields, no synthesis. `candidates[]` entries are `name`, `snippet` (from the candidate's evidence), `sourceUrl`, `sourceName`, also all direct.
+There is no `type`, `confidence`, `stageChange`, or evidence-tier badge in the digest — those live in the registry and the dashboard, not here. Keep `summary` genuinely short; if you find yourself writing more than two sentences, that belongs in the umbrella's `finding_history`, not the digest row.
 
 **2. Run the renderer:**
 

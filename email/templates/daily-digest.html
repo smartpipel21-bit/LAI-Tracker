@@ -36,66 +36,46 @@
           <h1 class="headline" style="margin:0 0 10px;font-size:28px;line-height:32px;letter-spacing:-1.2px;">{{LEAD_IN}}</h1>
         </td></tr>
 
-        <!--CARD-->
-        <tr><td class="mobile-pad" style="padding:20px 38px 0;">
+        <!--ITEM-->
+        <div style="padding:14px 0;border-top:1px solid #e3e4df;">
+          <strong style="color:#111317;font-size:14px;">{{ITEM_HEADLINE}}</strong><span style="color:#a3a6ab;font-size:11px;"> &nbsp;·&nbsp; {{ITEM_DATE}}</span>
+          <p style="margin:6px 0 0;color:#42464b;font-size:13px;line-height:19px;">{{ITEM_SUMMARY}}</p>
+          <a href="{{ITEM_SOURCE_URL}}" target="_blank" style="display:inline-block;margin-top:6px;color:#367fd0;font-size:11px;font-weight:700;text-decoration:none;">{{ITEM_SOURCE_NAME}} ↗</a>
+        </div>
+        <!--/ITEM-->
+
+        <!--FINDINGS_SECTION-->
+        <tr><td class="mobile-pad" style="padding:22px 38px 0;">
           <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-top:1px solid #e3e4df;padding-top:20px;"><tr><td>
-
-          <div style="display:inline-block;padding:5px 9px;border-radius:99px;background:{{CARD_TYPE_BG}};color:{{CARD_TYPE_FG}};font-size:9px;font-weight:800;letter-spacing:.5px;">{{CARD_TYPE_LABEL}}</div>
-          <div style="display:inline-block;margin-left:6px;padding:5px 9px;border-radius:99px;background:{{CARD_CONFIDENCE_BG}};color:{{CARD_CONFIDENCE_FG}};font-size:9px;font-weight:800;letter-spacing:.5px;">{{CARD_CONFIDENCE_LABEL}}</div>
-          <h2 style="margin:12px 0 6px;font-size:20px;line-height:25px;letter-spacing:-.6px;">{{CARD_HEADLINE}}</h2>
-          <p style="margin:0 0 14px;color:#73767b;font-size:12px;line-height:18px;">{{CARD_SUBTITLE}}</p>
-
-          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-left:4px solid #2bb98a;border-radius:7px;background:#eaf7f2;margin-bottom:14px;"><tr><td style="padding:14px 16px;">
-            <div style="color:#178665;font-size:9px;font-weight:800;letter-spacing:1.2px;">WHY THIS DESERVES ATTENTION</div>
-            <p style="margin:6px 0 0;color:#23473c;font-size:13px;line-height:20px;">{{CARD_WHY}}</p>
-          </td></tr></table>
-
-          <div style="padding:12px 0;border-top:1px solid #e3e4df;"><div style="color:#85888d;font-size:9px;font-weight:800;letter-spacing:1px;">WHAT HAPPENED</div><div style="padding-top:6px;color:#42464b;font-size:13px;line-height:19px;">{{CARD_WHAT_HAPPENED}}</div></div>
-          {{CARD_IMPACT_ROW}}
-          <div style="padding:12px 0;border-top:1px solid #e3e4df;border-bottom:1px solid #e3e4df;"><div style="color:#85888d;font-size:9px;font-weight:800;letter-spacing:1px;">WATCH NEXT</div><div style="padding-top:6px;color:#42464b;font-size:13px;line-height:19px;">{{CARD_WATCH_NEXT}}</div></div>
-
-          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-radius:9px;background:#f5f5f2;margin-top:14px;"><tr><td style="padding:13px 15px;color:#777b80;font-size:9px;line-height:15px;"><strong style="color:#111317;font-size:10px;">Evidence status:</strong>&nbsp; {{CARD_EVIDENCE_LINE}}</td></tr></table>
-
-          <div style="padding-top:14px;"><a href="{{CARD_SOURCE_URL}}" target="_blank" style="display:inline-block;padding:11px 18px;border-radius:8px;background:#367fd0;color:#ffffff;font-size:12px;font-weight:800;text-decoration:none;">Read the original source&nbsp; →</a>
-          <div style="padding-top:8px;color:#898c91;font-size:9px;">{{CARD_SOURCE_NAME}}</div></div>
-
+            <div style="color:#178665;font-size:9px;font-weight:800;letter-spacing:1.2px;">WHAT'S NEW</div>
+            <div style="padding-top:10px;">{{FINDINGS_ITEMS}}</div>
           </td></tr></table>
         </td></tr>
-        <!--/CARD-->
+        <!--/FINDINGS_SECTION-->
 
         <!--LATE_SECTION-->
-        <tr><td class="mobile-pad" style="padding:24px 38px 0;">
+        <tr><td class="mobile-pad" style="padding:22px 38px 0;">
           <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-top:1px solid #e3e4df;padding-top:20px;"><tr><td>
             <div style="color:#a87504;font-size:9px;font-weight:800;letter-spacing:1.2px;">DISCOVERED LATE · PUBLISHED BEFORE THIS RUN'S WINDOW</div>
-            <div style="padding-top:4px;color:#85888d;font-size:10px;line-height:15px;">Real news, just found after the fact — dated by when it actually happened, not today.</div>
-            <div style="padding-top:12px;">{{LATE_ITEMS}}</div>
+            <div style="padding-top:10px;">{{LATE_ITEMS}}</div>
           </td></tr></table>
         </td></tr>
         <!--/LATE_SECTION-->
 
-        <!--LATE_ITEM-->
-        <div style="padding:10px 0;border-top:1px solid #eeefec;"><strong style="color:#111317;font-size:12px;">{{LATE_HEADLINE}}</strong><span style="color:#a3a6ab;font-size:10px;"> · {{LATE_ORIGINAL_DATE}}</span><div style="padding-top:4px;color:#5c6065;font-size:12px;line-height:18px;">{{LATE_SUMMARY}} <a href="{{LATE_SOURCE_URL}}" target="_blank" style="color:#367fd0;font-weight:700;text-decoration:none;">{{LATE_SOURCE_NAME}} ↗</a></div></div>
-        <!--/LATE_ITEM-->
-
         <!--CANDIDATES_SECTION-->
-        <tr><td class="mobile-pad" style="padding:24px 38px 0;">
+        <tr><td class="mobile-pad" style="padding:22px 38px 0;">
           <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-top:1px solid #e3e4df;padding-top:20px;"><tr><td>
             <div style="color:#6d5dad;font-size:9px;font-weight:800;letter-spacing:1.2px;">NEW CANDIDATES · PENDING YOUR REVIEW</div>
-            <div style="padding-top:4px;color:#85888d;font-size:10px;line-height:15px;">Not yet an umbrella — surfaced this run, waiting on a manual decision.</div>
-            <div style="padding-top:12px;">{{CANDIDATE_ITEMS}}</div>
+            <div style="padding-top:10px;">{{CANDIDATE_ITEMS}}</div>
           </td></tr></table>
         </td></tr>
         <!--/CANDIDATES_SECTION-->
-
-        <!--CANDIDATE_ITEM-->
-        <div style="padding:10px 0;border-top:1px solid #eeefec;"><strong style="color:#111317;font-size:12px;">{{CAND_NAME}}</strong><div style="padding-top:4px;color:#5c6065;font-size:12px;line-height:18px;">{{CAND_SNIPPET}} <a href="{{CAND_SOURCE_URL}}" target="_blank" style="color:#367fd0;font-weight:700;text-decoration:none;">{{CAND_SOURCE_NAME}} ↗</a></div></div>
-        <!--/CANDIDATE_ITEM-->
 
         <tr><td class="mobile-pad" style="padding:24px 38px 0;">
           <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"><tr><td style="border-top:1px solid #e3e4df;padding-top:20px;text-align:center;color:#777b80;font-size:11px;line-height:18px;">Need the complete context and historical record?<br><a href="{{DASHBOARD_URL}}" target="_blank" style="display:inline-block;margin-top:8px;color:#10182d;font-size:12px;font-weight:800;text-decoration:none;">Open the LAI Pulse dashboard →</a></td></tr></table>
         </td></tr>
 
-        <tr><td class="mobile-pad" style="padding:17px 38px;background:#10182d;color:#8f9ab2;font-size:9px;line-height:15px;"><strong style="color:#ffffff;letter-spacing:.7px;">LAI PULSE</strong><br>This digest is drafted automatically from the tracker's daily/weekly run. Strategic interpretation is clearly separated from the reported fact. It is never sent without a human reviewing it first.</td></tr>
+        <tr><td class="mobile-pad" style="padding:17px 38px;background:#10182d;color:#8f9ab2;font-size:9px;line-height:15px;"><strong style="color:#ffffff;letter-spacing:.7px;">LAI PULSE</strong><br>This digest is drafted automatically from the tracker's daily/weekly run. It is never sent without a human reviewing it first.</td></tr>
       </table>
     </td></tr>
   </table>

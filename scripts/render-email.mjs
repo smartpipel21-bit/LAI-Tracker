@@ -6,19 +6,6 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const templatePath = path.join(root, "email", "templates", "daily-digest.html");
 const dashboardUrl = "https://lai-tracker.vercel.app/";
 
-const TYPE_TONE = {
-  trial_data_readout: { bg: "#e9f2fc", fg: "#245f9f", label: "CLINICAL / DATA" },
-  regulatory: { bg: "#efecf8", fg: "#6d5dad", label: "REGULATORY" },
-  deal_partnership: { bg: "#e6f6f0", fg: "#178665", label: "PARTNERSHIP" },
-  market_reaction: { bg: "#fff0e9", fg: "#dc6336", label: "MARKET REACTION" },
-  manufacturing_capacity: { bg: "#fff5d9", fg: "#a87504", label: "MANUFACTURING" },
-  financing_investor: { bg: "#e9f2fc", fg: "#245f9f", label: "FINANCING" }
-};
-const CONFIDENCE_TONE = {
-  confirmed: { bg: "#e6f6f0", fg: "#178665", label: "CONFIRMED" },
-  unverified: { bg: "#fff5d9", fg: "#a87504", label: "UNVERIFIED" }
-};
-
 function escapeHtml(value) {
   return String(value ?? "")
     .replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;")
@@ -35,7 +22,7 @@ function richText(value) {
 // gets 3, which would make this the one month of the year that visually
 // breaks the header's fixed-width date format.
 const MONTHS = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
-function formatRunDate(iso) {
+function formatDate(iso) {
   const date = new Date(`${iso}T00:00:00Z`);
   if (Number.isNaN(date.valueOf())) return escapeHtml(iso);
   return `${String(date.getUTCDate()).padStart(2, "0")} ${MONTHS[date.getUTCMonth()]} ${date.getUTCFullYear()}`;
@@ -54,48 +41,22 @@ function fill(template, tokens) {
   return out;
 }
 
-function renderCard(finding, cardTemplate) {
-  const type = TYPE_TONE[finding.type] ?? TYPE_TONE.regulatory;
-  const confidence = CONFIDENCE_TONE[finding.confidence] ?? CONFIDENCE_TONE.unverified;
-  const hasStageChange = finding.stageChange?.from && finding.stageChange?.to;
-  const hasImpact = hasStageChange || finding.impactNote;
-  const impactRow = !hasImpact ? "" : `<div style="padding:12px 0;border-top:1px solid #e3e4df;"><div style="color:#85888d;font-size:9px;font-weight:800;letter-spacing:1px;">TRACKER IMPACT</div><div style="padding-top:6px;color:#42464b;font-size:13px;line-height:19px;">${
-    hasStageChange ? `<strong style="color:#111317;">Stage updated: ${escapeHtml(finding.stageChange.from)} → ${escapeHtml(finding.stageChange.to)}.</strong> ` : ""
-  }${finding.impactNote ? richText(finding.impactNote) : ""}</div></div>`;
-  const evidenceLine = `${confidence.label.charAt(0)}${confidence.label.slice(1).toLowerCase()} &nbsp;·&nbsp; Tier ${finding.sourceTier ?? "—"} source &nbsp;·&nbsp; ${escapeHtml(finding.findingId ?? "—")}`;
-
-  return fill(cardTemplate, {
-    CARD_TYPE_BG: type.bg, CARD_TYPE_FG: type.fg, CARD_TYPE_LABEL: type.label,
-    CARD_CONFIDENCE_BG: confidence.bg, CARD_CONFIDENCE_FG: confidence.fg, CARD_CONFIDENCE_LABEL: `NEW FINDING · ${confidence.label}`,
-    CARD_HEADLINE: escapeHtml(finding.headline),
-    CARD_SUBTITLE: escapeHtml(finding.subtitle),
-    CARD_WHY: richText(finding.why),
-    CARD_WHAT_HAPPENED: escapeHtml(finding.whatHappened),
-    CARD_IMPACT_ROW: impactRow,
-    CARD_WATCH_NEXT: richText(finding.watchNext),
-    CARD_EVIDENCE_LINE: evidenceLine,
-    CARD_SOURCE_URL: escapeHtml(finding.sourceUrl),
-    CARD_SOURCE_NAME: escapeHtml(finding.sourceName)
+// Every list in the digest (new findings, discovered-late, new candidates) uses
+// the exact same row shape: name, date, a short summary, a source link. There is
+// deliberately no per-list variation here — one item template, three sections.
+function renderItem(item, itemTemplate) {
+  return fill(itemTemplate, {
+    ITEM_HEADLINE: escapeHtml(item.headline),
+    ITEM_DATE: formatDate(item.date),
+    ITEM_SUMMARY: richText(item.summary),
+    ITEM_SOURCE_URL: escapeHtml(item.sourceUrl),
+    ITEM_SOURCE_NAME: escapeHtml(item.sourceName)
   });
 }
 
-function renderLateItem(item, template) {
-  return fill(template, {
-    LATE_HEADLINE: escapeHtml(item.headline),
-    LATE_ORIGINAL_DATE: escapeHtml(item.originalDate),
-    LATE_SUMMARY: escapeHtml(item.summary),
-    LATE_SOURCE_URL: escapeHtml(item.sourceUrl),
-    LATE_SOURCE_NAME: escapeHtml(item.sourceName)
-  });
-}
-
-function renderCandidateItem(candidate, template) {
-  return fill(template, {
-    CAND_NAME: escapeHtml(candidate.name),
-    CAND_SNIPPET: escapeHtml(candidate.snippet),
-    CAND_SOURCE_URL: escapeHtml(candidate.sourceUrl),
-    CAND_SOURCE_NAME: escapeHtml(candidate.sourceName)
-  });
+function renderSection(items, sectionTemplate, itemTemplate, itemsTokenName) {
+  if (!items.length) return "";
+  return fill(sectionTemplate, { [itemsTokenName]: items.map((item) => renderItem(item, itemTemplate)).join("\n") });
 }
 
 function buildSubject(input) {
@@ -112,7 +73,7 @@ function buildSubject(input) {
 
 function buildPreheader(input) {
   const count = input.findings.length;
-  const dateLabel = formatRunDate(input.runDate);
+  const dateLabel = formatDate(input.runDate);
   if (count === 1) return `New finding on ${dateLabel}: ${input.findings[0].headline}`;
   if (count > 1) return `${count} new findings on ${dateLabel}, including ${input.findings[0].headline}.`;
   if (input.lateItems.length || input.candidates.length) return `No new headline findings on ${dateLabel} — see what was discovered late or is pending review.`;
@@ -128,33 +89,26 @@ export function renderDigest(rawInput, templateHtml) {
   const subject = buildSubject(input);
   if (subject === null) return null;
 
-  const { block: cardTemplate, rest: withoutCard } = extractBlock(templateHtml, "CARD");
-  const { block: lateSectionTemplate, rest: withoutLateSection } = extractBlock(withoutCard, "LATE_SECTION");
-  const { block: lateItemTemplate, rest: withoutLateItem } = extractBlock(withoutLateSection, "LATE_ITEM");
-  const { block: candidatesSectionTemplate, rest: withoutCandidatesSection } = extractBlock(withoutLateItem, "CANDIDATES_SECTION");
-  const { block: candidateItemTemplate, rest: base } = extractBlock(withoutCandidatesSection, "CANDIDATE_ITEM");
+  const { block: itemTemplate, rest: withoutItem } = extractBlock(templateHtml, "ITEM");
+  const { block: findingsSectionTemplate, rest: withoutFindingsSection } = extractBlock(withoutItem, "FINDINGS_SECTION");
+  const { block: lateSectionTemplate, rest: withoutLateSection } = extractBlock(withoutFindingsSection, "LATE_SECTION");
+  const { block: candidatesSectionTemplate, rest: base } = extractBlock(withoutLateSection, "CANDIDATES_SECTION");
 
-  const cardsHtml = input.findings.map((finding) => renderCard(finding, cardTemplate)).join("\n");
-  const lateSectionHtml = !input.lateItems.length ? "" : fill(lateSectionTemplate, {
-    LATE_ITEMS: input.lateItems.map((item) => renderLateItem(item, lateItemTemplate)).join("\n")
-  });
-  const candidatesSectionHtml = !input.candidates.length ? "" : fill(candidatesSectionTemplate, {
-    CANDIDATE_ITEMS: input.candidates.map((candidate) => renderCandidateItem(candidate, candidateItemTemplate)).join("\n")
-  });
+  const findingsSectionHtml = renderSection(input.findings, findingsSectionTemplate, itemTemplate, "FINDINGS_ITEMS");
+  const lateSectionHtml = renderSection(input.lateItems, lateSectionTemplate, itemTemplate, "LATE_ITEMS");
+  const candidatesSectionHtml = renderSection(input.candidates, candidatesSectionTemplate, itemTemplate, "CANDIDATE_ITEMS");
   const preheader = buildPreheader(input);
 
   const html = fill(base, {
-    __CARD_SLOT__: cardsHtml,
+    __FINDINGS_SECTION_SLOT__: findingsSectionHtml,
     __LATE_SECTION_SLOT__: lateSectionHtml,
     __CANDIDATES_SECTION_SLOT__: candidatesSectionHtml,
-    // LATE_ITEM and CANDIDATE_ITEM are only ever used as row templates fed into
-    // the two SECTION templates above — their own slot in the base is never
-    // meant to hold anything, so it's always cleared here.
-    __LATE_ITEM_SLOT__: "",
-    __CANDIDATE_ITEM_SLOT__: "",
+    // ITEM is only ever used as the row template fed into the three SECTION
+    // templates above — its own slot in the base never holds anything directly.
+    __ITEM_SLOT__: "",
     SUBJECT: escapeHtml(subject),
     PREHEADER: escapeHtml(preheader),
-    RUN_DATE: formatRunDate(input.runDate),
+    RUN_DATE: formatDate(input.runDate),
     LEAD_IN: richText(input.leadIn),
     DASHBOARD_URL: escapeHtml(dashboardUrl)
   });
