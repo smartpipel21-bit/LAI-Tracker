@@ -2,13 +2,18 @@
   "last_run": {
     "initial_seed": "2026-09-02T00:00:00Z",
     "initial_discovery_test": "2026-09-02T00:00:00Z",
-    "daily_scan": "2026-09-03T00:00:00Z",
+    "daily_scan": "2026-09-04T00:00:00Z",
     "weekly_sweep": null,
     "qc_tier2": null,
     "qc_tier3": null
   },
   "coverage": {
-    "daily_scan": { "umbrellas_checked": 37, "umbrellas_total": 37, "skipped_throttled": 0, "skipped_budget_exhausted": 0 }
+    "daily_scan": {
+      "umbrellas_checked": 5,
+      "umbrellas_total": 37,
+      "skipped_throttled": 32,
+      "skipped_budget_exhausted": 0
+    }
   },
   "source_health": {}
 }
