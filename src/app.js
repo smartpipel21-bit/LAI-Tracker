@@ -2,7 +2,7 @@ import { FAMILY_COLORS, FAMILY_LABELS, FINDING_LABELS, STAGE_COLORS, STAGES, for
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
-const state = { data: null, programQuery: "", stage: "all", archiveQuery: "", evidenceType: "all", archiveLimit: 40 };
+const state = { data: null, programQuery: "", stage: "all", expandedPrograms: new Set() };
 
 function node(tag, className = "", text) {
   const element = document.createElement(tag);
@@ -184,14 +184,62 @@ function filteredPrograms() {
     .sort((a, b) => b.stageOrder - a.stageOrder || String(b.current_status?.last_updated ?? "").localeCompare(String(a.current_status?.last_updated ?? "")));
 }
 
+function toggleExpand(id) {
+  if (state.expandedPrograms.has(id)) state.expandedPrograms.delete(id);
+  else state.expandedPrograms.add(id);
+  renderPrograms();
+}
+
+function evidenceTone(type) {
+  return { trial_data_readout: "blue", regulatory: "violet", deal_partnership: "green", market_reaction: "orange", manufacturing_capacity: "amber", financing_investor: "blue" }[type] ?? "blue";
+}
+
+function evidenceItem(finding) {
+  const item = node("article", "evidence-item");
+  const date = node("div", "evidence-date");
+  date.append(node("strong", "", formatDate(finding.date, true)), node("span", "", finding.confidence === "confirmed" ? "Confirmed" : "Unverified"));
+  const copy = node("div", "evidence-copy");
+  copy.append(
+    node("span", `tag pill-${evidenceTone(finding.type)}`, FINDING_LABELS[finding.type] ?? String(finding.type).replaceAll("_", " ")),
+    node("p", "", finding.summary),
+    node("small", "", `${finding.sourceName} · Tier ${finding.sourceTier ?? "—"}`)
+  );
+  const source = node("div", "evidence-source");
+  const url = safeUrl(finding.sourceUrl);
+  if (url) { const link = node("a", "", "Open ↗"); link.href = url; link.target = "_blank"; link.rel = "noopener noreferrer"; source.append(link); }
+  else source.append(node("span", "", "—"));
+  item.append(date, copy, source);
+  return item;
+}
+
+function programNameCell(record, count, expanded) {
+  const cell = node("td");
+  cell.dataset.label = "Program";
+  const button = node("button", "row-toggle");
+  button.type = "button";
+  button.setAttribute("aria-expanded", String(expanded));
+  const text = node("span", "row-toggle-text");
+  text.append(
+    node("strong", "", record.company),
+    node("span", "", record.program),
+    node("em", "", `${count} finding${count === 1 ? "" : "s"}`)
+  );
+  button.append(node("span", "caret", "›"), text);
+  button.addEventListener("click", () => toggleExpand(record.id));
+  cell.append(button);
+  return cell;
+}
+
 function renderPrograms() {
   const records = filteredPrograms();
   const body = clear($("#program-table"));
   $("#program-empty").hidden = records.length > 0;
   records.forEach((record) => {
-    const row = node("tr");
+    const findings = state.data.findings.filter((finding) => finding.recordId === record.id);
+    const expanded = state.expandedPrograms.has(record.id);
+    const row = node("tr", "program-row");
     row.append(
-      tableCell("Program", record.company, record.program),
+      programNameCell(record, findings.length, expanded),
       tableCell("Origin", record.origin === "KR" ? "Korea" : record.origin),
       tableCell("Technology", FAMILY_LABELS[record.technology_family] ?? record.technology_family?.replaceAll("_", " ")),
       tableCell("Stage", stageBadge(record.stageLabel)),
@@ -199,6 +247,17 @@ function renderPrograms() {
       tableCell("Updated", formatDate(record.current_status?.last_updated, true))
     );
     body.append(row);
+
+    const detailRow = node("tr", "evidence-row");
+    detailRow.hidden = !expanded;
+    const detailCell = node("td");
+    detailCell.colSpan = 6;
+    const list = node("div", "evidence-list");
+    if (findings.length) findings.forEach((finding) => list.append(evidenceItem(finding)));
+    else list.append(node("div", "empty-state", "No findings logged for this program yet."));
+    detailCell.append(list);
+    detailRow.append(detailCell);
+    body.append(detailRow);
   });
 }
 
@@ -220,39 +279,6 @@ function renderCandidates(data) {
   if (!data.pendingCandidates.length) container.append(node("div", "empty-state panel", "No candidates are awaiting review."));
 }
 
-function filteredEvidence() {
-  const query = state.archiveQuery.trim().toLowerCase();
-  return state.data.findings.filter((finding) =>
-    (state.evidenceType === "all" || finding.type === state.evidenceType) &&
-    (!query || [finding.company, finding.program, finding.summary, finding.sourceName].join(" ").toLowerCase().includes(query))
-  );
-}
-
-function renderArchive() {
-  const all = filteredEvidence();
-  const visible = all.slice(0, state.archiveLimit);
-  const list = clear($("#archive-list"));
-  visible.forEach((finding) => {
-    const item = node("article", "archive-item");
-    const date = node("div", "archive-date");
-    date.append(node("strong", "", formatDate(finding.date, true)), node("span", "", finding.confidence === "confirmed" ? "Confirmed" : "Unverified"));
-    const entity = node("div", "archive-entity");
-    entity.append(node("strong", "", finding.company), node("span", "", truncate(finding.program, 72)));
-    const copy = node("div", "archive-copy");
-    copy.append(node("p", "", finding.summary), node("small", "", `${FINDING_LABELS[finding.type] ?? finding.type} · ${finding.sourceName} · Tier ${finding.sourceTier ?? "—"}`));
-    const source = node("div", "archive-source");
-    const url = safeUrl(finding.sourceUrl);
-    if (url) { const link = node("a", "", "Open ↗"); link.href = url; link.target = "_blank"; link.rel = "noopener noreferrer"; source.append(link); }
-    else source.append(node("span", "", "—"));
-    item.append(date, entity, copy, source);
-    list.append(item);
-  });
-  if (!visible.length) list.append(node("div", "empty-state", "No evidence matches these filters."));
-  const more = $("#show-more");
-  more.hidden = visible.length >= all.length;
-  more.textContent = `Show more evidence (${visible.length} of ${all.length})`;
-}
-
 const csvValue = (value) => `"${String(value ?? "").replaceAll('"', '""')}"`;
 function downloadCsv(fileName, headers, rows) {
   const csv = [headers, ...rows].map((row) => row.map(csvValue).join(",")).join("\r\n");
@@ -266,19 +292,23 @@ function populateFilters(data) {
   [...new Set(data.records.map((record) => record.stageLabel))].sort((a, b) => STAGES[b] - STAGES[a]).forEach((stage) => {
     const option = node("option", "", stage); option.value = stage; $("#stage-filter").append(option);
   });
-  [...new Set(data.findings.map((finding) => finding.type))].sort().forEach((type) => {
-    const option = node("option", "", FINDING_LABELS[type] ?? type.replaceAll("_", " ")); option.value = type; $("#evidence-filter").append(option);
+}
+
+function exportProgramsWithEvidence() {
+  const headers = ["Program", "Origin", "Technology", "Normalized stage", "Reported status", "Dosing target", "Program updated", "Finding date", "Finding type", "Finding summary", "Confidence", "Source", "Tier", "URL"];
+  const rows = filteredPrograms().flatMap((record) => {
+    const base = [record.canonical_name, record.origin, FAMILY_LABELS[record.technology_family] ?? record.technology_family, record.stageLabel, record.current_status?.stage, record.current_status?.dosing_target, record.current_status?.last_updated];
+    const findings = state.data.findings.filter((finding) => finding.recordId === record.id);
+    if (!findings.length) return [[...base, "", "", "", "", "", "", ""]];
+    return findings.map((finding) => [...base, finding.date, FINDING_LABELS[finding.type] ?? finding.type, finding.summary, finding.confidence, finding.sourceName, finding.sourceTier, finding.sourceUrl]);
   });
+  downloadCsv("lai-programs-evidence.csv", headers, rows);
 }
 
 function bindEvents() {
   $("#program-search").addEventListener("input", (event) => { state.programQuery = event.target.value; renderPrograms(); });
   $("#stage-filter").addEventListener("change", (event) => { state.stage = event.target.value; renderPrograms(); });
-  $("#archive-search").addEventListener("input", (event) => { state.archiveQuery = event.target.value; state.archiveLimit = 40; renderArchive(); });
-  $("#evidence-filter").addEventListener("change", (event) => { state.evidenceType = event.target.value; state.archiveLimit = 40; renderArchive(); });
-  $("#show-more").addEventListener("click", () => { state.archiveLimit += 40; renderArchive(); });
-  $("#program-export").addEventListener("click", () => downloadCsv("lai-programs.csv", ["Program", "Origin", "Technology", "Normalized stage", "Reported status", "Dosing target", "Updated"], filteredPrograms().map((record) => [record.canonical_name, record.origin, FAMILY_LABELS[record.technology_family] ?? record.technology_family, record.stageLabel, record.current_status?.stage, record.current_status?.dosing_target, record.current_status?.last_updated])));
-  $("#archive-export").addEventListener("click", () => downloadCsv("lai-evidence.csv", ["Date", "Company", "Program", "Type", "Finding", "Confidence", "Source", "Tier", "URL"], filteredEvidence().map((finding) => [finding.date, finding.company, finding.program, FINDING_LABELS[finding.type] ?? finding.type, finding.summary, finding.confidence, finding.sourceName, finding.sourceTier, finding.sourceUrl])));
+  $("#program-export").addEventListener("click", exportProgramsWithEvidence);
 }
 
 function enableScrollSpy() {
@@ -288,7 +318,7 @@ function enableScrollSpy() {
     const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
     if (visible) activate(visible.target.id);
   }, { rootMargin: "-15% 0px -65% 0px", threshold: [0, .1, .4] });
-  ["overview", "intelligence", "statistics", "programs", "review", "archive"].forEach((id) => observer.observe(document.getElementById(id)));
+  ["overview", "intelligence", "statistics", "programs", "review"].forEach((id) => observer.observe(document.getElementById(id)));
   links.forEach((link) => link.addEventListener("click", () => activate(link.dataset.nav)));
 }
 
@@ -300,7 +330,7 @@ async function start() {
     if (!data.records.length) throw new Error("The dashboard database contains no accepted records.");
     state.data = data;
     renderHeader(data); renderOverview(data); renderIntelligence(data); renderStatistics(data);
-    populateFilters(data); renderPrograms(); renderCandidates(data); renderArchive(); bindEvents(); enableScrollSpy();
+    populateFilters(data); renderPrograms(); renderCandidates(data); bindEvents(); enableScrollSpy();
     $("#app-status").hidden = true;
   } catch (error) {
     const status = $("#app-status");

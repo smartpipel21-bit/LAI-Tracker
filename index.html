@@ -27,7 +27,6 @@
       <a href="#statistics" data-nav="statistics"><span>03</span>Market statistics</a>
       <a href="#programs" data-nav="programs"><span>04</span>Program directory</a>
       <a href="#review" data-nav="review"><span>05</span>Review queue</a>
-      <a href="#archive" data-nav="archive"><span>06</span>Evidence archive</a>
     </nav>
     <div class="rail-foot">
       <span class="live-dot"></span><span id="rail-freshness">Loading database…</span>
@@ -102,8 +101,8 @@
 
     <section id="programs" class="anchor-section" aria-labelledby="programs-title">
       <div class="section-intro">
-        <div><p class="eyebrow">CURRENT RECORD</p><h2 id="programs-title">Program directory</h2></div>
-        <p>Every tracked entity. Daily JSON updates flow here without application edits.</p>
+        <div><p class="eyebrow">CURRENT RECORD · HISTORICAL EVIDENCE</p><h2 id="programs-title">Program directory</h2></div>
+        <p>Every tracked entity, with its full source-backed finding history nested underneath. Expand a row to open it, newest evidence first.</p>
       </div>
       <div class="toolbar panel">
         <label class="search-field"><span class="sr-only">Search programs</span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35m2.35-5.15A7.5 7.5 0 1 1 4 11.5a7.5 7.5 0 0 1 15 0Z"/></svg><input id="program-search" type="search" placeholder="Search company, program or technology"></label>
@@ -121,20 +120,6 @@
       <div id="candidate-list" class="candidate-grid"></div>
     </section>
 
-    <section id="archive" class="anchor-section" aria-labelledby="archive-title">
-      <div class="section-intro">
-        <div><p class="eyebrow">HISTORICAL RECORD</p><h2 id="archive-title">Evidence archive</h2></div>
-        <p>Complete provenance, newest first. Older evidence is never removed from this view.</p>
-      </div>
-      <div class="toolbar panel">
-        <label class="search-field"><span class="sr-only">Search evidence</span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35m2.35-5.15A7.5 7.5 0 1 1 4 11.5a7.5 7.5 0 0 1 15 0Z"/></svg><input id="archive-search" type="search" placeholder="Search findings, companies or sources"></label>
-        <select id="evidence-filter" aria-label="Filter evidence by type"><option value="all">All evidence types</option></select>
-        <button id="archive-export" class="button" type="button">Export CSV</button>
-      </div>
-      <div id="archive-list" class="archive-list"></div>
-      <button id="show-more" class="button button-wide" type="button">Show more evidence</button>
-    </section>
-
     <footer><span>LAI Pulse</span><span id="footer-status">Repository-backed public intelligence</span></footer>
   </main>
 
@@ -142,7 +127,6 @@
     <a href="#overview" data-nav="overview" class="is-current"><span>⌁</span>Overview</a>
     <a href="#intelligence" data-nav="intelligence"><span>↗</span>Signals</a>
     <a href="#programs" data-nav="programs"><span>≡</span>Programs</a>
-    <a href="#archive" data-nav="archive"><span>◫</span>Archive</a>
   </nav>
   <script type="module" src="/assets/app.js"></script>
 </body>

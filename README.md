@@ -33,6 +33,7 @@ Requires Node.js 20 or newer. No third-party packages are required.
 ```bash
 npm test
 npm run build
+npm run serve
 ```
 
-Serve the generated `dist/` directory with any static web server. Vercel runs the same build command and publishes `dist/` automatically.
+`npm run serve` runs a dependency-free static server over the generated `dist/` directory at http://localhost:5173. Vercel runs the same build command and publishes `dist/` automatically.

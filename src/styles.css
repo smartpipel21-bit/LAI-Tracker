@@ -215,17 +215,26 @@ td span { margin-top: .15rem; color: var(--muted); font-size: .66rem; }
 .candidate-card footer { display: flex; align-items: end; justify-content: space-between; gap: .7rem; margin-top: auto; padding: 1rem 0 0; border: 0; color: var(--faint); font-size: .64rem; }
 .candidate-card footer a { color: var(--blue); font-weight: 700; text-decoration: none; }
 
-.archive-list { border-top: 1px solid var(--line-strong); }
-.archive-item { display: grid; grid-template-columns: 110px minmax(170px,.6fr) minmax(300px,1.65fr) 90px; gap: 1rem; padding: 1rem .15rem; border-bottom: 1px solid var(--line); }
-.archive-date strong, .archive-date span { display: block; }
-.archive-date strong { font-size: .72rem; }
-.archive-date span { color: var(--faint); font-size: .63rem; }
-.archive-entity strong { display: block; font-size: .73rem; }
-.archive-entity span { display: block; margin-top: .2rem; color: var(--muted); font-size: .65rem; }
-.archive-copy p { margin: 0; font-size: .75rem; }
-.archive-copy small { display: block; margin-top: .35rem; color: var(--faint); }
-.archive-source { text-align: right; }
-.archive-source a { color: var(--blue); font-size: .68rem; font-weight: 700; text-decoration: none; }
+.row-toggle { display: flex; align-items: start; gap: .55rem; width: 100%; padding: 0; border: 0; background: none; color: inherit; text-align: left; cursor: pointer; }
+.row-toggle .caret { flex: 0 0 auto; margin-top: .1rem; color: var(--faint); font-size: .95rem; transition: transform .16s ease; }
+.row-toggle[aria-expanded="true"] .caret { color: var(--blue); transform: rotate(90deg); }
+.row-toggle-text { display: block; min-width: 0; }
+.row-toggle-text strong, .row-toggle-text span, .row-toggle-text em { display: block; }
+.row-toggle-text strong { font-size: .75rem; }
+.row-toggle-text span { margin-top: .15rem; color: var(--muted); font-size: .66rem; }
+.row-toggle-text em { margin-top: .2rem; color: var(--faint); font-size: .62rem; font-style: normal; }
+
+tr.evidence-row td { padding: 0; border-top: 0; background: #fafaf8; }
+.evidence-list { display: grid; gap: .1rem; padding: .3rem 1.1rem .9rem 2.35rem; }
+.evidence-item { display: grid; grid-template-columns: 100px minmax(220px,1fr) 84px; gap: 1rem; padding: .85rem .15rem; border-top: 1px solid var(--line); }
+.evidence-date strong, .evidence-date span { display: block; }
+.evidence-date strong { font-size: .7rem; }
+.evidence-date span { color: var(--faint); font-size: .62rem; }
+.evidence-copy p { margin: .4rem 0 0; font-size: .74rem; }
+.evidence-copy small { display: block; margin-top: .3rem; color: var(--faint); }
+.evidence-source { text-align: right; }
+.evidence-source a { color: var(--blue); font-size: .67rem; font-weight: 700; text-decoration: none; }
+.evidence-list .empty-state { padding: 1.2rem 0; text-align: left; }
 
 main > footer { display: flex; justify-content: space-between; gap: 1rem; margin-top: 4rem; padding-top: 1.2rem; border-top: 1px solid var(--line); color: var(--faint); font-size: .68rem; }
 main > footer span:first-child { color: var(--ink); font-weight: 800; letter-spacing: .08em; }
@@ -234,7 +243,7 @@ main > footer span:first-child { color: var(--ink); font-weight: 800; letter-spa
   :root { --rail: 214px; }
   .hero-grid, .intel-grid { grid-template-columns: minmax(0,1.45fr) minmax(245px,.7fr); }
   .candidate-grid { grid-template-columns: repeat(2,1fr); }
-  .archive-item { grid-template-columns: 90px minmax(150px,.55fr) minmax(270px,1.5fr) 70px; }
+  .evidence-item { grid-template-columns: 84px minmax(180px,1fr) 66px; }
   .stage-axis { display: none; }
 }
 
@@ -257,15 +266,14 @@ main > footer span:first-child { color: var(--ink); font-weight: 800; letter-spa
   .leader-panel { min-height: 330px; }
   .metric-grid { grid-template-columns: repeat(2,1fr); }
   .bottom-nav {
-    position: fixed; inset: auto 0 0; z-index: 40; display: grid; grid-template-columns: repeat(4,1fr);
+    position: fixed; inset: auto 0 0; z-index: 40; display: grid; grid-template-columns: repeat(3,1fr);
     padding: .38rem .45rem calc(.38rem + env(safe-area-inset-bottom)); border-top: 1px solid #29334d; color: #9ba6bc; background: rgba(16,24,45,.98); backdrop-filter: blur(14px);
   }
   .bottom-nav a { display: grid; min-height: 49px; place-content: center; gap: .05rem; border-radius: .5rem; font-size: .6rem; text-align: center; text-decoration: none; }
   .bottom-nav a span { color: #79849c; font-size: 1.05rem; line-height: 1; }
   .bottom-nav a.is-current { color: #fff; background: var(--navy-2); }
   .bottom-nav a.is-current span { color: var(--green-bright); }
-  .archive-item { grid-template-columns: 92px minmax(0,1fr) 76px; }
-  .archive-entity { display: none; }
+  .evidence-item { grid-template-columns: 84px minmax(0,1fr) 66px; }
 }
 
 @media (max-width: 620px) {
@@ -292,6 +300,7 @@ main > footer span:first-child { color: var(--ink); font-weight: 800; letter-spa
   .toolbar select { flex: 1; max-width: none; }
   .table-shell { overflow: visible; border: 0; background: transparent; }
   table, thead, tbody, tr, td { display: block; }
+  tr[hidden] { display: none; }
   thead { display: none; }
   tbody { display: grid; gap: .65rem; }
   tr { padding: .9rem; border: 1px solid var(--line); border-radius: .7rem; background: var(--panel); }
@@ -303,10 +312,11 @@ main > footer span:first-child { color: var(--ink); font-weight: 800; letter-spa
   td:first-child strong, td:first-child span { display: block; }
   .candidate-grid { grid-template-columns: 1fr; }
   .candidate-card { min-height: 175px; }
-  .archive-item { grid-template-columns: 1fr 70px; gap: .65rem; }
-  .archive-date { grid-column: 1 / -1; }
-  .archive-date strong, .archive-date span { display: inline; margin-right: .4rem; }
-  .archive-copy { min-width: 0; }
+  .evidence-list { padding-left: 1.1rem; }
+  .evidence-item { grid-template-columns: 1fr 60px; gap: .65rem; }
+  .evidence-date { grid-column: 1 / -1; }
+  .evidence-date strong, .evidence-date span { display: inline; margin-right: .4rem; }
+  .evidence-copy { min-width: 0; }
   main > footer { display: block; }
   main > footer span { display: block; margin-top: .25rem; }
 }
