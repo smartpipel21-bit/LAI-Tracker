@@ -42,21 +42,32 @@ function fill(template, tokens) {
 }
 
 // Every list in the digest (new findings, discovered-late, new candidates) uses
-// the exact same row shape: name, date, a short summary, a source link. There is
-// deliberately no per-list variation here — one item template, three sections.
-function renderItem(item, itemTemplate) {
+// the exact same row shape: name, date, a short summary, a source link. The only
+// thing that varies per section is a single accent color carried through onto
+// each of that section's items — visual richness without re-introducing a
+// hierarchy between individual items within a section.
+const SECTION_ACCENT = {
+  findings: { accent: "#178665", soft: "#eaf7f2" },
+  late: { accent: "#a87504", soft: "#fdf6e6" },
+  candidates: { accent: "#6d5dad", soft: "#f2f0fa" }
+};
+
+function renderItem(item, itemTemplate, accent) {
   return fill(itemTemplate, {
     ITEM_HEADLINE: escapeHtml(item.headline),
     ITEM_DATE: formatDate(item.date),
     ITEM_SUMMARY: richText(item.summary),
     ITEM_SOURCE_URL: escapeHtml(item.sourceUrl),
-    ITEM_SOURCE_NAME: escapeHtml(item.sourceName)
+    ITEM_SOURCE_NAME: escapeHtml(item.sourceName),
+    ITEM_ACCENT: accent.accent,
+    ITEM_ACCENT_SOFT: accent.soft
   });
 }
 
-function renderSection(items, sectionTemplate, itemTemplate, itemsTokenName) {
+function renderSection(items, sectionTemplate, itemTemplate, itemsTokenName, accentKey) {
   if (!items.length) return "";
-  return fill(sectionTemplate, { [itemsTokenName]: items.map((item) => renderItem(item, itemTemplate)).join("\n") });
+  const accent = SECTION_ACCENT[accentKey];
+  return fill(sectionTemplate, { [itemsTokenName]: items.map((item) => renderItem(item, itemTemplate, accent)).join("\n") });
 }
 
 function buildSubject(input) {
@@ -94,9 +105,9 @@ export function renderDigest(rawInput, templateHtml) {
   const { block: lateSectionTemplate, rest: withoutLateSection } = extractBlock(withoutFindingsSection, "LATE_SECTION");
   const { block: candidatesSectionTemplate, rest: base } = extractBlock(withoutLateSection, "CANDIDATES_SECTION");
 
-  const findingsSectionHtml = renderSection(input.findings, findingsSectionTemplate, itemTemplate, "FINDINGS_ITEMS");
-  const lateSectionHtml = renderSection(input.lateItems, lateSectionTemplate, itemTemplate, "LATE_ITEMS");
-  const candidatesSectionHtml = renderSection(input.candidates, candidatesSectionTemplate, itemTemplate, "CANDIDATE_ITEMS");
+  const findingsSectionHtml = renderSection(input.findings, findingsSectionTemplate, itemTemplate, "FINDINGS_ITEMS", "findings");
+  const lateSectionHtml = renderSection(input.lateItems, lateSectionTemplate, itemTemplate, "LATE_ITEMS", "late");
+  const candidatesSectionHtml = renderSection(input.candidates, candidatesSectionTemplate, itemTemplate, "CANDIDATE_ITEMS", "candidates");
   const preheader = buildPreheader(input);
 
   const html = fill(base, {
