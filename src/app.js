@@ -1,8 +1,9 @@
-import { FAMILY_COLORS, FAMILY_LABELS, FINDING_LABELS, STAGE_COLORS, STAGES, formatDate, prepareDatabase, safeUrl, truncate } from "./model.js";
+import { FAMILY_LABELS, FAMILY_COLORS, FINDING_LABELS, STAGE_COLORS, STAGES, formatDate, prepareDatabase, safeUrl, truncate } from "./model.js";
+import { DEFAULT_LANG, LANGS, familyLabelText, findingLabelText, originLabelText, stageLabelText, t } from "./i18n.js";
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
-const state = { data: null, programQuery: "", stage: "all", expandedPrograms: new Set() };
+const state = { data: null, rawPayload: null, lang: DEFAULT_LANG, programQuery: "", stage: "all", expandedPrograms: new Set() };
 
 function node(tag, className = "", text) {
   const element = document.createElement(tag);
@@ -13,13 +14,13 @@ function node(tag, className = "", text) {
 
 const clear = (element) => { element.replaceChildren(); return element; };
 const badge = (text, tone = "blue") => node("span", `pill pill-${tone}`, text);
-const firstSentence = (value) => truncate(String(value || "Update recorded").replace(/\s+/g, " ").trim().split(/(?<=[.!?])\s+/)[0], 125);
+const firstSentence = (value, lang) => truncate(String(value || (lang === "ko" ? "업데이트 기록됨" : "Update recorded")).replace(/\s+/g, " ").trim().split(/(?<=[.!?])\s+/)[0], 125);
 
-function sourceAnchor(value, label = "Source ↗") {
+function sourceAnchor(value, label, lang) {
   const anchor = node("a", "source-link", label);
   const url = safeUrl(value);
   if (!url) {
-    anchor.textContent = "No link";
+    anchor.textContent = t(lang, "source.noLink");
     anchor.setAttribute("aria-disabled", "true");
     return anchor;
   }
@@ -29,26 +30,69 @@ function sourceAnchor(value, label = "Source ↗") {
   return anchor;
 }
 
+function evidenceTone(type) {
+  return { trial_data_readout: "blue", regulatory: "violet", deal_partnership: "green", market_reaction: "orange", manufacturing_capacity: "amber", financing_investor: "blue" }[type] ?? "blue";
+}
+
+function getStoredLang() {
+  try {
+    const stored = localStorage.getItem("lai-lang");
+    return LANGS.includes(stored) ? stored : DEFAULT_LANG;
+  } catch {
+    return DEFAULT_LANG;
+  }
+}
+
+function applyStaticStrings(lang) {
+  $$("[data-i18n]").forEach((el) => { el.textContent = t(lang, el.dataset.i18n); });
+  $$("[data-i18n-placeholder]").forEach((el) => { el.placeholder = t(lang, el.dataset.i18nPlaceholder); });
+  $$("[data-i18n-aria-label]").forEach((el) => { el.setAttribute("aria-label", t(lang, el.dataset.i18nAriaLabel)); });
+  document.documentElement.lang = lang;
+  document.title = t(lang, "meta.title");
+}
+
+function updateLangToggle(lang) {
+  $$(".lang-toggle").forEach((toggle) => {
+    toggle.classList.toggle("is-ko", lang === "ko");
+    toggle.setAttribute("aria-checked", String(lang === "ko"));
+    $$("[data-lang]", toggle).forEach((option) => option.setAttribute("aria-pressed", String(option.dataset.lang === lang)));
+  });
+}
+
+function setLang(lang) {
+  if (lang === state.lang) return;
+  state.lang = lang;
+  try { localStorage.setItem("lai-lang", lang); } catch { /* private mode or blocked storage */ }
+  applyStaticStrings(lang);
+  updateLangToggle(lang);
+  if (state.rawPayload) {
+    state.data = prepareDatabase(state.rawPayload, lang);
+    renderAll(state.data);
+  }
+}
+
 function renderHeader(data) {
-  const displayDate = formatDate(data.latestDataDate, true);
+  const lang = state.lang;
+  const displayDate = formatDate(data.latestDataDate, true, lang);
   $("#latest-date").textContent = displayDate;
   $("#mobile-date").textContent = displayDate;
-  $("#rail-freshness").textContent = `${data.records.length} programs · ${displayDate}`;
-  $("#footer-status").textContent = `Repository snapshot · ${displayDate}`;
+  $("#rail-freshness").textContent = t(lang, "rail.freshness", { count: data.records.length, date: displayDate });
+  $("#footer-status").textContent = t(lang, "footer.snapshot", { date: displayDate });
 }
 
 function renderOverview(data) {
+  const lang = state.lang;
   const programs = [...data.semaglutidePrograms].sort((a, b) =>
     b.stageOrder - a.stageOrder || String(b.current_status?.last_updated ?? "").localeCompare(String(a.current_status?.last_updated ?? ""))
   );
-  $("#race-caption").textContent = `${programs.length} directly identified programs · Quject®Sphere shown in green`;
+  $("#race-caption").textContent = t(lang, "overview.raceCaption", { count: programs.length });
   const chart = clear($("#race-chart"));
   programs.forEach((program) => {
     const row = node("div", `race-row${program.isOurProduct ? " ours" : ""}`);
     const name = node("div", "race-name");
     name.append(node("strong", "", `${truncate(program.program, 38)}${program.isOurProduct ? " ★" : ""}`), node("span", "", program.company));
     const track = node("div", "race-track");
-    const bar = node("div", "race-bar", program.stageLabel);
+    const bar = node("div", "race-bar", stageLabelText(program.stageLabel, lang));
     bar.style.width = `${Math.max(7, Math.min(100, (Math.max(program.stageOrder, .35) / 6) * 100))}%`;
     bar.style.background = program.isOurProduct ? "#178665" : STAGE_COLORS[program.stageLabel];
     track.append(bar);
@@ -58,14 +102,14 @@ function renderOverview(data) {
 
   $("#leader-company").textContent = data.leader.company;
   $("#leader-program").textContent = data.leader.program;
-  $("#leader-stage").textContent = data.leader.stageLabel;
+  $("#leader-stage").textContent = stageLabelText(data.leader.stageLabel, lang);
   $("#leader-summary").textContent = truncate(data.leader.current_status?.stage, 330);
   $("#leader-interpretation").textContent = data.leaderNote;
 
   const conditions = [
-    ["01", "Tracked intelligence", data.records.length, "Accepted", "blue", `${data.findings.length} evidence items accepted into the historical record.`, "#367fd0"],
-    ["02", "Pending review", data.pendingCandidates.length, "Analyst queue", "amber", "Newly detected entities awaiting an analyst decision before entering the tracker.", "#e4a11b"],
-    ["03", "Monitoring & QC", `${data.health.healthyCount}/${data.health.total}`, data.health.allHealthy ? "Active" : "Attention", data.health.allHealthy ? "green" : "orange", data.health.summary, "#2bb98a"]
+    ["01", t(lang, "conditions.tracked.label"), data.records.length, t(lang, "conditions.tracked.badge"), "blue", t(lang, "conditions.tracked.detail", { count: data.findings.length }), "#367fd0"],
+    ["02", t(lang, "conditions.pending.label"), data.pendingCandidates.length, t(lang, "conditions.pending.badge"), "amber", t(lang, "conditions.pending.detail"), "#e4a11b"],
+    ["03", t(lang, "conditions.monitoring.label"), `${data.health.healthyCount}/${data.health.total}`, data.health.allHealthy ? t(lang, "conditions.monitoring.badgeActive") : t(lang, "conditions.monitoring.badgeAttention"), data.health.allHealthy ? "green" : "orange", data.health.summary, "#2bb98a"]
   ];
   const container = clear($("#tracking-conditions"));
   conditions.forEach(([index, label, value, badgeText, tone, detail, color]) => {
@@ -79,17 +123,17 @@ function renderOverview(data) {
 }
 
 function renderIntelligence(data) {
+  const lang = state.lang;
   const feed = clear($("#latest-feed"));
   data.findings.slice(0, 6).forEach((finding) => {
     const article = node("article", "feed-item");
     const meta = node("div", "feed-meta");
-    meta.append(node("strong", "", formatDate(finding.date, true)), node("span", "", finding.company));
+    meta.append(node("strong", "", formatDate(finding.date, true, lang)), node("span", "", finding.company));
     const copy = node("div", "feed-copy");
-    copy.append(node("h3", "", firstSentence(finding.summary)), node("p", "", truncate(finding.summary, 300)));
-    const tone = { trial_data_readout: "blue", regulatory: "violet", deal_partnership: "green", market_reaction: "orange", manufacturing_capacity: "amber" }[finding.type] ?? "blue";
-    const tag = node("span", `tag pill-${tone}`, FINDING_LABELS[finding.type] ?? String(finding.type).replaceAll("_", " "));
+    copy.append(node("h3", "", firstSentence(finding.summary, lang)), node("p", "", truncate(finding.summary, 300)));
+    const tag = node("span", `tag pill-${evidenceTone(finding.type)}`, findingLabelText(finding.type, lang));
     copy.append(tag);
-    article.append(meta, copy, sourceAnchor(finding.sourceUrl));
+    article.append(meta, copy, sourceAnchor(finding.sourceUrl, t(lang, "intelligence.source"), lang));
     feed.append(article);
   });
 
@@ -99,10 +143,10 @@ function renderIntelligence(data) {
   recent.forEach((finding) => counts.set(finding.type, (counts.get(finding.type) ?? 0) + 1));
   const topType = [...counts].sort((a, b) => b[1] - a[1])[0]?.[0];
   const items = [
-    ["Development lead", `${data.leader.company} · ${data.leader.stageLabel}`],
-    ["30-day signal volume", `${recent.length} findings${topType ? `; ${FINDING_LABELS[topType] ?? topType} is most frequent` : ""}.`],
-    ["Analyst attention", `${data.pendingCandidates.length} candidate entities await review.`],
-    ["Monitoring state", data.health.summary]
+    [t(lang, "readout.leadLabel"), `${data.leader.company} · ${stageLabelText(data.leader.stageLabel, lang)}`],
+    [t(lang, "readout.volumeLabel"), t(lang, "readout.volumeValue", { count: recent.length, topType: topType ? t(lang, "readout.volumeTopType", { label: findingLabelText(topType, lang) }) : "" })],
+    [t(lang, "readout.attentionLabel"), t(lang, "readout.attentionValue", { count: data.pendingCandidates.length })],
+    [t(lang, "readout.monitoringLabel"), data.health.summary]
   ];
   const readout = clear($("#readout"));
   items.forEach(([title, body]) => {
@@ -113,13 +157,14 @@ function renderIntelligence(data) {
 }
 
 function renderStatistics(data) {
+  const lang = state.lang;
   const confirmed = data.findings.filter((finding) => finding.confidence === "confirmed").length;
   const korean = data.records.filter((record) => record.origin === "KR").length;
   const values = [
-    [data.records.length, "Programs tracked", `${korean} Korean · ${data.records.length - korean} global`],
-    [data.semaglutidePrograms.length, "Semaglutide-linked", "Direct delivery programs identified"],
-    [data.findings.length, "Historical findings", "Complete source-backed archive"],
-    [confirmed, "Confirmed evidence", `${data.findings.length - confirmed} marked unverified`]
+    [data.records.length, t(lang, "statistics.programsTracked"), t(lang, "statistics.programsTrackedDetail", { korean, global: data.records.length - korean })],
+    [data.semaglutidePrograms.length, t(lang, "statistics.semaglutideLinked"), t(lang, "statistics.semaglutideLinkedDetail")],
+    [data.findings.length, t(lang, "statistics.historicalFindings"), t(lang, "statistics.historicalFindingsDetail")],
+    [confirmed, t(lang, "statistics.confirmedEvidence"), t(lang, "statistics.confirmedEvidenceDetail", { count: data.findings.length - confirmed })]
   ];
   const metrics = clear($("#metrics"));
   values.forEach(([value, label, detail]) => {
@@ -140,9 +185,8 @@ function renderStatistics(data) {
     bar.style.width = `${count / maximum * 100}%`;
     bar.style.background = FAMILY_COLORS[family] ?? FAMILY_COLORS.other;
     track.append(bar);
-    row.append(node("span", "", FAMILY_LABELS[family] ?? family.replaceAll("_", " ")), track, node("strong", "", String(count)));
+    row.append(node("span", "", familyLabelText(family, lang)), track, node("strong", "", String(count)));
     chart.append(row);
-
   });
 
   const percent = data.findings.length ? Math.round(confirmed / data.findings.length * 100) : 0;
@@ -150,10 +194,10 @@ function renderStatistics(data) {
   const donut = node("div", "donut");
   donut.style.setProperty("--confirmed", percent);
   const label = node("div", "donut-label");
-  label.append(node("strong", "", `${percent}%`), node("span", "", "confirmed"));
+  label.append(node("strong", "", `${percent}%`), node("span", "", t(lang, "statistics.confirmedLabel")));
   donut.append(label);
   const legend = node("div", "legend");
-  [["#2bb98a", "Confirmed", confirmed], ["#e4a11b", "Unverified", data.findings.length - confirmed]].forEach(([color, name, count]) => {
+  [["#2bb98a", t(lang, "statistics.confirmed"), confirmed], ["#e4a11b", t(lang, "statistics.unverified"), data.findings.length - confirmed]].forEach(([color, name, count]) => {
     const row = node("div", "legend-row");
     const dot = node("span", "legend-dot"); dot.style.background = color;
     row.append(dot, node("span", "", name), node("strong", "", String(count)));
@@ -163,8 +207,8 @@ function renderStatistics(data) {
   clear($("#evidence-chart")).append(wrap);
 }
 
-function stageBadge(stage) {
-  const element = node("span", "stage-badge", stage);
+function stageBadge(stage, lang) {
+  const element = node("span", "stage-badge", stageLabelText(stage, lang));
   element.style.setProperty("--stage-color", STAGE_COLORS[stage]);
   return element;
 }
@@ -191,31 +235,27 @@ function toggleExpand(id) {
   renderPrograms();
 }
 
-function evidenceTone(type) {
-  return { trial_data_readout: "blue", regulatory: "violet", deal_partnership: "green", market_reaction: "orange", manufacturing_capacity: "amber", financing_investor: "blue" }[type] ?? "blue";
-}
-
-function evidenceItem(finding) {
+function evidenceItem(finding, lang) {
   const item = node("article", "evidence-item");
   const date = node("div", "evidence-date");
-  date.append(node("strong", "", formatDate(finding.date, true)), node("span", "", finding.confidence === "confirmed" ? "Confirmed" : "Unverified"));
+  date.append(node("strong", "", formatDate(finding.date, true, lang)), node("span", "", finding.confidence === "confirmed" ? t(lang, "evidence.confirmed") : t(lang, "evidence.unverified")));
   const copy = node("div", "evidence-copy");
   copy.append(
-    node("span", `tag pill-${evidenceTone(finding.type)}`, FINDING_LABELS[finding.type] ?? String(finding.type).replaceAll("_", " ")),
+    node("span", `tag pill-${evidenceTone(finding.type)}`, findingLabelText(finding.type, lang)),
     node("p", "", finding.summary),
-    node("small", "", `${finding.sourceName} · Tier ${finding.sourceTier ?? "—"}`)
+    node("small", "", `${finding.sourceName} · ${t(lang, "evidence.tier", { tier: finding.sourceTier ?? "—" })}`)
   );
   const source = node("div", "evidence-source");
   const url = safeUrl(finding.sourceUrl);
-  if (url) { const link = node("a", "", "Open ↗"); link.href = url; link.target = "_blank"; link.rel = "noopener noreferrer"; source.append(link); }
+  if (url) { const link = node("a", "", t(lang, "evidence.open")); link.href = url; link.target = "_blank"; link.rel = "noopener noreferrer"; source.append(link); }
   else source.append(node("span", "", "—"));
   item.append(date, copy, source);
   return item;
 }
 
-function programNameCell(record, count, expanded) {
+function programNameCell(record, count, expanded, lang) {
   const cell = node("td");
-  cell.dataset.label = "Program";
+  cell.dataset.label = t(lang, "programs.col.program");
   const button = node("button", "row-toggle");
   button.type = "button";
   button.setAttribute("aria-expanded", String(expanded));
@@ -223,7 +263,7 @@ function programNameCell(record, count, expanded) {
   text.append(
     node("strong", "", record.company),
     node("span", "", record.program),
-    node("em", "", `${count} finding${count === 1 ? "" : "s"}`)
+    node("em", "", t(lang, "programs.findingCount", { count, plural: count === 1 ? "" : "s" }))
   );
   button.append(node("span", "caret", "›"), text);
   button.addEventListener("click", () => toggleExpand(record.id));
@@ -232,6 +272,7 @@ function programNameCell(record, count, expanded) {
 }
 
 function renderPrograms() {
+  const lang = state.lang;
   const records = filteredPrograms();
   const body = clear($("#program-table"));
   $("#program-empty").hidden = records.length > 0;
@@ -240,12 +281,12 @@ function renderPrograms() {
     const expanded = state.expandedPrograms.has(record.id);
     const row = node("tr", "program-row");
     row.append(
-      programNameCell(record, findings.length, expanded),
-      tableCell("Origin", record.origin === "KR" ? "Korea" : record.origin),
-      tableCell("Technology", FAMILY_LABELS[record.technology_family] ?? record.technology_family?.replaceAll("_", " ")),
-      tableCell("Stage", stageBadge(record.stageLabel)),
-      tableCell("Status", truncate(record.current_status?.stage, 190)),
-      tableCell("Updated", formatDate(record.current_status?.last_updated, true))
+      programNameCell(record, findings.length, expanded, lang),
+      tableCell(t(lang, "programs.col.origin"), originLabelText(record.origin, lang)),
+      tableCell(t(lang, "programs.col.technology"), familyLabelText(record.technology_family, lang)),
+      tableCell(t(lang, "programs.col.stage"), stageBadge(record.stageLabel, lang)),
+      tableCell(t(lang, "programs.col.status"), truncate(record.current_status?.stage, 190)),
+      tableCell(t(lang, "programs.col.updated"), formatDate(record.current_status?.last_updated, true, lang))
     );
     body.append(row);
 
@@ -254,8 +295,8 @@ function renderPrograms() {
     const detailCell = node("td");
     detailCell.colSpan = 6;
     const list = node("div", "evidence-list");
-    if (findings.length) findings.forEach((finding) => list.append(evidenceItem(finding)));
-    else list.append(node("div", "empty-state", "No findings logged for this program yet."));
+    if (findings.length) findings.forEach((finding) => list.append(evidenceItem(finding, lang)));
+    else list.append(node("div", "empty-state", t(lang, "evidence.empty")));
     detailCell.append(list);
     detailRow.append(detailCell);
     body.append(detailRow);
@@ -263,38 +304,48 @@ function renderPrograms() {
 }
 
 function renderCandidates(data) {
+  const lang = state.lang;
   const container = clear($("#candidate-list"));
   data.pendingCandidates.forEach((candidate) => {
     const card = node("article", "candidate-card");
-    card.append(badge("Pending analyst review", "amber"), node("h3", "", candidate.detected_name ?? "Unnamed candidate"));
+    card.append(badge(t(lang, "review.pendingBadge"), "amber"), node("h3", "", candidate.detected_name ?? "Unnamed candidate"));
     const evidence = [...(candidate.evidence ?? [])].sort((a, b) => String(b.date).localeCompare(String(a.date)))[0];
-    card.append(node("p", "", truncate(evidence?.snippet ?? "No evidence summary available.", 260)));
+    card.append(node("p", "", truncate(evidence?.snippet ?? t(lang, "review.noEvidence"), 260)));
     const footer = node("footer");
     const score = Number(candidate.fuzzy_match?.score);
-    footer.append(node("span", "", Number.isFinite(score) ? `Closest-match score ${score.toFixed(2)}` : "No match score"));
+    footer.append(node("span", "", Number.isFinite(score) ? t(lang, "review.matchScore", { score: score.toFixed(2) }) : t(lang, "review.noMatchScore")));
     const url = safeUrl(evidence?.source?.url);
-    if (url) { const link = node("a", "", "Review source ↗"); link.href = url; link.target = "_blank"; link.rel = "noopener noreferrer"; footer.append(link); }
+    if (url) { const link = node("a", "", t(lang, "review.reviewSource")); link.href = url; link.target = "_blank"; link.rel = "noopener noreferrer"; footer.append(link); }
     card.append(footer);
     container.append(card);
   });
-  if (!data.pendingCandidates.length) container.append(node("div", "empty-state panel", "No candidates are awaiting review."));
+  if (!data.pendingCandidates.length) container.append(node("div", "empty-state panel", t(lang, "review.empty")));
 }
 
 const csvValue = (value) => `"${String(value ?? "").replaceAll('"', '""')}"`;
 function downloadCsv(fileName, headers, rows) {
   const csv = [headers, ...rows].map((row) => row.map(csvValue).join(",")).join("\r\n");
-  const url = URL.createObjectURL(new Blob(["\ufeff", csv], { type: "text/csv;charset=utf-8" }));
+  const url = URL.createObjectURL(new Blob(["﻿", csv], { type: "text/csv;charset=utf-8" }));
   const anchor = document.createElement("a");
   anchor.href = url; anchor.download = fileName; document.body.append(anchor); anchor.click(); anchor.remove();
   URL.revokeObjectURL(url);
 }
 
-function populateFilters(data) {
+function populateFilters(data, lang) {
+  const select = $("#stage-filter");
+  const current = select.value;
+  clear(select);
+  const allOption = node("option", "", t(lang, "programs.allStages"));
+  allOption.value = "all";
+  select.append(allOption);
   [...new Set(data.records.map((record) => record.stageLabel))].sort((a, b) => STAGES[b] - STAGES[a]).forEach((stage) => {
-    const option = node("option", "", stage); option.value = stage; $("#stage-filter").append(option);
+    const option = node("option", "", stageLabelText(stage, lang)); option.value = stage; select.append(option);
   });
+  select.value = [...select.options].some((option) => option.value === current) ? current : "all";
 }
 
+// CSV export always uses the English label maps, independent of the UI language,
+// so the exported file stays a stable, consistently-formatted interop artifact.
 function exportProgramsWithEvidence() {
   const headers = ["Program", "Origin", "Technology", "Normalized stage", "Reported status", "Dosing target", "Program updated", "Finding date", "Finding type", "Finding summary", "Confidence", "Source", "Tier", "URL"];
   const rows = filteredPrograms().flatMap((record) => {
@@ -312,6 +363,15 @@ function bindEvents() {
   $("#program-export").addEventListener("click", exportProgramsWithEvidence);
 }
 
+function bindLangToggle() {
+  $$(".lang-toggle").forEach((toggle) => {
+    toggle.addEventListener("click", (event) => {
+      const option = event.target.closest("[data-lang]");
+      if (option) setLang(option.dataset.lang);
+    });
+  });
+}
+
 function enableScrollSpy() {
   const links = $$('[data-nav]');
   const activate = (id) => links.forEach((link) => link.classList.toggle("is-current", link.dataset.nav === id));
@@ -323,20 +383,37 @@ function enableScrollSpy() {
   links.forEach((link) => link.addEventListener("click", () => activate(link.dataset.nav)));
 }
 
+function renderAll(data) {
+  renderHeader(data);
+  renderOverview(data);
+  renderIntelligence(data);
+  renderStatistics(data);
+  populateFilters(data, state.lang);
+  renderPrograms();
+  renderCandidates(data);
+}
+
 async function start() {
+  state.lang = getStoredLang();
+  applyStaticStrings(state.lang);
+  updateLangToggle(state.lang);
+  bindLangToggle();
   try {
     const response = await fetch("/data/dashboard.json", { headers: { Accept: "application/json" } });
     if (!response.ok) throw new Error(`Database request failed (${response.status})`);
-    const data = prepareDatabase(await response.json());
+    const payload = await response.json();
+    state.rawPayload = payload;
+    const data = prepareDatabase(payload, state.lang);
     if (!data.records.length) throw new Error("The dashboard database contains no accepted records.");
     state.data = data;
-    renderHeader(data); renderOverview(data); renderIntelligence(data); renderStatistics(data);
-    populateFilters(data); renderPrograms(); renderCandidates(data); bindEvents(); enableScrollSpy();
+    renderAll(data);
+    bindEvents();
+    enableScrollSpy();
     $("#app-status").hidden = true;
   } catch (error) {
     const status = $("#app-status");
     status.classList.add("error");
-    status.replaceChildren(node("strong", "", "Dashboard unavailable."), document.createTextNode(` ${error.message}`));
+    status.replaceChildren(node("strong", "", t(state.lang, "app.unavailable")), document.createTextNode(` ${error.message}`));
     console.error(error);
   }
 }

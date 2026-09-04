@@ -1,3 +1,5 @@
+import { stageLabelText, t } from "./i18n.js";
+
 export const OUR_PRODUCT_ID = "daewoong-tionlab-quject";
 
 export const STAGES = {
@@ -114,16 +116,16 @@ export function truncate(value, limit = 160) {
   return `${shortened.slice(0, shortened.lastIndexOf(" ") || shortened.length)}…`;
 }
 
-export function formatDate(value, long = false) {
-  if (!value) return "Date unavailable";
+export function formatDate(value, long = false, lang = "en") {
+  if (!value) return lang === "ko" ? "날짜 없음" : "Date unavailable";
   const date = new Date(`${String(value).slice(0, 10)}T00:00:00Z`);
   if (Number.isNaN(date.valueOf())) return String(value);
-  return new Intl.DateTimeFormat("en-GB", long
+  const locale = lang === "ko" ? "ko-KR" : "en-GB";
+  return new Intl.DateTimeFormat(locale, long
     ? { day: "2-digit", month: "short", year: "numeric", timeZone: "UTC" }
     : { day: "2-digit", month: "short", timeZone: "UTC" }).format(date);
 }
 
-const RUN_LABELS = { daily_scan: "Daily scan", weekly_sweep: "Weekly sweep", qc_tier2: "QC Tier 2" };
 const RUN_CADENCE_DAYS = { daily_scan: 2, weekly_sweep: 10, qc_tier2: 10 };
 
 export function daysSince(dateValue, now = Date.now()) {
@@ -133,38 +135,38 @@ export function daysSince(dateValue, now = Date.now()) {
   return Math.max(0, Math.floor((now - parsed) / 86400000));
 }
 
-export function assessRunHealth(runStatus = {}, now = Date.now()) {
+export function assessRunHealth(runStatus = {}, now = Date.now(), lang = "en") {
   const checks = Object.entries(RUN_CADENCE_DAYS).map(([key, maxDays]) => {
     const days = daysSince(runStatus[key], now);
-    return { key, label: RUN_LABELS[key], days, status: days === null ? "never" : days <= maxDays ? "healthy" : "stale" };
+    return { key, label: t(lang, `health.label.${key}`), days, status: days === null ? "never" : days <= maxDays ? "healthy" : "stale" };
   });
   const healthyCount = checks.filter((check) => check.status === "healthy").length;
   const allHealthy = healthyCount === checks.length;
   const summary = allHealthy
-    ? "Daily scan and weekly QC are both running on schedule."
+    ? t(lang, "health.summaryHealthy")
     : checks
         .filter((check) => check.status !== "healthy")
-        .map((check) => (check.status === "never" ? `${check.label} has never run` : `${check.label} is ${check.days}d overdue`))
+        .map((check) => (check.status === "never" ? t(lang, "health.neverRun", { label: check.label }) : t(lang, "health.overdue", { label: check.label, days: check.days })))
         .join("; ") + ".";
   return { checks, healthyCount, total: checks.length, allHealthy, summary };
 }
 
-export function interpretLeader(leader, developmentPrograms, now = Date.now()) {
+export function interpretLeader(leader, developmentPrograms, now = Date.now(), lang = "en") {
   if (!leader) return "";
   const days = daysSince(leader.current_status?.last_updated, now);
-  const updated = days === null ? "update date unavailable" : days === 0 ? "updated today" : `updated ${days}d ago`;
+  const updated = days === null ? t(lang, "leader.updateUnavailable") : days === 0 ? t(lang, "leader.updatedToday") : t(lang, "leader.updatedDaysAgo", { days });
   const others = developmentPrograms.filter((program) => program.id !== leader.id);
-  if (!others.length) return `Only program at this stage; ${updated}.`;
+  if (!others.length) return t(lang, "leader.onlyProgram", { updated });
   const nextBest = Math.max(...others.map((program) => program.stageOrder));
   const gap = leader.stageOrder - nextBest;
   if (gap <= 0) {
     const tied = others.filter((program) => program.stageOrder === leader.stageOrder).length;
-    return `Tied with ${tied} other program${tied === 1 ? "" : "s"} at ${leader.stageLabel}; ${updated}.`;
+    return t(lang, "leader.tied", { tied, plural: tied === 1 ? "" : "s", stage: stageLabelText(leader.stageLabel, lang), updated });
   }
-  return `Leads by ${gap} stage${gap === 1 ? "" : "s"} over the next-closest program; ${updated}.`;
+  return t(lang, "leader.gap", { gap, plural: gap === 1 ? "" : "s", updated });
 }
 
-export function prepareDatabase(payload) {
+export function prepareDatabase(payload, lang = "en") {
   const records = (payload.records ?? []).map((record) => {
     const names = splitName(record.canonical_name);
     const stageLabel = normalizeStage(record.current_status?.stage);
@@ -184,7 +186,7 @@ export function prepareDatabase(payload) {
     program: record.program,
     recordId: record.id,
     technologyFamily: record.technology_family ?? "other",
-    sourceName: finding.source?.name ?? "Source unavailable",
+    sourceName: finding.source?.name ?? (lang === "ko" ? "출처 미상" : "Source unavailable"),
     sourceUrl: safeUrl(finding.source?.url),
     sourceTier: finding.source?.tier ?? null,
     timestamp: Date.parse(`${String(finding.date ?? "").slice(0, 10)}T00:00:00Z`) || 0
@@ -199,8 +201,8 @@ export function prepareDatabase(payload) {
   const candidates = payload.candidates ?? [];
   const pendingCandidates = candidates.filter((candidate) => candidate.status === "pending");
   const runStatus = payload.meta?.last_run ?? {};
-  const health = assessRunHealth(runStatus);
-  const leaderNote = interpretLeader(leader, developmentPrograms);
+  const health = assessRunHealth(runStatus, Date.now(), lang);
+  const leaderNote = interpretLeader(leader, developmentPrograms, Date.now(), lang);
 
   return {
     records,

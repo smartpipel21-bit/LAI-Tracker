@@ -61,6 +61,7 @@ await Promise.all([
   cp(path.join(root, "index.html"), path.join(output, "index.html")),
   cp(path.join(root, "src", "app.js"), path.join(output, "assets", "app.js")),
   cp(path.join(root, "src", "model.js"), path.join(output, "assets", "model.js")),
+  cp(path.join(root, "src", "i18n.js"), path.join(output, "assets", "i18n.js")),
   cp(path.join(root, "src", "styles.css"), path.join(output, "assets", "styles.css")),
   cp(path.join(root, "public", "manifest.webmanifest"), path.join(output, "manifest.webmanifest")),
   cp(path.join(root, "public", "icon.svg"), path.join(output, "icon.svg")),

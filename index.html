@@ -9,24 +9,31 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/styles.css">
   <title>LAI Pulse · Market intelligence</title>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <aside class="rail" aria-label="Primary navigation">
-    <a class="brand" href="#overview" aria-label="LAI Pulse home">
-      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
-      <span><strong>LAI PULSE</strong><small>Market intelligence</small></span>
-    </a>
-    <p class="rail-label">Daily intelligence</p>
+  <a class="skip-link" href="#main" data-i18n="skip.link">Skip to content</a>
+  <aside class="rail" aria-label="Primary navigation" data-i18n-aria-label="rail.nav.aria">
+    <div class="rail-top">
+      <a class="brand" href="#overview" aria-label="LAI Pulse home" data-i18n-aria-label="brand.homeAria">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span><strong>LAI PULSE</strong><small data-i18n="brand.tagline">Market intelligence</small></span>
+      </a>
+      <div class="lang-toggle" role="group" aria-label="Switch language" aria-checked="false" data-i18n-aria-label="lang.toggleAria">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="ko" aria-pressed="false">KR</button>
+        <span class="lang-toggle-thumb" aria-hidden="true"></span>
+      </div>
+    </div>
+    <p class="rail-label" data-i18n="rail.dailyIntelligence">Daily intelligence</p>
     <nav class="rail-nav">
-      <a href="#overview" data-nav="overview" class="is-current"><span>01</span>Market overview</a>
-      <a href="#intelligence" data-nav="intelligence"><span>02</span>Latest intelligence</a>
-      <a href="#statistics" data-nav="statistics"><span>03</span>Market statistics</a>
-      <a href="#programs" data-nav="programs"><span>04</span>Program directory</a>
-      <a href="#review" data-nav="review"><span>05</span>Review queue</a>
+      <a href="#overview" data-nav="overview" class="is-current"><span>01</span><span data-i18n="nav.overview">Market overview</span></a>
+      <a href="#intelligence" data-nav="intelligence"><span>02</span><span data-i18n="nav.intelligence">Latest intelligence</span></a>
+      <a href="#statistics" data-nav="statistics"><span>03</span><span data-i18n="nav.statistics">Market statistics</span></a>
+      <a href="#programs" data-nav="programs"><span>04</span><span data-i18n="nav.programs">Program directory</span></a>
+      <a href="#review" data-nav="review"><span>05</span><span data-i18n="nav.review">Review queue</span></a>
     </nav>
     <div class="rail-foot">
       <span class="live-dot"></span><span id="rail-freshness">Loading database…</span>
@@ -35,87 +42,94 @@
 
   <header class="mobile-header">
     <a class="brand" href="#overview"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><strong>LAI PULSE</strong></a>
-    <span id="mobile-date">Loading…</span>
+    <div class="mobile-header-right">
+      <span id="mobile-date">Loading…</span>
+      <div class="lang-toggle lang-toggle-sm" role="group" aria-label="Switch language" aria-checked="false" data-i18n-aria-label="lang.toggleAria">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="ko" aria-pressed="false">KR</button>
+        <span class="lang-toggle-thumb" aria-hidden="true"></span>
+      </div>
+    </div>
   </header>
 
   <main id="main">
     <div id="app-status" class="status-banner" role="status" aria-live="polite">
-      <span class="spinner" aria-hidden="true"></span>Loading repository intelligence…
+      <span class="spinner" aria-hidden="true"></span><span data-i18n="loading.repository">Loading repository intelligence…</span>
     </div>
 
     <section class="page-head" aria-labelledby="page-title">
       <div>
-        <p class="eyebrow">SEMAGLUTIDE LAI · COMPETITIVE INTELLIGENCE</p>
-        <h1 id="page-title">Long Acting Injection Intelligence Tracker</h1>
-        <p>Development maturity, recent evidence and the full historical record—kept separate and traceable.</p>
+        <p class="eyebrow" data-i18n="page.eyebrow">SEMAGLUTIDE LAI · COMPETITIVE INTELLIGENCE</p>
+        <h1 id="page-title" data-i18n="page.title">Long Acting Injection Intelligence Tracker</h1>
+        <p data-i18n="page.subtitle">Development maturity, recent evidence and the full historical record—kept separate and traceable.</p>
       </div>
-      <div class="freshness"><span>Database last updated</span><strong id="latest-date">—</strong></div>
+      <div class="freshness"><span data-i18n="page.freshnessLabel">Database last updated</span><strong id="latest-date">—</strong></div>
     </section>
 
     <section id="overview" class="anchor-section" aria-labelledby="overview-title">
       <div class="section-intro">
-        <div><p class="eyebrow">MARKET AT A GLANCE</p><h2 id="overview-title">Development race</h2></div>
-        <p>Stage leadership only; it does not imply superior formulation, safety or efficacy.</p>
+        <div><p class="eyebrow" data-i18n="overview.eyebrow">MARKET AT A GLANCE</p><h2 id="overview-title" data-i18n="overview.title">Development race</h2></div>
+        <p data-i18n="overview.subtitle">Stage leadership only; it does not imply superior formulation, safety or efficacy.</p>
       </div>
       <div class="hero-grid">
         <article class="panel race-panel">
-          <div class="panel-head"><div><h3>Direct semaglutide programs</h3><p id="race-caption">Loading programs…</p></div><span class="public-pill">Public evidence</span></div>
+          <div class="panel-head"><div><h3 data-i18n="overview.programsTitle">Direct semaglutide programs</h3><p id="race-caption">Loading programs…</p></div><span class="public-pill" data-i18n="overview.publicEvidence">Public evidence</span></div>
           <div id="race-chart" class="race-chart" aria-label="Development stage comparison"></div>
-          <div class="stage-axis" aria-hidden="true"><span>Research</span><span>IND</span><span>Phase 1</span><span>Phase 2</span><span>Phase 3</span><span>Filed</span></div>
+          <div class="stage-axis" aria-hidden="true"><span data-i18n="overview.stageAxis.research">Research</span><span data-i18n="overview.stageAxis.ind">IND</span><span data-i18n="overview.stageAxis.phase1">Phase 1</span><span data-i18n="overview.stageAxis.phase2">Phase 2</span><span data-i18n="overview.stageAxis.phase3">Phase 3</span><span data-i18n="overview.stageAxis.filed">Filed</span></div>
         </article>
         <article class="panel leader-panel">
-          <span class="pill pill-blue">Current development leader</span>
+          <span class="pill pill-blue" data-i18n="overview.currentLeader">Current development leader</span>
           <div><h3 id="leader-company">—</h3><p id="leader-program">—</p></div>
-          <div class="leader-stage"><strong id="leader-stage">—</strong><span>reported maturity</span></div>
+          <div class="leader-stage"><strong id="leader-stage">—</strong><span data-i18n="overview.reportedMaturity">reported maturity</span></div>
           <p id="leader-summary">Loading current status…</p>
-          <div class="interpretation"><strong>Interpretation</strong><span id="leader-interpretation">Loading…</span></div>
+          <div class="interpretation"><strong data-i18n="overview.interpretationLabel">Interpretation</strong><span id="leader-interpretation">Loading…</span></div>
         </article>
       </div>
 
-      <div class="conditions-head"><div><p class="eyebrow">TRACKING CONDITIONS</p><h2>Three states, one workflow</h2></div><p>Accepted intelligence, discoveries awaiting review, and automation health are kept visibly distinct.</p></div>
+      <div class="conditions-head"><div><p class="eyebrow" data-i18n="conditions.eyebrow">TRACKING CONDITIONS</p><h2 data-i18n="conditions.title">Three states, one workflow</h2></div><p data-i18n="conditions.subtitle">Accepted intelligence, discoveries awaiting review, and automation health are kept visibly distinct.</p></div>
       <div id="tracking-conditions" class="condition-grid"></div>
     </section>
 
     <section id="intelligence" class="anchor-section" aria-labelledby="intelligence-title">
       <div class="section-intro">
-        <div><p class="eyebrow">WHAT CHANGED</p><h2 id="intelligence-title">Latest market intelligence</h2></div>
-        <p>Six recent findings; open the original source for context.</p>
+        <div><p class="eyebrow" data-i18n="intelligence.eyebrow">WHAT CHANGED</p><h2 id="intelligence-title" data-i18n="intelligence.title">Latest market intelligence</h2></div>
+        <p data-i18n="intelligence.subtitle">Six recent findings; open the original source for context.</p>
       </div>
       <div class="intel-grid">
         <div id="latest-feed" class="feed" aria-live="polite"></div>
-        <aside class="panel readout-panel"><p class="eyebrow">TODAY’S READOUT</p><div id="readout"></div></aside>
+        <aside class="panel readout-panel"><p class="eyebrow" data-i18n="intelligence.readoutEyebrow">TODAY'S READOUT</p><div id="readout"></div></aside>
       </div>
     </section>
 
     <section id="statistics" class="anchor-section" aria-labelledby="statistics-title">
       <div class="section-intro">
-        <div><p class="eyebrow">MARKET STATISTICS</p><h2 id="statistics-title">External landscape snapshot</h2></div>
-        <p>Calculated from every accepted umbrella record and historical finding.</p>
+        <div><p class="eyebrow" data-i18n="statistics.eyebrow">MARKET STATISTICS</p><h2 id="statistics-title" data-i18n="statistics.title">External landscape snapshot</h2></div>
+        <p data-i18n="statistics.subtitle">Calculated from every accepted umbrella record and historical finding.</p>
       </div>
       <div id="metrics" class="metric-grid"></div>
       <div class="stats-grid">
-        <article class="panel"><div class="panel-head"><div><h3>Technologies by approach</h3><p>All tracked umbrella records</p></div></div><div id="family-chart" class="family-chart"></div></article>
-        <article class="panel evidence-panel"><div class="panel-head"><div><h3>Evidence confidence</h3><p>All historical findings</p></div></div><div id="evidence-chart"></div></article>
+        <article class="panel"><div class="panel-head"><div><h3 data-i18n="statistics.familiesTitle">Technologies by approach</h3><p data-i18n="statistics.familiesSubtitle">All tracked umbrella records</p></div></div><div id="family-chart" class="family-chart"></div></article>
+        <article class="panel evidence-panel"><div class="panel-head"><div><h3 data-i18n="statistics.evidenceTitle">Evidence confidence</h3><p data-i18n="statistics.evidenceSubtitle">All historical findings</p></div></div><div id="evidence-chart"></div></article>
       </div>
     </section>
 
     <section id="programs" class="anchor-section" aria-labelledby="programs-title">
       <div class="section-intro">
-        <div><p class="eyebrow">CURRENT RECORD · HISTORICAL EVIDENCE</p><h2 id="programs-title">Program directory</h2></div>
-        <p>Every tracked entity, with its full source-backed finding history nested underneath. Expand a row to open it, newest evidence first.</p>
+        <div><p class="eyebrow" data-i18n="programs.eyebrow">CURRENT RECORD · HISTORICAL EVIDENCE</p><h2 id="programs-title" data-i18n="programs.title">Program directory</h2></div>
+        <p data-i18n="programs.subtitle">Every tracked entity, with its full source-backed finding history nested underneath. Expand a row to open it, newest evidence first.</p>
       </div>
       <div class="toolbar panel">
-        <label class="search-field"><span class="sr-only">Search programs</span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35m2.35-5.15A7.5 7.5 0 1 1 4 11.5a7.5 7.5 0 0 1 15 0Z"/></svg><input id="program-search" type="search" placeholder="Search company, program or technology"></label>
-        <select id="stage-filter" aria-label="Filter programs by stage"><option value="all">All stages</option></select>
-        <button id="program-export" class="button" type="button">Export CSV</button>
+        <label class="search-field"><span class="sr-only" data-i18n="programs.searchSr">Search programs</span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35m2.35-5.15A7.5 7.5 0 1 1 4 11.5a7.5 7.5 0 0 1 15 0Z"/></svg><input id="program-search" type="search" placeholder="Search company, program or technology" data-i18n-placeholder="programs.searchPlaceholder"></label>
+        <select id="stage-filter" aria-label="Filter programs by stage" data-i18n-aria-label="programs.stageFilterAria"><option value="all" data-i18n="programs.allStages">All stages</option></select>
+        <button id="program-export" class="button" type="button" data-i18n="programs.export">Export CSV</button>
       </div>
-      <div class="table-shell panel"><table><thead><tr><th>Program</th><th>Origin</th><th>Technology</th><th>Stage</th><th>Reported status</th><th>Updated</th></tr></thead><tbody id="program-table"></tbody></table><div id="program-empty" class="empty-state" hidden>No programs match these filters.</div></div>
+      <div class="table-shell panel"><table><thead><tr><th data-i18n="programs.col.program">Program</th><th data-i18n="programs.col.origin">Origin</th><th data-i18n="programs.col.technology">Technology</th><th data-i18n="programs.col.stage">Stage</th><th data-i18n="programs.col.status">Reported status</th><th data-i18n="programs.col.updated">Updated</th></tr></thead><tbody id="program-table"></tbody></table><div id="program-empty" class="empty-state" hidden data-i18n="programs.empty">No programs match these filters.</div></div>
     </section>
 
     <section id="review" class="anchor-section" aria-labelledby="review-title">
       <div class="section-intro">
-        <div><p class="eyebrow">PENDING REVIEW</p><h2 id="review-title">Candidate queue</h2></div>
-        <p>Discoveries remain separate until an analyst accepts, merges or rejects them.</p>
+        <div><p class="eyebrow" data-i18n="review.eyebrow">PENDING REVIEW</p><h2 id="review-title" data-i18n="review.title">Candidate queue</h2></div>
+        <p data-i18n="review.subtitle">Discoveries remain separate until an analyst accepts, merges or rejects them.</p>
       </div>
       <div id="candidate-list" class="candidate-grid"></div>
     </section>
@@ -123,10 +137,10 @@
     <footer><span>LAI Pulse</span><span id="footer-status">Repository-backed public intelligence</span></footer>
   </main>
 
-  <nav class="bottom-nav" aria-label="Mobile navigation">
-    <a href="#overview" data-nav="overview" class="is-current"><span>⌁</span>Overview</a>
-    <a href="#intelligence" data-nav="intelligence"><span>↗</span>Signals</a>
-    <a href="#programs" data-nav="programs"><span>≡</span>Programs</a>
+  <nav class="bottom-nav" aria-label="Mobile navigation" data-i18n-aria-label="bottomNav.aria">
+    <a href="#overview" data-nav="overview" class="is-current"><span>⌁</span><span data-i18n="bottomNav.overview">Overview</span></a>
+    <a href="#intelligence" data-nav="intelligence"><span>↗</span><span data-i18n="bottomNav.signals">Signals</span></a>
+    <a href="#programs" data-nav="programs"><span>≡</span><span data-i18n="bottomNav.programs">Programs</span></a>
   </nav>
   <script type="module" src="/assets/app.js"></script>
 </body>

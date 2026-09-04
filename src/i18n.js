@@ -1,0 +1,326 @@
+export const LANGS = ["en", "ko"];
+export const DEFAULT_LANG = "en";
+
+const STRINGS = {
+  en: {
+    "meta.title": "LAI Pulse · Market intelligence",
+    "brand.tagline": "Market intelligence",
+    "brand.homeAria": "LAI Pulse home",
+    "rail.nav.aria": "Primary navigation",
+    "rail.dailyIntelligence": "Daily intelligence",
+    "nav.overview": "Market overview",
+    "nav.intelligence": "Latest intelligence",
+    "nav.statistics": "Market statistics",
+    "nav.programs": "Program directory",
+    "nav.review": "Review queue",
+    "bottomNav.aria": "Mobile navigation",
+    "bottomNav.overview": "Overview",
+    "bottomNav.signals": "Signals",
+    "bottomNav.programs": "Programs",
+    "skip.link": "Skip to content",
+    "lang.toggleAria": "Switch language",
+
+    "loading.repository": "Loading repository intelligence…",
+
+    "page.eyebrow": "SEMAGLUTIDE LAI · COMPETITIVE INTELLIGENCE",
+    "page.title": "Long Acting Injection Intelligence Tracker",
+    "page.subtitle": "Development maturity, recent evidence and the full historical record—kept separate and traceable.",
+    "page.freshnessLabel": "Database last updated",
+
+    "overview.eyebrow": "MARKET AT A GLANCE",
+    "overview.title": "Development race",
+    "overview.subtitle": "Stage leadership only; it does not imply superior formulation, safety or efficacy.",
+    "overview.programsTitle": "Direct semaglutide programs",
+    "overview.publicEvidence": "Public evidence",
+    "overview.stageAxis.research": "Research",
+    "overview.stageAxis.ind": "IND",
+    "overview.stageAxis.phase1": "Phase 1",
+    "overview.stageAxis.phase2": "Phase 2",
+    "overview.stageAxis.phase3": "Phase 3",
+    "overview.stageAxis.filed": "Filed",
+    "overview.currentLeader": "Current development leader",
+    "overview.reportedMaturity": "reported maturity",
+    "overview.interpretationLabel": "Interpretation",
+    "overview.raceCaption": "{count} directly identified programs · Quject®Sphere shown in green",
+
+    "conditions.eyebrow": "TRACKING CONDITIONS",
+    "conditions.title": "Three states, one workflow",
+    "conditions.subtitle": "Accepted intelligence, discoveries awaiting review, and automation health are kept visibly distinct.",
+    "conditions.tracked.label": "Tracked intelligence",
+    "conditions.tracked.badge": "Accepted",
+    "conditions.tracked.detail": "{count} evidence items accepted into the historical record.",
+    "conditions.pending.label": "Pending review",
+    "conditions.pending.badge": "Analyst queue",
+    "conditions.pending.detail": "Newly detected entities awaiting an analyst decision before entering the tracker.",
+    "conditions.monitoring.label": "Monitoring & QC",
+    "conditions.monitoring.badgeActive": "Active",
+    "conditions.monitoring.badgeAttention": "Attention",
+
+    "intelligence.eyebrow": "WHAT CHANGED",
+    "intelligence.title": "Latest market intelligence",
+    "intelligence.subtitle": "Six recent findings; open the original source for context.",
+    "intelligence.readoutEyebrow": "TODAY'S READOUT",
+    "intelligence.source": "Source ↗",
+
+    "readout.leadLabel": "Development lead",
+    "readout.volumeLabel": "30-day signal volume",
+    "readout.volumeValue": "{count} findings{topType}.",
+    "readout.volumeTopType": "; {label} is most frequent",
+    "readout.attentionLabel": "Analyst attention",
+    "readout.attentionValue": "{count} candidate entities await review.",
+    "readout.monitoringLabel": "Monitoring state",
+
+    "statistics.eyebrow": "MARKET STATISTICS",
+    "statistics.title": "External landscape snapshot",
+    "statistics.subtitle": "Calculated from every accepted umbrella record and historical finding.",
+    "statistics.programsTracked": "Programs tracked",
+    "statistics.programsTrackedDetail": "{korean} Korean · {global} global",
+    "statistics.semaglutideLinked": "Semaglutide-linked",
+    "statistics.semaglutideLinkedDetail": "Direct delivery programs identified",
+    "statistics.historicalFindings": "Historical findings",
+    "statistics.historicalFindingsDetail": "Complete source-backed archive",
+    "statistics.confirmedEvidence": "Confirmed evidence",
+    "statistics.confirmedEvidenceDetail": "{count} marked unverified",
+    "statistics.familiesTitle": "Technologies by approach",
+    "statistics.familiesSubtitle": "All tracked umbrella records",
+    "statistics.evidenceTitle": "Evidence confidence",
+    "statistics.evidenceSubtitle": "All historical findings",
+    "statistics.confirmedLabel": "confirmed",
+    "statistics.confirmed": "Confirmed",
+    "statistics.unverified": "Unverified",
+
+    "programs.eyebrow": "CURRENT RECORD · HISTORICAL EVIDENCE",
+    "programs.title": "Program directory",
+    "programs.subtitle": "Every tracked entity, with its full source-backed finding history nested underneath. Expand a row to open it, newest evidence first.",
+    "programs.searchSr": "Search programs",
+    "programs.searchPlaceholder": "Search company, program or technology",
+    "programs.stageFilterAria": "Filter programs by stage",
+    "programs.allStages": "All stages",
+    "programs.export": "Export CSV",
+    "programs.col.program": "Program",
+    "programs.col.origin": "Origin",
+    "programs.col.technology": "Technology",
+    "programs.col.stage": "Stage",
+    "programs.col.status": "Reported status",
+    "programs.col.updated": "Updated",
+    "programs.empty": "No programs match these filters.",
+    "programs.findingCount": "{count} finding{plural}",
+    "programs.originKorea": "Korea",
+    "programs.originGlobal": "Global",
+
+    "evidence.confirmed": "Confirmed",
+    "evidence.unverified": "Unverified",
+    "evidence.open": "Open ↗",
+    "evidence.tier": "Tier {tier}",
+    "evidence.empty": "No findings logged for this program yet.",
+
+    "review.eyebrow": "PENDING REVIEW",
+    "review.title": "Candidate queue",
+    "review.subtitle": "Discoveries remain separate until an analyst accepts, merges or rejects them.",
+    "review.pendingBadge": "Pending analyst review",
+    "review.noEvidence": "No evidence summary available.",
+    "review.matchScore": "Closest-match score {score}",
+    "review.noMatchScore": "No match score",
+    "review.reviewSource": "Review source ↗",
+    "review.empty": "No candidates are awaiting review.",
+
+    "footer.status": "Repository-backed public intelligence",
+    "footer.snapshot": "Repository snapshot · {date}",
+    "rail.freshness": "{count} programs · {date}",
+
+    "leader.gap": "Leads by {gap} stage{plural} over the next-closest program; {updated}.",
+    "leader.tied": "Tied with {tied} other program{plural} at {stage}; {updated}.",
+    "leader.onlyProgram": "Only program at this stage; {updated}.",
+    "leader.updatedToday": "updated today",
+    "leader.updatedDaysAgo": "updated {days}d ago",
+    "leader.updateUnavailable": "update date unavailable",
+
+    "health.summaryHealthy": "Daily scan and weekly QC are both running on schedule.",
+    "health.neverRun": "{label} has never run",
+    "health.overdue": "{label} is {days}d overdue",
+    "health.label.daily_scan": "Daily scan",
+    "health.label.weekly_sweep": "Weekly sweep",
+    "health.label.qc_tier2": "QC Tier 2",
+
+    "app.unavailable": "Dashboard unavailable.",
+    "source.noLink": "No link"
+  },
+  ko: {
+    "meta.title": "LAI Pulse · 시장 인텔리전스",
+    "brand.tagline": "시장 인텔리전스",
+    "brand.homeAria": "LAI Pulse 홈으로",
+    "rail.nav.aria": "주 메뉴",
+    "rail.dailyIntelligence": "일일 인텔리전스",
+    "nav.overview": "시장 개요",
+    "nav.intelligence": "최신 인텔리전스",
+    "nav.statistics": "시장 통계",
+    "nav.programs": "프로그램 디렉터리",
+    "nav.review": "검토 대기열",
+    "bottomNav.aria": "모바일 메뉴",
+    "bottomNav.overview": "개요",
+    "bottomNav.signals": "시그널",
+    "bottomNav.programs": "프로그램",
+    "skip.link": "본문으로 건너뛰기",
+    "lang.toggleAria": "언어 전환",
+
+    "loading.repository": "저장소 인텔리전스 로딩 중…",
+
+    "page.eyebrow": "세마글루타이드 LAI · 경쟁 인텔리전스",
+    "page.title": "지속형 주사제 인텔리전스 트래커",
+    "page.subtitle": "개발 성숙도, 최신 근거 자료, 전체 히스토리 기록을 구분하여 추적합니다.",
+    "page.freshnessLabel": "데이터베이스 최종 업데이트",
+
+    "overview.eyebrow": "시장 한눈에 보기",
+    "overview.title": "개발 경쟁 현황",
+    "overview.subtitle": "개발 단계상의 선두일 뿐이며, 제형·안전성·유효성이 우수함을 의미하지 않습니다.",
+    "overview.programsTitle": "세마글루타이드 직접 프로그램",
+    "overview.publicEvidence": "공개 근거 자료",
+    "overview.stageAxis.research": "연구",
+    "overview.stageAxis.ind": "IND",
+    "overview.stageAxis.phase1": "1상",
+    "overview.stageAxis.phase2": "2상",
+    "overview.stageAxis.phase3": "3상",
+    "overview.stageAxis.filed": "허가",
+    "overview.currentLeader": "현재 개발 선두",
+    "overview.reportedMaturity": "보고된 개발 단계",
+    "overview.interpretationLabel": "해석",
+    "overview.raceCaption": "{count}개 프로그램 확인됨 · Quject®Sphere는 녹색으로 표시",
+
+    "conditions.eyebrow": "추적 상태",
+    "conditions.title": "세 가지 상태, 하나의 워크플로우",
+    "conditions.subtitle": "확정된 인텔리전스, 검토 대기 중인 발견, 자동화 상태를 명확히 구분합니다.",
+    "conditions.tracked.label": "추적 인텔리전스",
+    "conditions.tracked.badge": "확정됨",
+    "conditions.tracked.detail": "{count}건의 근거 자료가 히스토리 기록에 반영되었습니다.",
+    "conditions.pending.label": "검토 대기",
+    "conditions.pending.badge": "분석 대기열",
+    "conditions.pending.detail": "새로 발견된 개체가 트래커에 반영되기 전 분석가의 결정을 기다리고 있습니다.",
+    "conditions.monitoring.label": "모니터링 및 QC",
+    "conditions.monitoring.badgeActive": "정상",
+    "conditions.monitoring.badgeAttention": "확인 필요",
+
+    "intelligence.eyebrow": "변경 사항",
+    "intelligence.title": "최신 시장 인텔리전스",
+    "intelligence.subtitle": "최근 발견 6건 · 원문 출처를 열어 맥락을 확인하세요.",
+    "intelligence.readoutEyebrow": "오늘의 요약",
+    "intelligence.source": "출처 ↗",
+
+    "readout.leadLabel": "개발 선두",
+    "readout.volumeLabel": "30일간 시그널 볼륨",
+    "readout.volumeValue": "{count}건의 발견{topType}.",
+    "readout.volumeTopType": " · {label} 유형이 가장 많음",
+    "readout.attentionLabel": "분석 대기 항목",
+    "readout.attentionValue": "{count}건의 후보 개체가 검토를 기다리고 있습니다.",
+    "readout.monitoringLabel": "모니터링 상태",
+
+    "statistics.eyebrow": "시장 통계",
+    "statistics.title": "외부 환경 스냅샷",
+    "statistics.subtitle": "확정된 모든 추적 기록과 히스토리 발견 자료를 기반으로 산출됩니다.",
+    "statistics.programsTracked": "추적 중인 프로그램",
+    "statistics.programsTrackedDetail": "한국 {korean}개 · 글로벌 {global}개",
+    "statistics.semaglutideLinked": "세마글루타이드 연계",
+    "statistics.semaglutideLinkedDetail": "직접 확인된 전달 기술 프로그램",
+    "statistics.historicalFindings": "히스토리 발견",
+    "statistics.historicalFindingsDetail": "출처가 확인된 전체 기록",
+    "statistics.confirmedEvidence": "확정된 근거",
+    "statistics.confirmedEvidenceDetail": "{count}건은 미확인으로 표시됨",
+    "statistics.familiesTitle": "기술 방식별 분류",
+    "statistics.familiesSubtitle": "추적 중인 전체 기록",
+    "statistics.evidenceTitle": "근거 신뢰도",
+    "statistics.evidenceSubtitle": "전체 히스토리 발견 자료",
+    "statistics.confirmedLabel": "확정",
+    "statistics.confirmed": "확정",
+    "statistics.unverified": "미확인",
+
+    "programs.eyebrow": "현재 기록 · 히스토리 근거",
+    "programs.title": "프로그램 디렉터리",
+    "programs.subtitle": "모든 추적 대상 개체와 출처 기반 발견 히스토리를 함께 표시합니다. 행을 펼치면 최신순으로 확인할 수 있습니다.",
+    "programs.searchSr": "프로그램 검색",
+    "programs.searchPlaceholder": "회사, 프로그램 또는 기술 검색",
+    "programs.stageFilterAria": "단계별 필터",
+    "programs.allStages": "모든 단계",
+    "programs.export": "CSV 내보내기",
+    "programs.col.program": "프로그램",
+    "programs.col.origin": "국가",
+    "programs.col.technology": "기술",
+    "programs.col.stage": "단계",
+    "programs.col.status": "보고된 상태",
+    "programs.col.updated": "업데이트",
+    "programs.empty": "필터 조건에 맞는 프로그램이 없습니다.",
+    "programs.findingCount": "{count}건의 근거",
+    "programs.originKorea": "한국",
+    "programs.originGlobal": "글로벌",
+
+    "evidence.confirmed": "확정",
+    "evidence.unverified": "미확인",
+    "evidence.open": "열기 ↗",
+    "evidence.tier": "티어 {tier}",
+    "evidence.empty": "이 프로그램에 대해 기록된 근거가 아직 없습니다.",
+
+    "review.eyebrow": "검토 대기",
+    "review.title": "후보 대기열",
+    "review.subtitle": "분석가가 승인·병합·반려하기 전까지는 별도로 분리되어 표시됩니다.",
+    "review.pendingBadge": "분석 검토 대기",
+    "review.noEvidence": "근거 요약이 없습니다.",
+    "review.matchScore": "최근접 매칭 점수 {score}",
+    "review.noMatchScore": "매칭 점수 없음",
+    "review.reviewSource": "출처 검토 ↗",
+    "review.empty": "검토 대기 중인 후보가 없습니다.",
+
+    "footer.status": "저장소 기반 공개 인텔리전스",
+    "footer.snapshot": "저장소 스냅샷 · {date}",
+    "rail.freshness": "{count}개 프로그램 · {date}",
+
+    "leader.gap": "다음으로 앞선 프로그램보다 {gap}단계 앞서 있습니다; {updated}.",
+    "leader.tied": "{stage} 단계에서 다른 {tied}개 프로그램과 동률입니다; {updated}.",
+    "leader.onlyProgram": "이 단계의 유일한 프로그램입니다; {updated}.",
+    "leader.updatedToday": "오늘 업데이트됨",
+    "leader.updatedDaysAgo": "{days}일 전 업데이트됨",
+    "leader.updateUnavailable": "업데이트 날짜 확인 불가",
+
+    "health.summaryHealthy": "일일 스캔과 주간 QC 모두 정상적으로 진행되고 있습니다.",
+    "health.neverRun": "{label}이(가) 아직 실행되지 않았습니다",
+    "health.overdue": "{label}이(가) {days}일 지연되었습니다",
+    "health.label.daily_scan": "일일 스캔",
+    "health.label.weekly_sweep": "주간 스윕",
+    "health.label.qc_tier2": "QC 티어 2",
+
+    "app.unavailable": "대시보드를 사용할 수 없습니다.",
+    "source.noLink": "링크 없음"
+  }
+};
+
+export function t(lang, key, vars) {
+  const table = STRINGS[lang] || STRINGS[DEFAULT_LANG];
+  let str = table[key] ?? STRINGS[DEFAULT_LANG][key] ?? key;
+  if (vars) for (const [name, value] of Object.entries(vars)) str = str.replaceAll(`{${name}}`, String(value));
+  return str;
+}
+
+const STAGE_LABELS_I18N = {
+  en: { Research: "Research", Preclinical: "Preclinical", "IND filed": "IND filed", "Phase 1": "Phase 1", "Phase 2": "Phase 2", "Phase 3": "Phase 3", "Filed / review": "Filed / review", "Approved / marketed": "Approved / marketed" },
+  ko: { Research: "연구", Preclinical: "전임상", "IND filed": "IND 신청", "Phase 1": "임상 1상", "Phase 2": "임상 2상", "Phase 3": "임상 3상", "Filed / review": "허가 심사", "Approved / marketed": "승인·시판" }
+};
+export function stageLabelText(stage, lang) {
+  return STAGE_LABELS_I18N[lang]?.[stage] ?? STAGE_LABELS_I18N[DEFAULT_LANG][stage] ?? stage;
+}
+
+const FAMILY_LABELS_I18N = {
+  en: { plga_microsphere: "PLGA microsphere", lipid_liquid_crystal_depot: "Lipid liquid-crystal depot", in_situ_forming_depot: "In-situ forming depot", molecular_engineering: "Molecular engineering", prodrug_linker: "Prodrug / linker", subdermal_implant: "Subdermal implant", other: "Other" },
+  ko: { plga_microsphere: "PLGA 마이크로스피어", lipid_liquid_crystal_depot: "지질 액정 데포", in_situ_forming_depot: "인시츄 형성 데포", molecular_engineering: "분자 엔지니어링", prodrug_linker: "프로드럭/링커", subdermal_implant: "피하 이식형", other: "기타" }
+};
+export function familyLabelText(family, lang) {
+  return FAMILY_LABELS_I18N[lang]?.[family] ?? FAMILY_LABELS_I18N[DEFAULT_LANG][family] ?? family;
+}
+
+const FINDING_LABELS_I18N = {
+  en: { trial_data_readout: "Clinical / data", regulatory: "Regulatory", deal_partnership: "Partnership", market_reaction: "Market reaction", manufacturing_capacity: "Manufacturing", financing_investor: "Financing" },
+  ko: { trial_data_readout: "임상/데이터", regulatory: "규제", deal_partnership: "파트너십", market_reaction: "시장 반응", manufacturing_capacity: "생산", financing_investor: "투자/재무" }
+};
+export function findingLabelText(type, lang) {
+  return FINDING_LABELS_I18N[lang]?.[type] ?? FINDING_LABELS_I18N[DEFAULT_LANG][type] ?? type;
+}
+
+export function originLabelText(origin, lang) {
+  return origin === "KR" ? t(lang, "programs.originKorea") : t(lang, "programs.originGlobal");
+}
