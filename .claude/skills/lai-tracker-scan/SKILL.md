@@ -32,6 +32,19 @@ A real run hit its session search cap partway through a Daily scan, covering onl
 - **Don't retry a domain that just told you no.** If a fetch returns `EGRESS_BLOCKED` or a similar hard error, don't try that same domain again this run — note it under `source_health` (see below) and move on. Retrying a blocked domain burns a tool call for a result you already know.
 - **Track B1's wire skim is a fixed, bounded pass** — a handful of term-based searches, not a per-umbrella sweep. Don't let it balloon into checking specific companies; that's Track A's job.
 
+## Freshness window — Track A and Track B1 only
+
+The whole point of a *daily* scan is that the dashboard and the email digest always read as current — a finding that's actually a week old, surfacing today as if it just happened, makes the tracker feel unpunctual even though the information itself is accurate. This section draws that line consistently; it is not a license to skip real news that arrives late.
+
+**Window definition:** `window_start` = the timestamp of the last successful `daily_scan` run, from `meta.json.last_run.daily_scan`. If that's null (first run, or the last run never completed), fall back to `last_run.weekly_sweep` if it's more recent than 24h ago; if neither exists, default `window_start` to 24 hours before now. Letting the window stretch back to the last real run — instead of a hard 24h cutoff — means a skipped day or a long weekend widens the net instead of silently losing whatever aged past exactly 24h.
+
+**Applying it:**
+- When searching, prefer the search tool's own recency filter (e.g. "past day") scoped to roughly this window where available — this also helps the search-budget discipline above by not pulling back stale results to begin with.
+- For every finding (Track A) or candidate (Track B1), compare its actual publish/event date (the finding's `date` field, or the candidate evidence's `date`) against `window_start`.
+  - **Within the window:** log normally. This is what belongs in the digest's headline "what's new" section — a punctual update.
+  - **Older than the window (real news, just discovered late):** still log it — append-only history means real information is never dropped just because it arrived late (see "Writing to the data file" below). But keep it out of the digest's headline list; if it's material enough to mention, put it in a clearly separate "discovered late" note carrying its actual original date, so the digest never implies something is fresher than it is.
+- This gate applies to Track A findings and Track B1 candidates only. Track B2's weekly structural sources (conference abstracts, patent filings, etc.) refresh on their own slower cadence by design — applying a 24h window there would filter out almost everything B2 exists to catch.
+
 ## Throttling quiet umbrellas
 
 Checking every umbrella every single day is wasteful once an umbrella has demonstrated it's genuinely quiet — most of a Daily scan's budget otherwise goes to companies with no news, over and over, forever. To cut that without losing real coverage:
@@ -125,7 +138,7 @@ Commit to the GitHub repo with a clear message describing what changed and why (
 
 ## Email digest
 
-After a Daily scan or Weekly sweep, draft a short digest of what changed this run (new findings by umbrella, new candidates if any) as a **Gmail draft**, not a sent email. This mirrors the promotion boundary above: drafting is this skill's job, sending is a decision only the admin makes, every time — there is no standing authorization to send mail unattended. If a future admin decision changes this policy, it will be written here explicitly; until then, draft-only is the rule, not a placeholder.
+After a Daily scan or Weekly sweep, draft a short digest of what changed this run as a **Gmail draft**, not a sent email. Lead with findings and candidates that fall inside the freshness window (see above) as the headline "what's new" — that's what should read as punctual. Anything logged this run but discovered late (real news outside the freshness window) goes in a separate, clearly-labeled section with its true original date, never blended into the headline list. This mirrors the promotion boundary above: drafting is this skill's job, sending is a decision only the admin makes, every time — there is no standing authorization to send mail unattended. If a future admin decision changes this policy, it will be written here explicitly; until then, draft-only is the rule, not a placeholder.
 
 ## Hard boundaries, recap
 
